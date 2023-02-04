@@ -9,3 +9,7 @@ body {
   margin: 0;
   font-family: "IBM Plex Sans", sans-serif;
 }
+
+.react-autosuggest__input--focused {
+  padding: 100px !important;
+}

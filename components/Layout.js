@@ -12,7 +12,7 @@ const Layout = ({ title, children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Header></Header>
+        <Header />
         <main>{children}</main>
         <footer>Copyright © 2022 pCommerce</footer>
       </div>
