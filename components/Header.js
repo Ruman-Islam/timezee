@@ -22,17 +22,17 @@ const Header = () => {
 
   return (
     <header className="w-full text-white">
-      <div className="bg-[#21323D]">
-        <nav
-          className={`bg-[#00586D] flex h-8 items-center justify-center lg:justify-between px-3`}
-        >
-          <span className="text-xs invisible">..</span>
-          <span className="text-[12px] font-semibold flex justify-between items-center">
-            <small>SHOP: 01641757175, DELIVERY: 01919646416</small>
-          </span>
-          <span className="text-sm font-thin ml-2">ENGLISH</span>
-        </nav>
-        <nav>
+      <nav
+        className={`bg-[#00586D] flex h-8 items-center justify-center lg:justify-between px-3`}
+      >
+        <span className="text-xs invisible">..</span>
+        <span className="text-[12px] font-semibold flex justify-between items-center">
+          <small>SHOP: 01641757175, DELIVERY: 01919646416</small>
+        </span>
+        <span className="text-sm font-thin ml-2">ENGLISH</span>
+      </nav>
+      <nav className="bg-[#21323D] fixed lg:static top-0 left-0 right-0">
+        <div>
           <div>
             <div className="flex items-center justify-between px-3 py-0 lg:py-2">
               <div className="flex items-center ">
@@ -53,9 +53,9 @@ const Header = () => {
                 </Link>
               </div>
               <div
-                className={`flex-grow duration-300 ${
+                className={`flex-grow shadow-xl duration-300 ${
                   navbar === 110
-                    ? "fixed left-2 right-2 lg:left-64 lg:right-60 top-0 mx-auto block z-10"
+                    ? "fixed left-0 right-0 lg:left-64 lg:right-60 top-16 lg:top-1.5 mx-auto block z-10"
                     : "relative hidden lg:block mx-10 lg:max-w-7xl"
                 }`}
               >
@@ -154,7 +154,7 @@ const Header = () => {
               </div>
             </div>
             <div
-              className={`bg-[#21323D] flex items-center justify-between px-3 py-1 fixed top-0 left-0 right-0 duration-300 min-h-[36px] ${
+              className={`bg-[#21323D] hidden lg:flex items-center justify-between px-3 py-1 fixed top-0 left-0 right-0 duration-300 min-h-[36px] ${
                 navbar === 110 ? "-translate-y-0" : "-translate-y-56"
               }`}
             >
@@ -180,8 +180,8 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
   );
 };
