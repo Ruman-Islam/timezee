@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Autosuggest from "react-autosuggest";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import Autosuggest from "react-autosuggest";
 import Image from "next/image";
 
 const theme = {
@@ -39,9 +39,9 @@ const theme = {
     cursor: "pointer",
     padding: "10px",
   },
-  suggestionHighlighted: {
-    backgroundColor: "#f2f4f8",
-  },
+  // suggestionHighlighted: {
+  //   backgroundColor: "#f2f4f8",
+  // },
 };
 
 const Search = () => {
@@ -49,9 +49,9 @@ const Search = () => {
   const [suggestions, setSuggestions] = useState([]);
 
   const onSuggestionsFetchRequested = ({ value }) => {
-      const inputValue = value.trim().toLowerCase();
-      const inputLength = inputValue.length;
-      if (inputLength === 0) {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+    if (inputLength === 0) {
       setSuggestions([]);
     } else {
       const url = `https://boighor-server.vercel.app/api/v1/book/search?char=${inputValue}`;
@@ -65,7 +65,7 @@ const Search = () => {
 
   const renderSuggestion = (suggestion) => {
     return (
-      <div className="flex">
+      <div className="flex items-center justify-between">
         <div className="border">
           <Image
             src="https://res.cloudinary.com/arifscloud/image/upload/v1625119382/image_apxesv.png"
@@ -78,16 +78,26 @@ const Search = () => {
           <h3>{suggestion.title}</h3>
           <p>${suggestion.sell_price}</p>
         </div>
+        <div>
+          <button>
+            <FontAwesomeIcon
+              icon={faCartPlus}
+              width={25}
+              className="text-[#00586D] hover:text-[#3ABF6F] duration-100"
+            />
+          </button>
+        </div>
       </div>
     );
   };
 
   const getSuggestionValue = (value) => {
-    return value;
+    return value.title;
   };
 
   const onSuggestionSelected = (value) => {
     // direct the page of product
+    return;
   };
 
   const onChange = (event, { newValue }) => {
@@ -104,21 +114,16 @@ const Search = () => {
     onChange: onChange,
   };
   return (
-    <div className="max-w-7xl mx-auto relative flex items-center">
-      <Autosuggest
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        onSuggestionSelected={onSuggestionSelected}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        suggestions={suggestions}
-        inputProps={inputProps}
-        theme={theme}
-      />
-      <div className="py-2 px-3 bg-[#00586D] absolute right-0  rounded-r">
-        <FontAwesomeIcon icon={faSearch} width={20} />
-      </div>
-    </div>
+    <Autosuggest
+      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+      onSuggestionsClearRequested={onSuggestionsClearRequested}
+      onSuggestionSelected={onSuggestionSelected}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
+      suggestions={suggestions}
+      inputProps={inputProps}
+      theme={theme}
+    />
   );
 };
 
