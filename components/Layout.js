@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import Header from "./Header";
+import Header from "./Navigation/Header";
 
 const Layout = ({ title, children }) => {
   return (
@@ -13,7 +13,9 @@ const Layout = ({ title, children }) => {
       </Head>
       <div className="min-h-screen flex flex-col justify-between">
         <Header />
-        <main className="m-auto mt-0 min-w-full px-4 min-h-screen main-body">{children}</main>
+        <main className="m-auto mt-0 min-w-full px-4 min-h-screen main-body">
+          {children}
+        </main>
         <footer className="text-center">Copyright © 2022 Electronic BD</footer>
       </div>
     </>

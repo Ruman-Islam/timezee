@@ -1,3 +1,9 @@
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Search from "../Search";
+import useNav from "@/hooks/useNav";
+import LogoMain from "../../public/images/Logo-main.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTruck,
@@ -9,19 +15,25 @@ import {
   faBars,
   faBarsStaggered,
   faUserCircle,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-
-import Image from "next/image";
-import Link from "next/link";
-import LogoMain from "../public/images/Logo-main.webp";
-import Search from "./Search";
-import useNav from "@/hooks/useNav";
+import LeftMobileDrawer from "./LeftMobileDrawer";
+import MobileCartDrawer from "./MobileCartDrawer";
 
 const Header = () => {
   const { navbar } = useNav();
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleNavDrawer = () => {
+    setIsNavOpen((prevState) => !prevState);
+  };
+  const toggleCartDrawer = () => {
+    setIsCartOpen((prevState) => !prevState);
+  };
 
   return (
-    <header className="w-full text-white">
+    <header className="w-full text-white mb-10 lg:mb-2">
       <nav
         className={`bg-[#00586D] flex h-8 items-center justify-center lg:justify-between px-3`}
       >
@@ -40,6 +52,7 @@ const Header = () => {
                   icon={faBarsStaggered}
                   width={30}
                   className="block lg:hidden"
+                  onClick={toggleNavDrawer}
                 />
                 <Link href="/">
                   <>
@@ -54,8 +67,8 @@ const Header = () => {
               </div>
               <div
                 className={`flex-grow shadow-xl duration-300 ${
-                  navbar === 110
-                    ? "fixed left-0 right-0 lg:left-64 lg:right-60 top-16 lg:top-1.5 mx-auto block z-10"
+                  navbar
+                    ? "fixed left-0 right-0 lg:left-64 lg:right-52 top-16 lg:top-2 mx-auto block z-10"
                     : "relative hidden lg:block mx-10 lg:max-w-7xl"
                 }`}
               >
@@ -72,28 +85,68 @@ const Header = () => {
                   </div>
                 </Link>
                 <div className="lg:hidden items-center">
-                  <FontAwesomeIcon icon={faCartShopping} width={30} />
+                  <FontAwesomeIcon
+                    onClick={toggleCartDrawer}
+                    icon={faCartShopping}
+                    width={25}
+                  />
                 </div>
               </div>
             </div>
             <div className="hidden lg:flex justify-between items-center px-3 pb-0.5">
               <div className="flex">
-                <div>
+                <div
+                  className={`group ${
+                    navbar ? "fixed top-0.5 z-10" : "relative"
+                  }`}
+                >
                   <Link href="/categories">
-                    <div className="group flex items-center justify-between bg-[#3ABF6F] text-sm p-3 rounded-xl">
-                      <FontAwesomeIcon
-                        className="group-hover:text-red-500"
-                        icon={faBars}
-                        width={20}
-                        height={20}
-                      />
-                      <span className="pl-2 pr-10">ALL CATEGORIES</span>
+                    <div className="flex items-center justify-between bg-[#3ABF6F] text-sm p-3 rounded">
+                      <FontAwesomeIcon icon={faBars} width={20} height={20} />
+                      <span className="pl-2 pr-10 font-semibold">
+                        ALL CATEGORIES
+                      </span>
                     </div>
                   </Link>
+                  <ul className="absolute w-full hidden group-hover:block bg-white drop-shadow-lg text-black rounded">
+                    <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                       category
+                      </Link>
+                    </li>
+                    <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        category
+                      </Link>
+                    </li>
+                    <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        category
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded-xl text-center ml-2">
+                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-2">
                       <FontAwesomeIcon
                         icon={faTruck}
                         width={20}
@@ -105,7 +158,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded-xl text-center ml-0.5">
+                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-0.5">
                       <FontAwesomeIcon
                         icon={faCircleQuestion}
                         width={16}
@@ -117,7 +170,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded-xl text-center ml-0.5">
+                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-0.5">
                       <FontAwesomeIcon
                         icon={faHeart}
                         width={16}
@@ -129,7 +182,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded-xl text-center ml-0.5">
+                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-0.5">
                       <FontAwesomeIcon
                         icon={faCodeCompare}
                         width={16}
@@ -140,9 +193,13 @@ const Header = () => {
                   </Link>
                 </div>
               </div>
-              <div>
+              <div
+                className={`${
+                  navbar ? "fixed top-1 right-5 z-10" : "relative"
+                }`}
+              >
                 <Link href="account">
-                  <div className="bg-[#3A4750] flex items-center px-5 py-2 rounded-xl">
+                  <div className="bg-[#3A4750] flex items-center px-5 py-2 rounded">
                     <FontAwesomeIcon
                       icon={faUserCircle}
                       width={16}
@@ -154,34 +211,21 @@ const Header = () => {
               </div>
             </div>
             <div
-              className={`bg-[#21323D] hidden lg:flex items-center justify-between px-3 py-1 fixed top-0 left-0 right-0 duration-300 min-h-[36px] ${
-                navbar === 110 ? "-translate-y-0" : "-translate-y-56"
+              className={`bg-[#21323D] hidden lg:flex items-center justify-between px-3 py-0.5 fixed top-0 left-0 right-0 duration-300 min-h-[50px] ${
+                navbar ? "-translate-y-0" : "-translate-y-56"
               }`}
-            >
-              <div>
-                <Link href="/categories">
-                  <div className="hidden lg:flex items-center justify-between bg-[#3ABF6F] text-sm p-2 rounded-xl">
-                    <FontAwesomeIcon icon={faBars} width={20} height={24} />
-                    <span className="pl-2 pr-10">ALL CATEGORIES</span>
-                  </div>
-                </Link>
-              </div>
-              <div>
-                <Link href="account">
-                  <div className="bg-[#3A4750] hidden lg:flex px-5 py-2 rounded-xl">
-                    <FontAwesomeIcon
-                      icon={faUserCircle}
-                      width={16}
-                      className="mr-1"
-                    />
-                    My Account
-                  </div>
-                </Link>
-              </div>
-            </div>
+            ></div>
           </div>
         </div>
       </nav>
+      <LeftMobileDrawer
+        isNavOpen={isNavOpen}
+        toggleNavDrawer={toggleNavDrawer}
+      />
+      <MobileCartDrawer
+        isCartOpen={isCartOpen}
+        toggleCartDrawer={toggleCartDrawer}
+      />
     </header>
   );
 };
