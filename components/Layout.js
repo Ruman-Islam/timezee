@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import Footer from "./Footer/Footer";
 import Header from "./Navigation/Header";
 
 const Layout = ({ title, children }) => {
@@ -13,8 +14,8 @@ const Layout = ({ title, children }) => {
       </Head>
       <div className="min-h-screen flex flex-col justify-between">
         <Header />
-        <main className="m-auto mt-0 min-w-full px-3">{children}</main>
-        <footer className="text-center">Copyright © 2022 Electronic BD</footer>
+        <main className="m-auto mt-0 px-1 min-w-full">{children}</main>
+        <Footer />
       </div>
     </>
   );

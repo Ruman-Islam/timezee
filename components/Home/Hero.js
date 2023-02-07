@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div className="w-full">
       <div className="flex justify-between gap-x-2">
-        <div className=" hidden lg:block bg-white border">
+        <div className="w-[230px] hidden lg:block bg-white border">
           <ul className="w-full text-black rounded py-3 px-1">
             <li className="px-3 py-2  flex items-center text-sm">
               <FontAwesomeIcon
@@ -139,7 +139,7 @@ const Hero = () => {
             </li>
           </ul>
         </div>
-        <div className=" flex-1">
+        <div className="flex-1">
           <Carousel
             autoplay
             wrapAround
