@@ -13,9 +13,7 @@ const Layout = ({ title, children }) => {
       </Head>
       <div className="min-h-screen flex flex-col justify-between">
         <Header />
-        <main className="m-auto mt-0 min-w-full px-4 min-h-screen main-body">
-          {children}
-        </main>
+        <main className="m-auto mt-0 min-w-full px-3">{children}</main>
         <footer className="text-center">Copyright © 2022 Electronic BD</footer>
       </div>
     </>

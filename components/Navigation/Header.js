@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Search from "../Search";
+import Search from "./Search";
 import useNav from "@/hooks/useNav";
 import LogoMain from "../../public/images/Logo-main.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <header className="w-full text-white mb-10 lg:mb-2">
       <nav
-        className={`bg-[#00586D] flex h-8 items-center justify-center lg:justify-between px-3`}
+        className={`bg-[#00586D] flex items-center justify-center lg:justify-between px-3 py-2`}
       >
         <span className="text-xs invisible">..</span>
         <span className="text-[12px] font-semibold flex justify-between items-center">
@@ -108,8 +108,8 @@ const Header = () => {
                       </span>
                     </div>
                   </Link>
-                  <ul className="absolute w-full hidden group-hover:block bg-white drop-shadow-lg text-black rounded">
-                    <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+                  <ul className="absolute z-10 w-full hidden group-hover:block bg-white drop-shadow-lg text-black rounded py-3 px-1">
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
@@ -117,10 +117,10 @@ const Header = () => {
                         className="text-red-500"
                       />
                       <Link href="/" className="px-2 w-full">
-                       category
+                        Special Offers
                       </Link>
                     </li>
-                    <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
@@ -128,10 +128,10 @@ const Header = () => {
                         className="text-red-500"
                       />
                       <Link href="/" className="px-2 w-full">
-                        category
+                        Accessories
                       </Link>
                     </li>
-                    <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
@@ -139,7 +139,95 @@ const Header = () => {
                         className="text-red-500"
                       />
                       <Link href="/" className="px-2 w-full">
-                        category
+                        Drones & RC
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        Electrical Accessories
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        MCU & Computers
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        Sound System
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        Socket, port & Jacks
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        SMD Components
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        Active Components
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        Passive Components
+                      </Link>
+                    </li>
+                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        width={10}
+                        height={10}
+                        className="text-red-500"
+                      />
+                      <Link href="/" className="px-2 w-full">
+                        3D Printer & CNC
                       </Link>
                     </li>
                   </ul>
@@ -210,9 +298,10 @@ const Header = () => {
                 </Link>
               </div>
             </div>
+            {/* <div></div> */}
             <div
-              className={`bg-[#21323D] hidden lg:flex items-center justify-between px-3 py-0.5 fixed top-0 left-0 right-0 duration-300 min-h-[50px] ${
-                navbar ? "-translate-y-0" : "-translate-y-56"
+              className={`hidden lg:flex items-center justify-between px-3 fixed top-0 left-0 right-0 duration-300 min-h-[50px] z-10${
+                navbar ? "-translate-y-0 bg-[#21323D]" : "-translate-y-56"
               }`}
             ></div>
           </div>

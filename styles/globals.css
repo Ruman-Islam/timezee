@@ -17,3 +17,24 @@ body {
   background-position: center center;
   background-attachment: fixed;
 }
+
+.slider-img {
+  width: 100%;
+  max-height: 700px;
+  object-fit: fill;
+  cursor: grabbing;
+}
+
+.slider-control-bottomcenter button {
+  background: white !important;
+  border-radius: 50%;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.slider-control-bottomcenter svg {
+  display: none !important;
+}
+.slider-control-bottomcenter li {
+  margin-right: 5px;
+}

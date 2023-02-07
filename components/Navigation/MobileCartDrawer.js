@@ -24,8 +24,8 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
               <FontAwesomeIcon icon={faXmark} width={18} className="mx-auto" />
             </button>
           </div>
-          <div className="p-3 h-[94vh] border flex flex-col justify-between">
-            <ul className="h-fit overflow-scroll">
+          <div className="p-3 h-[93vh] flex flex-col justify-between">
+            <ul className="h-fit overflow-y-scroll">
               <li className="grid grid-cols-4 border items-center mb-1 p-1">
                 <div className="col-span-1 w-16">
                   <Image
@@ -247,7 +247,7 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                 </div>
               </li>
             </ul>
-            <div className="text-black mt-5 h-[150px] border-t border-[#e73d50]">
+            <div className="text-black mt-5 h-[150px] border-t border-[#e73d50] p-2">
               <div>
                 <p className="text-xs text-right font-semibold">
                   <span>Sub-Total</span>

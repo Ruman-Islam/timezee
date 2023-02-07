@@ -3,7 +3,11 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: [
+      "via.placeholder.com",
+      "res.cloudinary.com",
+      "wallpaperaccess.com",
+    ],
   },
 };
 // module.exports = {
