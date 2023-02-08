@@ -2,6 +2,8 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Home/Hero";
 import InfoBlock from "@/components/Home/InfoBlock";
+import ProductCard from "@/components/Home/ProductCard";
+import SpecialOffers from "@/components/Home/SpecialOffers";
 
 export default function Home() {
   return (
@@ -15,6 +17,7 @@ export default function Home() {
       <Layout title="Home">
         <Hero />
         <InfoBlock />
+        <SpecialOffers />
       </Layout>
     </>
   );

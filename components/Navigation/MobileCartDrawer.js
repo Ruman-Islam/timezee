@@ -262,6 +262,9 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                 <button className="p-3 bg-[#21323D] text-white">view cart</button>
                 <button className="p-3 bg-[#21323D] text-white">checkout</button>
               </div>
+              <br />
+              <br />
+              <br />
             </div>
           </div>
         </div>

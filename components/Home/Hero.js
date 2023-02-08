@@ -12,7 +12,7 @@ const images = [img1, img2, img3];
 
 const Hero = () => {
   return (
-    <div className="w-full">
+    <div className="w-full px-1">
       <div className="flex justify-between gap-x-2">
         <div className="w-[230px] hidden lg:block bg-white border">
           <ul className="w-full text-black rounded py-3 px-1">
