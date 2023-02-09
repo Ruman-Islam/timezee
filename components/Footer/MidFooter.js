@@ -73,7 +73,7 @@ const MidFooter = () => {
           </div>
         </div>
         <div>
-          <div className="text-[#3ABF6F] font-semibold p-2 relative after:absolute after:content-[''] after:border-[#3ABF6F] after:border after:w-16 after:left-0 after:right-0 after:mx-auto mb-2 text-center">
+          <div className="text-[#3ABF6F] font-semibold p-2 relative after:absolute after:content-[''] after:border-[#3ABF6F] after:border after:w-16 after:left-0 after:right-0 after:mx-auto my-5 text-center">
             <p>ACCEPTED PAYMENT METHODS</p>
           </div>
           <div className="flex flex-wrap gap-x-2 w-fit mx-auto">

@@ -20,11 +20,11 @@ const images = [
   { img1: img7, img2: img8 },
 ];
 
-const SpecialOffers = () => {
+const LatestProducts = () => {
   return (
-    <div className="py-5 px-1 xl:px-10">
+    <div className="px-1 xl:px-10">
       <div className="pl-2 relative before:absolute before:w-10 before:h-full before:border-b before:border-red-500">
-        <h4 className="uppercase">ON SALE</h4>
+        <h4 className="uppercase">LATEST PRODUCTS</h4>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
         {images.map(({ img1, img2 }, index) => {
@@ -32,12 +32,15 @@ const SpecialOffers = () => {
         })}
       </div>
       <div className="border rounded-2xl bg-[#21323D] hover:bg-[#00586D] duration-100 my-2">
-        <Link href="/" className="block font-medium text-white text-center uppercase py-1.5 text-sm">
-            view more products on sale
+        <Link
+          href="/"
+          className="block font-medium text-white text-center uppercase py-1.5 text-sm"
+        >
+          view more latest products
         </Link>
       </div>
     </div>
   );
 };
 
-export default SpecialOffers;
+export default LatestProducts;

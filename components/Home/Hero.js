@@ -151,6 +151,12 @@ const Hero = () => {
             transitionMode={["scroll3d"]}
             renderCenterLeftControls={false}
             renderCenterRightControls={false}
+            defaultControlsConfig={{
+              pagingDotsStyle: {
+                fill: "white",
+                margin: "5px",
+              },
+            }}
           >
             {images.map((item, idex) => {
               return (

@@ -35,7 +35,9 @@ const Header = () => {
   return (
     <header className="w-full text-white mb-10 lg:mb-1 relative z-50">
       <nav
-        className={`bg-[#00586D] flex items-center justify-center lg:justify-between px-3 py-2`}
+        className={`flex items-center px-3 py-2 left-0 right-0 ${
+          navbar ? "fixed h-[6vh] bg-[#21323D] justify-center" : "bg-[#00586D] justify-center lg:justify-between"
+        }`}
       >
         <span className="text-xs invisible">..</span>
         <span className="text-[12px] font-semibold flex justify-between items-center">
@@ -300,11 +302,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div
-          className={`hidden lg:flex items-center justify-between px-3 fixed top-0 left-0 right-0 duration-300 min-h-[50px]${
-            navbar ? "-translate-y-0 bg-[#21323D]" : "-translate-y-56"
-          }`}
-        ></div>
       </nav>
       <LeftMobileDrawer
         isNavOpen={isNavOpen}

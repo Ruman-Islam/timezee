@@ -2,8 +2,10 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Home/Hero";
 import InfoBlock from "@/components/Home/InfoBlock";
-import ProductCard from "@/components/Home/ProductCard";
 import SpecialOffers from "@/components/Home/SpecialOffers";
+import LatestProducts from "@/components/Home/LatestProducts";
+import YouTubeLink from "@/components/Home/YouTubeLink";
+import Categories from "@/components/Home/Categories";
 
 export default function Home() {
   return (
@@ -18,6 +20,9 @@ export default function Home() {
         <Hero />
         <InfoBlock />
         <SpecialOffers />
+        <LatestProducts />
+        <YouTubeLink />
+        <Categories />
       </Layout>
     </>
   );
