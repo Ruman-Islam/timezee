@@ -1,5 +1,8 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
+import db from "@/utils/db";
+import Product from "@/models/Product";
+import Category from "@/models/Category";
 import Hero from "@/components/Home/Hero";
 import InfoBlock from "@/components/Home/InfoBlock";
 import SpecialOffers from "@/components/Home/SpecialOffers";
@@ -7,7 +10,8 @@ import LatestProducts from "@/components/Home/LatestProducts";
 import YouTubeLink from "@/components/Home/YouTubeLink";
 import Categories from "@/components/Home/Categories";
 
-export default function HomeScreen() {
+const HomeScreen = ({products, categories}) => {
+
   return (
     <>
       <Head>
@@ -19,11 +23,28 @@ export default function HomeScreen() {
       <Layout title="Home">
         <Hero />
         <InfoBlock />
-        <SpecialOffers />
-        <LatestProducts />
+        <SpecialOffers products={products}/>
+        <LatestProducts products={products}/>
         <YouTubeLink />
-        <Categories />
+        <Categories categories={categories}/>
       </Layout>
     </>
   );
 }
+
+const getServerSideProps = async () => {
+  await db.connect();
+  const products = await Product.find().lean();
+  const categories = await Category.find().lean();
+  // const featuredProducts = await Product.find({ isFeatured: true }).lean();
+  return {
+    props: {
+      // featuredProducts: featuredProducts.map(db.convertDocToObj),
+      products: products.map(db.convertDocToObj),
+      categories: categories.map(db.convertDocToObj),
+    },
+  };
+};
+
+export { getServerSideProps };
+export default HomeScreen;

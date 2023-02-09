@@ -1,9 +1,9 @@
-import useWindowDimensions from "@/hooks/useWindowDimensions";
-import Carousel from "nuka-carousel/lib/carousel";
 import { useEffect, useState } from "react";
+import Carousel from "nuka-carousel/lib/carousel";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 import CategoryCard from "./CategoryCard";
 
-const Categories = () => {
+const Categories = ({categories}) => {
   const { width } = useWindowDimensions();
   const [cardToShow, setCardToShow] = useState(5);
 
@@ -53,11 +53,9 @@ const Categories = () => {
             },
           }}
         >
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
+          {categories?.map((category, i)=>{
+            return  <CategoryCard key={i} category={category} />
+          })}
         </Carousel>
       </div>
     </div>

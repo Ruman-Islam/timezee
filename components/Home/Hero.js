@@ -162,7 +162,7 @@ const Hero = () => {
               return (
                 <Image
                   className="slider-img rounded-2xl"
-                  width={600}
+                  width={1000}
                   height={600}
                   src={item}
                   key={idex}

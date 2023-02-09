@@ -7,6 +7,8 @@ module.exports = {
       "via.placeholder.com",
       "res.cloudinary.com",
       "wallpaperaccess.com",
+      "upload.wikimedia.org",
+      "i.ibb.co",
     ],
   },
 };
