@@ -13,7 +13,7 @@ const BottomFooter = () => {
           <Image src={instaImg} alt="" width={30} height={100} />
         </div>
       </div>
-      <div className="text-center text-white">
+      <div className="text-center text-base">
         <small>Copyright © 2021, Electronics.Com.BD, All Rights Reserved</small>
       </div>
     </div>

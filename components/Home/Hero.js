@@ -14,124 +14,124 @@ const Hero = () => {
   return (
     <div className="w-full px-1">
       <div className="flex justify-between gap-x-2">
-        <div className="w-[230px] hidden lg:block bg-white border">
-          <ul className="w-full text-black rounded py-3 px-1">
-            <li className="px-3 py-2  flex items-center text-sm">
+        <div className="w-[230px] hidden lg:block bg-base border-r border-thin">
+          <ul className="w-full text-accent rounded py-3 px-1">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Special Offers
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Accessories
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Drones & RC
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Electrical Accessories
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 MCU & Computers
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Sound System
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Socket, port & Jacks
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 SMD Components
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Active Components
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 Passive Components
               </Link>
             </li>
-            <li className="px-3 py-2 hover:bg-gray-100 flex items-center text-sm">
+            <li className="px-3 py-2 hover:bg-grayBackground flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faArrowRight}
                 width={10}
                 height={10}
-                className="text-red-500"
+                className="text-error"
               />
               <Link href="/" className="px-2 w-full">
                 3D Printer & CNC

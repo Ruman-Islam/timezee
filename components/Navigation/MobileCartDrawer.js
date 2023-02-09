@@ -17,8 +17,8 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
         lockBackgroundScroll
         size={320}
       >
-        <div className="text-black uppercase text-sm">
-          <div className="bg-[#e73d50] flex justify-between items-center text-white">
+        <div className="text-accent uppercase text-sm">
+          <div className="bg-error flex justify-between items-center text-white">
             <div className="p-2 text-lg font-semibold">Your cart</div>
             <button onClick={toggleCartDrawer} className="px-3 py-2">
               <FontAwesomeIcon icon={faXmark} width={18} className="mx-auto" />
@@ -26,7 +26,7 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
           </div>
           <div className="p-3 h-[93vh] flex flex-col justify-between">
             <ul className="h-fit overflow-y-scroll">
-              <li className="grid grid-cols-4 border items-center mb-1 p-1">
+              <li className="grid grid-cols-4 border-thin border items-center mb-1 p-1 rounded">
                 <div className="col-span-1 w-16">
                   <Image
                     src="https://res.cloudinary.com/arifscloud/image/upload/v1625119382/image_apxesv.png"

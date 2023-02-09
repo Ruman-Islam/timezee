@@ -23,15 +23,15 @@ const images = [
 const SpecialOffers = () => {
   return (
     <div className="py-5 px-1 xl:px-10">
-      <div className="pl-2 relative before:absolute before:w-10 before:h-full before:border-b before:border-red-500">
-        <h4 className="uppercase">ON SALE</h4>
+      <div className="pl-2 relative before:absolute before:w-10 before:h-full before:border-b before:border-error text">
+        <h4 className="uppercase text-accent">ON SALE</h4>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
         {images.map(({ img1, img2 }, index) => {
           return <ProductCard key={index} img1={img1} img2={img2} />;
         })}
       </div>
-      <div className="border rounded-2xl bg-[#21323D] hover:bg-[#00586D] duration-100 my-2">
+      <div className="rounded-2xl bg-accent hover:bg-neutral duration-100 my-2 py-0.5 text-base">
         <Link href="/" className="block font-medium text-white text-center uppercase py-1.5 text-sm">
             view more products on sale
         </Link>

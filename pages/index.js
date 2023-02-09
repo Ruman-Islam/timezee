@@ -7,7 +7,7 @@ import LatestProducts from "@/components/Home/LatestProducts";
 import YouTubeLink from "@/components/Home/YouTubeLink";
 import Categories from "@/components/Home/Categories";
 
-export default function Home() {
+export default function HomeScreen() {
   return (
     <>
       <Head>

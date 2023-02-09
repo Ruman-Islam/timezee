@@ -4,10 +4,10 @@ const TopFooter = () => {
   return (
     <div className="grid lg:grid-cols-2 text-center pt-2">
       <div>
-        <div className="text-[#3ABF6F] font-semibold p-2 relative after:absolute after:content-[''] after:border-[#3ABF6F] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
+        <div className="text-success font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
           <p>MY ACCOUNT</p>
         </div>
-        <div className="text-sm text-white">
+        <div className="text-[14px] text-base">
           <div>
             <Link className="hover:text-red-600" href="/">
               Account
@@ -21,10 +21,10 @@ const TopFooter = () => {
         </div>
       </div>
       <div className="m-10 mt-0">
-        <div className="text-[#3ABF6F] font-semibold p-2 relative after:absolute after:content-[''] after:border-[#3ABF6F] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
+        <div className="text-success font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
           <p>ABOUT US</p>
         </div>
-        <div className="text-sm text-white">
+        <div className="text-[14px] text-base">
           <p>
             Electronics BD one of the largest Online Electronics Store in
             Bangladesh. We stock a huge selection of Electronics products from

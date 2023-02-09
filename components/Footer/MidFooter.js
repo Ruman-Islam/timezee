@@ -20,19 +20,19 @@ const MidFooter = () => {
         <div className="grid lg:grid-cols-3 gap-x-4">
           <div className="flex gap-x-2 group">
             <div>
-              <div className="w-12 h-12 bg-[#3ABF6F] group-hover:bg-[#00586D] rounded-full flex justify-center items-center">
+              <div className="w-12 h-12 bg-success group-hover:bg-neutral rounded-full flex justify-center items-center">
                 <FontAwesomeIcon
                   width={20}
                   icon={faLocationDot}
-                  className="text-white"
+                  className="text-base"
                 />
               </div>
             </div>
-            <div className="text-white text-xs">
-              <h3 className="text-[#3ABF6F] font-semibold text-sm">
+            <div className="text-base text-[12px]">
+              <h3 className="text-success font-semibold text-[16px]">
                 SHOP LOCATION
               </h3>
-              <p>
+              <p className="leading-snug">
                 Electronics.Com.BD Shop 440 & 441, 3rd Floor, Farm view Supper
                 Market, Farmget, Dhaka 1215
               </p>
@@ -40,32 +40,32 @@ const MidFooter = () => {
           </div>
           <div href="tel:+44-785-7895" className="flex gap-x-2 group">
             <div>
-              <div className="w-12 h-12 bg-[#3ABF6F] group-hover:bg-[#00586D] rounded-full flex justify-center items-center">
+              <div className="w-12 h-12 bg-success group-hover:bg-neutral rounded-full flex justify-center items-center">
                 <FontAwesomeIcon
                   width={20}
                   icon={faPhoneAlt}
-                  className="text-white"
+                  className="text-base"
                 />
               </div>
             </div>
-            <div className="text-white text-xs">
-              <h3 className="text-[#3ABF6F] font-semibold text-sm">CALL US</h3>
+            <div className="text-base text-[12px]">
+              <h3 className="text-success font-semibold text-[16px]">CALL US</h3>
               <p>Store: +88001536160661</p>
               <p>Delivery: +88001536160661</p>
             </div>
           </div>
           <div className="flex gap-x-2 group">
             <div>
-              <div className="w-12 h-12 bg-[#3ABF6F] group-hover:bg-[#00586D] rounded-full flex justify-center items-center">
+              <div className="w-12 h-12 bg-success group-hover:bg-neutral rounded-full flex justify-center items-center">
                 <FontAwesomeIcon
                   width={20}
                   icon={faClock}
-                  className="text-white"
+                  className="text-base"
                 />
               </div>
             </div>
-            <div className="text-white text-xs">
-              <h3 className="text-[#3ABF6F] font-semibold text-sm">
+            <div className="text-base text-[12px]">
+              <h3 className="text-success font-semibold text-[16px]">
                 STORE HOURS
               </h3>
               <p>Saturday - Friday 10:00AM - 07:30PM</p>
@@ -73,7 +73,7 @@ const MidFooter = () => {
           </div>
         </div>
         <div>
-          <div className="text-[#3ABF6F] font-semibold p-2 relative after:absolute after:content-[''] after:border-[#3ABF6F] after:border after:w-16 after:left-0 after:right-0 after:mx-auto my-5 text-center">
+          <div className="text-success font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-16 after:left-0 after:right-0 after:mx-auto my-5 text-center">
             <p>ACCEPTED PAYMENT METHODS</p>
           </div>
           <div className="flex flex-wrap gap-x-2 w-fit mx-auto">

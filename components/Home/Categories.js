@@ -26,11 +26,11 @@ const Categories = () => {
   return (
     <div className="mb-5">
       <div className="flex flex-col justify-center items-center mb-5">
-        <div className=" pb-3 mb-2 relative before:absolute before:w-16 before:h-full before:border-b before:border-[#21323D] before:left-0 before:right-0 before:mx-auto">
-          <h3 className="text-3xl font-extrabold text-[#21323D]">Categories</h3>
+        <div className=" pb-3 mb-2 relative before:absolute before:w-16 before:h-full before:border-b before:border-accent before:left-0 before:right-0 before:mx-auto">
+          <h3 className="text-3xl font-extrabold text-accent">Categories</h3>
         </div>
         <div>
-          <span className="text-[#21323D] text-sm">
+          <span className="text-accent text-sm">
             Find the product you are looking for.
           </span>
         </div>

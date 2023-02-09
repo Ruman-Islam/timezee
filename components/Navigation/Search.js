@@ -14,7 +14,6 @@ const theme = {
     borderRadius: "4px",
     border: "0",
     outline: "0",
-    placeholder: "red",
     color: "black",
     padding: "7px 8px",
     fontSize: "14px",
@@ -30,7 +29,7 @@ const theme = {
     overflowX: "hidden",
     overflowY: "auto",
     backgroundColor: "white",
-    color: "black",
+    color: "#21323D",
     boxShadow:
       "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
     borderRadius: "4px",
@@ -66,7 +65,7 @@ const Search = () => {
   const renderSuggestion = (suggestion) => {
     return (
       <div className="flex items-center justify-between">
-        <div className="border">
+        <div className="border border-thin">
           <Image
             src="https://res.cloudinary.com/arifscloud/image/upload/v1625119382/image_apxesv.png"
             alt={suggestion.title}
@@ -74,7 +73,7 @@ const Search = () => {
             height={50}
           />
         </div>
-        <div className="flex-1 ml-2">
+        <div className="flex-1 ml-2 hover:text-error">
           <h3>{suggestion.title}</h3>
           <p>${suggestion.sell_price}</p>
         </div>
@@ -83,7 +82,7 @@ const Search = () => {
             <FontAwesomeIcon
               icon={faCartPlus}
               width={25}
-              className="text-[#00586D] hover:text-[#3ABF6F] duration-100"
+              className="text-neutral hover:text-success duration-100"
             />
           </button>
         </div>

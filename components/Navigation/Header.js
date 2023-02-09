@@ -33,19 +33,19 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full text-white mb-10 lg:mb-1 relative z-50">
+    <header className="w-full mb-10 lg:mb-1 relative z-50 text-base">
       <nav
         className={`flex items-center px-3 py-2 left-0 right-0 ${
-          navbar ? "fixed h-[6vh] bg-[#21323D] justify-center" : "bg-[#00586D] justify-center lg:justify-between"
+          navbar ? "fixed h-[6vh] bg-accent justify-center" : "bg-neutral justify-center lg:justify-between"
         }`}
       >
         <span className="text-xs invisible">..</span>
         <span className="text-[12px] font-semibold flex justify-between items-center">
-          <small>SHOP: 01641757175, DELIVERY: 01919646416</small>
+          <small className="white">SHOP: 01641757175, DELIVERY: 01919646416</small>
         </span>
         <span className="text-sm font-thin ml-2">ENGLISH</span>
       </nav>
-      <nav className="bg-[#21323D] fixed lg:static top-0 left-0 right-0">
+      <nav className="bg-accent fixed lg:static top-0 left-0 right-0">
         <div>
           <div>
             <div className="flex items-center justify-between px-3 py-0 lg:py-2">
@@ -75,13 +75,13 @@ const Header = () => {
                 }`}
               >
                 <Search />
-                <div className="bg-[#00586D] absolute top-0 bottom-0 -right-0.5 flex items-center px-3 rounded-r">
+                <div className="bg-neutral absolute top-0 bottom-0 -right-0.5 flex items-center px-3 rounded-r">
                   <FontAwesomeIcon icon={faSearch} width={20} />
                 </div>
               </div>
               <div>
                 <Link href="/cart" className="hidden lg:block">
-                  <div className="flex w-full items-center justify-between bg-[#60ac00] hover:bg-[#00586D] px-4 mr-3 py-3 rounded-xl">
+                  <div className="flex w-full items-center justify-between bg-info hover:bg-secondary px-4 mr-3 py-3 rounded-xl">
                     <span>0 item(s) - $0.00</span>
                     <FontAwesomeIcon icon={faCartShopping} width={25} />
                   </div>
@@ -103,130 +103,130 @@ const Header = () => {
                   }`}
                 >
                   <Link href="/categories">
-                    <div className="flex items-center justify-between bg-[#3ABF6F] text-sm p-3 rounded">
+                    <div className="flex items-center justify-between bg-success text-sm p-3 rounded">
                       <FontAwesomeIcon icon={faBars} width={20} height={20} />
                       <span className="pl-2 pr-10 font-semibold">
                         ALL CATEGORIES
                       </span>
                     </div>
                   </Link>
-                  <ul className="absolute z-10 w-full hidden group-hover:block bg-white drop-shadow-lg text-black rounded py-3 px-1">
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                  <ul className="absolute z-10 w-full hidden group-hover:block bg-base shadow-xl text-accent rounded py-3 px-1">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Special Offers
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Accessories
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Drones & RC
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Electrical Accessories
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         MCU & Computers
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Sound System
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Socket, port & Jacks
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         SMD Components
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Active Components
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         Passive Components
                       </Link>
                     </li>
-                    <li className="px-3 py-1.5 hover:bg-gray-100 flex items-center text-sm">
+                    <li className="px-3 py-1.5 hover:bg-grayBackground flex items-center text-sm">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         width={10}
                         height={10}
-                        className="text-red-500"
+                        className="text-error"
                       />
                       <Link href="/" className="px-2 w-full">
                         3D Printer & CNC
@@ -236,7 +236,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-2">
+                    <div className="bg-neutral text-xs px-3 py-1 rounded text-center ml-2">
                       <FontAwesomeIcon
                         icon={faTruck}
                         width={20}
@@ -248,7 +248,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-0.5">
+                    <div className="bg-neutral text-xs px-3 py-1 rounded text-center ml-0.5">
                       <FontAwesomeIcon
                         icon={faCircleQuestion}
                         width={16}
@@ -260,7 +260,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-0.5">
+                    <div className="bg-neutral text-xs px-3 py-1 rounded text-center ml-0.5">
                       <FontAwesomeIcon
                         icon={faHeart}
                         width={16}
@@ -272,7 +272,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link href="/delivery-info">
-                    <div className="bg-[#005E6D] text-xs px-3 py-1 rounded text-center ml-0.5">
+                    <div className="bg-neutral text-xs px-3 py-1 rounded text-center ml-0.5">
                       <FontAwesomeIcon
                         icon={faCodeCompare}
                         width={16}
@@ -289,7 +289,7 @@ const Header = () => {
                 }`}
               >
                 <Link href="account">
-                  <div className="bg-[#3A4750] flex items-center px-5 py-2 rounded">
+                  <div className="bg-neutral flex items-center px-5 py-2 rounded">
                     <FontAwesomeIcon
                       icon={faUserCircle}
                       width={16}

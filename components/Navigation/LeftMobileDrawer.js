@@ -29,8 +29,8 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
         lockBackgroundScroll
         size={320}
       >
-        <div className="text-black uppercase text-sm">
-          <div className="bg-[#e73d50] flex justify-between items-center text-white">
+        <div className="text-accent uppercase text-sm">
+          <div className="bg-error flex justify-between items-center text-base">
             <div className="p-2 text-lg font-semibold">MENU</div>
             <button onClick={toggleNavDrawer} className="px-3 py-2">
               <FontAwesomeIcon icon={faXmark} width={18} className="mx-auto" />
@@ -40,7 +40,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
             <ul className="h-[91vh] overflow-y-scroll">
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faSquareVirus}
                   width={18}
                 />
@@ -50,7 +50,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faBabyCarriage}
                   width={18}
                 />
@@ -60,7 +60,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faTags}
                   width={18}
                 />
@@ -70,7 +70,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faUserCircle}
                   width={18}
                 />
@@ -80,7 +80,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faHeart}
                   width={18}
                 />
@@ -90,7 +90,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faCodeCompare}
                   width={18}
                 />
@@ -100,7 +100,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faDollar}
                   width={18}
                 />
@@ -110,7 +110,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faBook}
                   width={18}
                 />
@@ -120,7 +120,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faQuestionCircle}
                   width={18}
                 />
@@ -130,7 +130,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
               </li>
               <li className="flex items-center py-3 font-semibold">
                 <FontAwesomeIcon
-                  className="text-[#E73D50]"
+                  className="text-error"
                   icon={faSignOut}
                   width={18}
                 />
