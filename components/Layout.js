@@ -6,7 +6,7 @@ const Layout = ({ title, children }) => {
   return (
     <>
       <Head>
-        <title>{title ? title + " - Electronics.Com.BD" : "pCommerce"}</title>
+        <title>{title ? "Electronics.Com.BD - " + title : "Electronics.Com.BD"}</title>
         <meta name="description" content="pCommerce website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

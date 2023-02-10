@@ -22,16 +22,18 @@ module.exports = {
       accent: "#21323D",
       base: "#ffff",
       neutral: "#00586D",
-      info: "#60ac00",
+      info: "#DAF0D8",
       success: "#3BBF6F",
       warning: "#FEE15B",
       error: "#E73D50",
       grayBackground: '#DDDDDD',
     },
     borderColor: {
+      primary: "#277CD9",
+      secondary: "#3542AE",
       thin: "rgba(30, 41, 59, 0.1)",
       accent: "#21323D",
-      error: '#E73D50'
+      error: '#E73D50',
     },
     fontFamily: {
       ibm: ["IBM Plex Sans", "sans-serif"]

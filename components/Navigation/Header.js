@@ -81,7 +81,7 @@ const Header = () => {
               </div>
               <div>
                 <Link href="/cart" className="hidden lg:block">
-                  <div className="flex w-full items-center justify-between bg-info hover:bg-secondary px-4 mr-3 py-3 rounded-xl">
+                  <div className="flex w-full items-center justify-between bg-success hover:bg-secondary px-4 mr-3 py-3 rounded-xl">
                     <span>0 item(s) - $0.00</span>
                     <FontAwesomeIcon icon={faCartShopping} width={25} />
                   </div>

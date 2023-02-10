@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
       <div className="bg-base rounded-lg relative before:absolute before:overflow-hidden overflow-hidden before:left-0 before:rounded-xl before:w-full before:h-full before:border before:border-thin group-hover:before:border-none h-[490px] flex flex-col justify-between">
         <div>
           <Link
-            href="/"
+            href={`/product/${product.slug}`}
             className="overflow-hidden relative block p-0.5 h-[280px]"
           >
             <>
@@ -30,14 +30,14 @@ const ProductCard = ({ product }) => {
                 src={`${images[0]}`}
                 width={600}
                 height={100}
-                alt=""
+                alt={product.name}
               />
               <Image
                 className="w-full absolute top-0 left-0 invisible group-hover:block group-hover:visible opacity-0 group-hover:opacity-100 scale-100 group-hover:scale-110 duration-300 "
                 src={`${images[1]}`}
                 width={600}
                 height={100}
-                alt=""
+                alt={product.name}
               />
             </>
           </Link>
@@ -52,8 +52,10 @@ const ProductCard = ({ product }) => {
 
           <div>
             <div className="p-0.5 leading-none font-semibold text-center relative before:absolute before:w-48 before:h-full before:mx-auto before:left-0 before:right-0 before:border-b before:border-thin before:-z-10 duration-300 text-sm">
-              <Link href="/">
-                <small>{name.length < 110 ? name : name.slice(0, 100) + "..."}</small>
+              <Link href={`/product/${product.slug}`}>
+                <small>
+                  {name.length < 110 ? name : name.slice(0, 100) + "..."}
+                </small>
               </Link>
             </div>
             <div className="text-center text-error mt-1.5">৳{price}</div>
@@ -91,7 +93,7 @@ const ProductCard = ({ product }) => {
             </form>
           </div>
           <div className="border-t border-thin px-2 py-0.5">
-            <Link href="/" className="inline-block">
+            <Link href={`/product/${product.slug}`} className="inline-block">
               <div className="flex">
                 <FontAwesomeIcon
                   icon={faDollarSign}
