@@ -27,7 +27,7 @@ module.exports = {
       success: "#3BBF6F",
       warning: "#FEE15B",
       error: "#E73D50",
-      grayBackground: "#DDDDDD",
+      grayBackground: "#EEEEEE",
     },
     borderColor: {
       primary: "#277CD9",

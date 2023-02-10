@@ -1,10 +1,10 @@
 import Layout from "@/components/Layout";
 import Product from "@/models/Product";
 import db from "@/utils/db";
+import { Store } from "@/utils/Store";
 import {
   faArrowRight,
-  faChevronDown,
-  faChevronUp,
+  faCartPlus,
   faCircleDot,
   faDollar,
   faExclamationCircle,
@@ -12,17 +12,36 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 const ProductScreen = ({ product }) => {
+  const { state, dispatch } = useContext(Store);
   const [activeTab, setActiveTab] = useState("description");
   const { name, images } = product;
 
-  const submitToCart = (e) => {
-    e.preventDefault();
-    console.log(e.target.name.value);
+  if (!product) {
+    return <Layout title="Product Not Found">Product Not Found</Layout>;
+  }
+
+  const addToCartHandler = async () => {
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
+
+    if (data.countInStock < quantity) {
+      toast.error("Sorry. Product is out of stock");
+      return;
+    }
+
+    dispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...product, quantity: quantity },
+    });
+    toast.success("Product added to the cart");
   };
 
   return (
@@ -98,37 +117,23 @@ const ProductScreen = ({ product }) => {
               <span className="text-[30px] text-error font-bold">৳455.00</span>
             </div>
             <div>
-              <form onSubmit={submitToCart} className="flex border w-fit">
-                <div className="flex justify-center">
-                  <input
-                    name="item-count"
-                    type="number"
-                    className="w-7 pl-2 outline-none"
-                    defaultValue={1}
-                  />
-                </div>
-                <div className="flex text-base justify-center items-center flex-col">
-                  <button className="bg-[#3A4750] p-1 hover:bg-secondary">
-                    <FontAwesomeIcon icon={faChevronUp} width={11} />
-                  </button>
-                  <button className="bg-[#3A4750] p-1 hover:bg-secondary">
-                    <FontAwesomeIcon icon={faChevronDown} width={11} />
-                  </button>
-                </div>
+              <div className="flex w-fit">
                 <div className="bg-accent text-base text-[14px] hover:bg-primary duration-200 flex justify-center">
-                  <input
-                    type="submit"
-                    value="ADD TO CART"
-                    className="px-2 cursor-pointer"
-                  />
+                  <button
+                    onClick={() => addToCartHandler(product)}
+                    className="px-2 py-2 cursor-pointer flex items-center gap-x-1 uppercase"
+                  >
+                    <FontAwesomeIcon icon={faCartPlus} width={14} />
+                    <span>add to cart</span>
+                  </button>
                 </div>
                 <div className="bg-success text-base text-[14px] hover:bg-error duration-200 flex justify-center px-2">
-                  <button className="uppercase flex items-center gap-x-1">
+                  <button className="uppercase py-2 flex items-center gap-x-1">
                     <FontAwesomeIcon icon={faDollar} width={11} />
                     <span>buy now</span>
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
