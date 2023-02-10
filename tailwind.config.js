@@ -15,6 +15,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1440px",
+      "3xl": "1840px",
     },
     colors: {
       primary: "#277CD9",
@@ -26,17 +27,17 @@ module.exports = {
       success: "#3BBF6F",
       warning: "#FEE15B",
       error: "#E73D50",
-      grayBackground: '#DDDDDD',
+      grayBackground: "#DDDDDD",
     },
     borderColor: {
       primary: "#277CD9",
       secondary: "#3542AE",
       thin: "rgba(30, 41, 59, 0.1)",
       accent: "#21323D",
-      error: '#E73D50',
+      error: "#E73D50",
     },
     fontFamily: {
-      ibm: ["IBM Plex Sans", "sans-serif"]
+      ibm: ["IBM Plex Sans", "sans-serif"],
     },
     extend: {},
   },

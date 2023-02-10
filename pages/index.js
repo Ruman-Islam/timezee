@@ -9,8 +9,31 @@ import SpecialOffers from "@/components/Home/SpecialOffers";
 import LatestProducts from "@/components/Home/LatestProducts";
 import YouTubeLink from "@/components/Home/YouTubeLink";
 import Categories from "@/components/Home/Categories";
+import { useContext } from "react";
+import { Store } from "@/utils/Store";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const HomeScreen = ({products, categories}) => {
+const HomeScreen = ({ products, categories }) => {
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+
+  const addToCartHandler = async (product) => {
+    const existItem = cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
+
+    if (data.countInStock < quantity) {
+      toast.error("Sorry. Product is out of stock");
+      return;
+    }
+
+    dispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...product, quantity: quantity },
+    });
+    toast.success("Product added to the cart");
+  };
 
   return (
     <>
@@ -23,14 +46,20 @@ const HomeScreen = ({products, categories}) => {
       <Layout title="Home">
         <Hero />
         <InfoBlock />
-        <SpecialOffers products={products}/>
-        <LatestProducts products={products}/>
+        <SpecialOffers
+          products={products}
+          addToCartHandler={addToCartHandler}
+        />
+        <LatestProducts
+          products={products}
+          addToCartHandler={addToCartHandler}
+        />
         <YouTubeLink />
-        <Categories categories={categories}/>
+        <Categories categories={categories} />
       </Layout>
     </>
   );
-}
+};
 
 const getServerSideProps = async () => {
   await db.connect();

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Search from "./Search";
@@ -19,11 +19,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import LeftMobileDrawer from "./LeftMobileDrawer";
 import MobileCartDrawer from "./MobileCartDrawer";
+import { Store } from "@/utils/Store";
 
 const Header = () => {
   const { navbar } = useNav();
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+  const [cartItemsCount, setCartItemsCount] = useState(0);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  useEffect(() => {
+    setCartItemsCount(cart.cartItems.reduce((a, b) => a + b.quantity, 0));
+  }, [cart.cartItems]);
 
   const toggleNavDrawer = () => {
     setIsNavOpen((prevState) => !prevState);
@@ -36,12 +44,16 @@ const Header = () => {
     <header className="w-full mb-10 lg:mb-1 relative z-50 text-base">
       <nav
         className={`flex items-center px-3 py-2 left-0 right-0 ${
-          navbar ? "fixed h-[6vh] bg-accent justify-center" : "bg-neutral justify-center lg:justify-between"
+          navbar
+            ? "fixed h-[6vh] bg-accent justify-center"
+            : "bg-neutral justify-center lg:justify-between"
         }`}
       >
         <span className="text-xs invisible">..</span>
         <span className="text-[12px] font-semibold flex justify-between items-center">
-          <small className="white">SHOP: 01641757175, DELIVERY: 01919646416</small>
+          <small className="white">
+            SHOP: 01641757175, DELIVERY: 01919646416
+          </small>
         </span>
         <span className="text-sm font-thin ml-2">ENGLISH</span>
       </nav>
@@ -82,7 +94,7 @@ const Header = () => {
               <div>
                 <Link href="/cart" className="hidden lg:block">
                   <div className="flex w-full items-center justify-between bg-success hover:bg-secondary px-4 mr-3 py-3 rounded-xl">
-                    <span>0 item(s) - $0.00</span>
+                    <span>{cartItemsCount} item(s) - $0.00</span>
                     <FontAwesomeIcon icon={faCartShopping} width={25} />
                   </div>
                 </Link>

@@ -1,18 +1,21 @@
 import Link from "next/link";
 import ProductCard from "./ProductCard";
-import Product from "@/models/Product";
-import db from "@/utils/db";
 
-const SpecialOffers =({ products }) => {
-
+const SpecialOffers = ({ products, addToCartHandler }) => {
   return (
     <div className="py-5 px-1 xl:px-10">
       <div className="pl-2 relative before:absolute before:w-10 before:h-full before:border-b before:border-error text">
         <h4 className="uppercase text-accent">ON SALE</h4>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
+      <div className="grid justify-items-center grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-6">
         {products?.map((product) => {
-          return <ProductCard key={product.name} product={product} />;
+          return (
+            <ProductCard
+              key={product.name}
+              product={product}
+              addToCartHandler={addToCartHandler}
+            />
+          );
         })}
       </div>
       <div className="rounded-2xl bg-accent hover:bg-neutral duration-100 my-2 py-0.5 text-base">
@@ -25,6 +28,6 @@ const SpecialOffers =({ products }) => {
       </div>
     </div>
   );
-}
+};
 
 export default SpecialOffers;

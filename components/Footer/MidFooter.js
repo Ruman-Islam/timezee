@@ -76,7 +76,7 @@ const MidFooter = () => {
           <div className="text-success font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-16 after:left-0 after:right-0 after:mx-auto my-5 text-center">
             <p>ACCEPTED PAYMENT METHODS</p>
           </div>
-          <div className="flex flex-wrap gap-x-2 w-fit mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-2 w-fit mx-auto">
             <Image src={nogodImg} alt="" width={60} height={100} />
             <Image src={bkashImg} alt="" width={60} height={100} />
             <Image src={rocketImg} alt="" width={60} height={100} />

@@ -32,18 +32,12 @@ const ProductScreen = ({ product }) => {
           <h1 className="font-bold text-accent text-[20px]">{name}</h1>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between gap-x-10 border-t border-thin mb-5">
-          <div className="flex">
-            <div className="flex flex-grow">
-              <div className="w-[100px] border-r border-thin"></div>
-              <div>
-                <Image
-                  src={images[0]}
-                  width={1000}
-                  height={600}
-                  alt={name}
-                  className="w-11/12"
-                />
+        <div className="flex flex-col lg:flex-row justify-between gap-10 border-t border-thin mb-5">
+          <div className="flex l">
+            <div className="flex flex-col lg:flex-row flex-grow">
+              <div className="w-[100px] border-r border-thin">img</div>
+              <div className="lg:w-[400px] lg:h-[400px] xl:h-[500px] xl:w-[500px] 2xl:h-[700px] 2xl:w-[700px]">
+                <Image src={images[0]} width={1000} height={600} alt={name} />
               </div>
             </div>
           </div>
