@@ -28,7 +28,7 @@ const MidFooter = () => {
                 />
               </div>
             </div>
-            <div className="text-base text-[12px]">
+            <div className="text-base text-sm">
               <h3 className="text-success font-semibold text-[16px]">
                 SHOP LOCATION
               </h3>
@@ -48,7 +48,7 @@ const MidFooter = () => {
                 />
               </div>
             </div>
-            <div className="text-base text-[12px]">
+            <div className="text-base text-sm">
               <h3 className="text-success font-semibold text-[16px]">CALL US</h3>
               <p>Store: +88001536160661</p>
               <p>Delivery: +88001536160661</p>
@@ -64,7 +64,7 @@ const MidFooter = () => {
                 />
               </div>
             </div>
-            <div className="text-base text-[12px]">
+            <div className="text-base text-sm">
               <h3 className="text-success font-semibold text-[16px]">
                 STORE HOURS
               </h3>

@@ -20,14 +20,18 @@ import {
 import LeftMobileDrawer from "./LeftMobileDrawer";
 import MobileCartDrawer from "./MobileCartDrawer";
 import { Store } from "@/utils/Store";
+import dynamic from "next/dynamic";
 
 const Header = () => {
   const { navbar } = useNav();
   const { state, dispatch } = useContext(Store);
-  const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const {
+    cart,
+    cart: { cartItems },
+  } = state;
 
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, b) => a + b.quantity, 0));
@@ -94,7 +98,10 @@ const Header = () => {
               <div>
                 <Link href="/cart" className="hidden lg:block">
                   <div className="flex w-full items-center justify-between bg-success hover:bg-secondary px-4 mr-3 py-3 rounded-xl">
-                    <span>{cartItemsCount} item(s) - $0.00</span>
+                    <span>
+                      {cartItemsCount} item(s) : $
+                      {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
+                    </span>
                     <FontAwesomeIcon icon={faCartShopping} width={25} />
                   </div>
                 </Link>
@@ -327,4 +334,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default dynamic(() => Promise.resolve(Header), { ssr: false });

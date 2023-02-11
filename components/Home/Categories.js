@@ -3,25 +3,25 @@ import Carousel from "nuka-carousel/lib/carousel";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import CategoryCard from "./CategoryCard";
 
-const Categories = ({categories}) => {
+const Categories = ({ categories }) => {
   const { width } = useWindowDimensions();
   const [cardToShow, setCardToShow] = useState(5);
 
   useEffect(() => {
-    if (width >= 1536) {
+    if (width >= 1800) {
       setCardToShow(5);
-    } else if (width >= 1280) {
+    } else if (width >= 1400) {
       setCardToShow(4);
-    } else if (width >= 1023) {
-      setCardToShow(4);
-    } else if (width >= 768) {
+    } else if (width >= 1300) {
       setCardToShow(3);
-    } else if (width >= 640) {
+    } else if (width >= 1000) {
       setCardToShow(2);
-    } else {
+    } else if (width >= 450) {
+      setCardToShow(1);
+    } else if (width >= 350) {
       setCardToShow(1);
     }
-  }, [width]);
+  }, [width, cardToShow]);
 
   return (
     <div className="mb-5">
@@ -35,13 +35,11 @@ const Categories = ({categories}) => {
           </span>
         </div>
       </div>
-      <div className="mb-10 mx-auto w-[350px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-full">
+      <div className="max-w-[350px] md:max-w-[450px] lg:max-w-[1000px] xl:max-w-[1300px] 2xl:max-w-[1400px] 3xl:max-w-[1800px] mx-auto">
         <Carousel
           slidesToShow={cardToShow}
           wrapAround
           enableKeyboardControls
-          autoplayInterval={5000}
-          speed={600}
           transitionMode={["scroll3d"]}
           renderCenterLeftControls={false}
           renderCenterRightControls={false}
@@ -53,8 +51,8 @@ const Categories = ({categories}) => {
             },
           }}
         >
-          {categories?.map((category, i)=>{
-            return  <CategoryCard key={i} category={category} />
+          {categories?.map((category, i) => {
+            return <CategoryCard key={i} category={category} />;
           })}
         </Carousel>
       </div>

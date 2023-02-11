@@ -21,7 +21,7 @@ import { toast } from "react-toastify";
 const ProductScreen = ({ product }) => {
   const { state, dispatch } = useContext(Store);
   const [activeTab, setActiveTab] = useState("description");
-  const { name, images } = product;
+  const { name, images, countInStock } = product;
 
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
@@ -84,11 +84,16 @@ const ProductScreen = ({ product }) => {
                   <span>132</span>
                 </h3>
               </div>
+
               <div className="flex items-center">
                 <FontAwesomeIcon icon={faCircleDot} width={8} />
                 <h3 className="uppercase">
                   <span className="ml-3 font-semibold">STOCK: </span>
-                  <span className="text-success">In Stock</span>
+                  {countInStock > 0 ? (
+                    <span className="text-success">In Stock</span>
+                  ) : (
+                    <span className="text-error">Out of Stock</span>
+                  )}
                 </h3>
               </div>
               <div className="flex items-center">
