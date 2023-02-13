@@ -4,6 +4,8 @@ import NextAuth from "next-auth";
 import bcryptjs from "bcryptjs";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+
+console.log('object')
 export default NextAuth({
   session: {
     strategy: "jwt",

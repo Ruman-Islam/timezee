@@ -2,17 +2,17 @@ import AccountSidebar from "@/components/Account/AccountSidebar";
 import AccountWizard from "@/components/Account/AccountWizard";
 import Layout from "@/components/Layout";
 
-const OrderScreen = () => {
+const AddressBookScreen = () => {
   return (
-    <Layout title="Order History">
-      <AccountWizard title="Order History" />
+    <Layout title="Address Book">
+      <AccountWizard title="Address Book" />
       <div className="flex gap-x-5">
         <AccountSidebar />
-        <div>This is order page</div>
+        <div>This is Address book</div>
       </div>
     </Layout>
   );
 };
 
-OrderScreen.auth = true;
-export default OrderScreen;
+AddressBookScreen.auth = true;
+export default AddressBookScreen;

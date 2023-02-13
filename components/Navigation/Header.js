@@ -309,8 +309,8 @@ const Header = () => {
                   navbar ? "fixed top-1 right-5 z-10" : "relative"
                 }`}
               >
-                <Link href="/account">
-                  <div className="bg-neutral h-[3.5vh] flex gap-x-1 items-center justify-center px-5 rounded">
+                <Link href="/login?redirect=/account">
+                  <div className="bg-primary hover:bg-secondary duration-150 h-[3.5vh] flex gap-x-1 items-center justify-center px-5 rounded">
                     <FontAwesomeIcon
                       icon={faUserCircle}
                       width={16}

@@ -11,7 +11,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 
 const LoginScreen = () => {
-  const {  data: session } = useSession();
+  const { status, data: session } = useSession();
   const router = useRouter();
   const { redirect } = router.query;
 
@@ -42,6 +42,20 @@ const LoginScreen = () => {
     }
   };
 
+  if (status === "authenticated") {
+    return (
+      <Layout title="Loading">
+        <AccountWizard title="Loading" />
+        <div className="flex flex-col md:flex-row gap-x-5">
+          <AccountSidebar />
+          <div>
+            <span>Loading...</span>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout title="Login">
       <AccountWizard title="account login" />
@@ -61,7 +75,7 @@ const LoginScreen = () => {
             </div>
             <div className="text-center text-xs text-white uppercase bg-success hover:bg-error duration-150 my-4">
               <Link
-                href="/"
+                href="/register"
                 className="h-[4vh] flex justify-center items-center gap-x-1"
               >
                 <span>continue</span>

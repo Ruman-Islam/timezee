@@ -1,18 +1,19 @@
 import AccountSidebar from "@/components/Account/AccountSidebar";
 import AccountWizard from "@/components/Account/AccountWizard";
 import Layout from "@/components/Layout";
+import React from "react";
 
-const OrderScreen = () => {
+const ReturnScreen = () => {
   return (
-    <Layout title="Order History">
-      <AccountWizard title="Order History" />
+    <Layout title="Returns">
+      <AccountWizard title="Returns" />
       <div className="flex gap-x-5">
         <AccountSidebar />
-        <div>This is order page</div>
+        <div>This is Return page</div>
       </div>
     </Layout>
   );
 };
 
-OrderScreen.auth = true;
-export default OrderScreen;
+ReturnScreen.auth = true;
+export default ReturnScreen;

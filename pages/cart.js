@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import db from "@/utils/db";
 import Layout from "@/components/Layout";
 import { Store } from "@/utils/Store";
 import { useRouter } from "next/router";
@@ -15,7 +16,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Carousel from "nuka-carousel/lib/carousel";
 import CategoryCard from "@/components/Home/CategoryCard";
-import db from "@/utils/db";
 import Category from "@/models/Category";
 
 const CartScreen = ({ categories }) => {
@@ -42,13 +42,13 @@ const CartScreen = ({ categories }) => {
   return (
     <Layout title="Cart">
       <div className="px-3 min-h-[70vh]">
-        <div className="py-2 bg-base border-b border-thin">
+        <div className="py-2 text-white border-b border-thin">
           <h1 className="text-2xl text-accent">Shopping Cart</h1>
         </div>
         {cartItems.length === 0 ? (
-          <div className=" mx-auto">
+          <div className="mx-auto mt-2">
             Cart is empty.{" "}
-            <Link className="bg-primary" href="/">
+            <Link className="bg-primary text-white inline-block p-2 rounded-md" href="/">
               Go shopping
             </Link>
           </div>
@@ -176,7 +176,7 @@ const CartScreen = ({ categories }) => {
                   <span className="text-xs">continue shopping</span>
                 </Link>
                 <button
-                  onClick={() => router.push("account/login?redirect=/shipping")}
+                  onClick={() => router.push("/login?redirect=/shipping")}
                   className="uppercase flex gap-x-1 items-center bg-success hover:bg-error duration-150 py-2 px-4 justify-center"
                 >
                   <span className="text-xs">checkout</span>

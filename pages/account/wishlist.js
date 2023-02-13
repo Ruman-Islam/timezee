@@ -2,10 +2,10 @@ import AccountSidebar from "@/components/Account/AccountSidebar";
 import AccountWizard from "@/components/Account/AccountWizard";
 import Layout from "@/components/Layout";
 
-const OrderScreen = () => {
+const WishlistScreen = () => {
   return (
-    <Layout title="Order History">
-      <AccountWizard title="Order History" />
+    <Layout title="Wishlist">
+       <AccountWizard title="Wishlist" />
       <div className="flex gap-x-5">
         <AccountSidebar />
         <div>This is order page</div>
@@ -14,5 +14,5 @@ const OrderScreen = () => {
   );
 };
 
-OrderScreen.auth = true;
-export default OrderScreen;
+WishlistScreen.auth = true;
+export default WishlistScreen;

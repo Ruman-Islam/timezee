@@ -13,7 +13,7 @@ const AccountSidebar = () => {
   const logoutClickHandler = () => {
     Cookies.remove("cart");
     dispatch({ type: "CART_RESET" });
-    signOut({ callbackUrl: "/account/login" });
+    signOut({ callbackUrl: "/login" });
   };
 
   return (
@@ -24,7 +24,7 @@ const AccountSidebar = () => {
       <ul className="my-2">
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -33,7 +33,7 @@ const AccountSidebar = () => {
         </li>
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account/addressBook"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -42,7 +42,7 @@ const AccountSidebar = () => {
         </li>
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account/wishlist"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -51,7 +51,7 @@ const AccountSidebar = () => {
         </li>
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account/orders"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -60,7 +60,7 @@ const AccountSidebar = () => {
         </li>
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account/returns"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -69,7 +69,7 @@ const AccountSidebar = () => {
         </li>
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account/transaction"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -78,7 +78,7 @@ const AccountSidebar = () => {
         </li>
         <li className="py-2">
           <Link
-            href="/"
+            href="/login?redirect=/account/newsletter"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
             <FontAwesomeIcon icon={faChevronRight} width={8} />
@@ -89,7 +89,7 @@ const AccountSidebar = () => {
           <li className="py-2">
             <button
               onClick={() => logoutClickHandler()}
-              className="flex gap-x-1 items-center text-sm font-semibold text-error duration-150"
+              className="flex gap-x-1 items-center text-sm font-semibold text-primary hover:text-error duration-150"
             >
               <FontAwesomeIcon icon={faSignOut} width={15} />
               <span>Logout</span>

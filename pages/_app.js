@@ -9,19 +9,18 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-    <StoreProvider>
-      {Component.auth ? (
-        <Auth adminOnly={Component.auth.adminOnly}>
+      <StoreProvider>
+        {Component.auth ? (
+          <Auth adminOnly={Component.auth.adminOnly}>
+            <Component {...pageProps} />
+          </Auth>
+        ) : (
           <Component {...pageProps} />
-        </Auth>
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </StoreProvider>
-  </SessionProvider>
+        )}
+      </StoreProvider>
+    </SessionProvider>
   );
 }
-
 
 function Auth({ children, adminOnly }) {
   const router = useRouter();
