@@ -21,10 +21,12 @@ import LeftMobileDrawer from "./LeftMobileDrawer";
 import MobileCartDrawer from "./MobileCartDrawer";
 import { Store } from "@/utils/Store";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
   const { navbar } = useNav();
-  const { state, dispatch } = useContext(Store);
+  const { status, data: session } = useSession();
+  const { state } = useContext(Store);
   const [cartItemsCount, setCartItemsCount] = useState(0);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -307,14 +309,13 @@ const Header = () => {
                   navbar ? "fixed top-1 right-5 z-10" : "relative"
                 }`}
               >
-                <Link href="account">
-                  <div className="bg-neutral flex items-center px-5 py-2 rounded">
+                <Link href="/account">
+                  <div className="bg-neutral h-[3.5vh] flex gap-x-1 items-center justify-center px-5 rounded">
                     <FontAwesomeIcon
                       icon={faUserCircle}
                       width={16}
-                      className="mr-1"
                     />
-                    <span>My Account</span>
+                    {status === "loading" ? "Loading" : session?.user ? <span>{session?.user?.name}</span> : "My Account"}
                   </div>
                 </Link>
               </div>

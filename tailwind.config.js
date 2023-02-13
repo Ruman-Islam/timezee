@@ -21,6 +21,7 @@ module.exports = {
       primary: "#277CD9",
       secondary: "#3542AE",
       accent: "#21323D",
+      white: "#ffff",
       base: "#ffff",
       neutral: "#00586D",
       info: "#DAF0D8",
@@ -39,6 +40,9 @@ module.exports = {
     fontFamily: {
       ibm: ["IBM Plex Sans", "sans-serif"],
     },
+    // fontSize: {
+      
+    // },
     extend: {},
   },
   plugins: [],

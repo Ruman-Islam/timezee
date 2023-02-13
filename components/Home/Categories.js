@@ -35,7 +35,7 @@ const Categories = ({ categories }) => {
           </span>
         </div>
       </div>
-      <div className="max-w-[350px] md:max-w-[450px] lg:max-w-[1000px] xl:max-w-[1300px] 2xl:max-w-[1400px] 3xl:max-w-[1800px] mx-auto">
+      <div className="max-w-[350px] md:max-w-[450px] lg:max-w-[800px] xl:max-w-[1000px] 2xl:max-w-[1400px] 3xl:max-w-[1800px] mx-auto">
         <Carousel
           slidesToShow={cardToShow}
           wrapAround

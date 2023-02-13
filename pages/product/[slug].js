@@ -1,7 +1,14 @@
+import { useContext, useState } from "react";
+import ReactImageMagnify from "react-image-magnify";
+import { toast } from "react-toastify";
 import Layout from "@/components/Layout";
 import Product from "@/models/Product";
 import db from "@/utils/db";
+import axios from "axios";
+import Image from "next/image";
+import Link from "next/link";
 import { Store } from "@/utils/Store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faCartPlus,
@@ -11,17 +18,15 @@ import {
   faEye,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-import Image from "next/image";
-import Link from "next/link";
-import { useContext, useState } from "react";
-import { toast } from "react-toastify";
+import Carousel from "nuka-carousel/lib/carousel";
+import CategoryCard from "@/components/Home/CategoryCard";
+import Category from "@/models/Category";
 
-const ProductScreen = ({ product }) => {
-  const { state, dispatch } = useContext(Store);
-  const [activeTab, setActiveTab] = useState("description");
+const ProductScreen = ({ product, categories }) => {
   const { name, images, countInStock } = product;
+  const { state, dispatch } = useContext(Store);
+  const [img, setImg] = useState(images[0]);
+  const [activeTab, setActiveTab] = useState("description");
 
   if (!product) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
@@ -45,26 +50,62 @@ const ProductScreen = ({ product }) => {
   };
 
   return (
-    <Layout title={name}>
-      <div className="px-5">
+    <Layout>
+      <div className="px-4">
         <div className="py-5">
           <h1 className="font-bold text-accent text-[20px]">{name}</h1>
         </div>
-
-        <div className="flex flex-col lg:flex-row justify-between gap-10 border-t border-thin mb-5">
-          <div className="flex l">
-            <div className="flex flex-col lg:flex-row flex-grow">
-              <div className="w-[100px] border-r border-thin">img</div>
-              <div className="lg:w-[400px] lg:h-[400px] xl:h-[500px] xl:w-[500px] 2xl:h-[700px] 2xl:w-[700px]">
-                <Image src={images[0]} width={1000} height={600} alt={name} />
-              </div>
+        <div className="flex flex-col gap-x-5 lg:flex-row mb-5">
+          <div className="flex gap-x-2 mb-3 mx-auto">
+            <div className="flex flex-col gap-2 bg-white">
+              {images.map((image, i) => (
+                <div
+                  className={`w-[80px] h-[80px] cursor-pointer border ${
+                    img == image ? "border-error" : "border-thin"
+                  }`}
+                  key={i}
+                  onClick={() => setImg(image)}
+                >
+                  <Image
+                    width={200}
+                    height={200}
+                    src={image}
+                    alt=""
+                    className="w-[70px] h-[70px] object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="left_2 max-w-[500px] border border-thin">
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: img.name,
+                    isFluidWidth: true,
+                    src: img,
+                  },
+                  largeImage: {
+                    src: img,
+                    width: 1000,
+                    height: 1000,
+                  },
+                  enlargedImageContainerStyle: {
+                    zIndex: "1500",
+                    backgroundColor: "white",
+                    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                  },
+                  enlargedImageContainerDimensions: {
+                    width: "200%",
+                    height: "140%",
+                  },
+                  shouldUsePositiveSpaceLens: true,
+                }}
+              />
             </div>
           </div>
+
           <div className="flex-grow">
-            <Link
-              href="/"
-              className="flex p-4 bg-info text-error max-w-[700px]"
-            >
+            <Link href="/" className="flex p-4 bg-info text-error">
               <div>
                 <FontAwesomeIcon icon={faExclamationCircle} width={20} />
               </div>
@@ -111,7 +152,7 @@ const ProductScreen = ({ product }) => {
                 </h3>
               </div>
             </div>
-            <div className="max-w-[700px] border-t border-b border-thin flex justify-left p-2 text-warning">
+            <div className="border-t border-b border-thin flex justify-left p-2 text-warning">
               <FontAwesomeIcon icon={faStar} width={16} />
               <FontAwesomeIcon icon={faStar} width={16} />
               <FontAwesomeIcon icon={faStar} width={16} />
@@ -123,16 +164,16 @@ const ProductScreen = ({ product }) => {
             </div>
             <div>
               <div className="flex w-fit">
-                <div className="bg-accent text-base text-[14px] hover:bg-primary duration-200 flex justify-center">
+                <div className="bg-accent text-base text-xs hover:bg-primary duration-200 flex justify-center">
                   <button
                     onClick={() => addToCartHandler(product)}
                     className="px-2 py-2 cursor-pointer flex items-center gap-x-1 uppercase"
                   >
-                    <FontAwesomeIcon icon={faCartPlus} width={14} />
+                    <FontAwesomeIcon icon={faCartPlus} width={15} />
                     <span>add to cart</span>
                   </button>
                 </div>
-                <div className="bg-success text-base text-[14px] hover:bg-error duration-200 flex justify-center px-2">
+                <div className="bg-success text-base text-xs hover:bg-error duration-200 flex justify-center px-2">
                   <button className="uppercase py-2 flex items-center gap-x-1">
                     <FontAwesomeIcon icon={faDollar} width={11} />
                     <span>buy now</span>
@@ -141,8 +182,33 @@ const ProductScreen = ({ product }) => {
               </div>
             </div>
           </div>
-        </div>
 
+          <div className="bg-white p-3 border border-thin hidden md:block max-w-[200px]">
+            <div>Related</div>
+            <div className="">
+              <Carousel
+                slidesToShow={1}
+                wrapAround
+                autoplay
+                enableKeyboardControls
+                transitionMode={["scroll3d"]}
+                renderCenterLeftControls={false}
+                renderCenterRightControls={false}
+                defaultControlsConfig={{
+                  pagingDotsContainerClassName: "category-carousel-dots",
+                  pagingDotsStyle: {
+                    fill: "black",
+                    margin: "5px",
+                  },
+                }}
+              >
+                {categories?.map((category, i) => {
+                  return <CategoryCard key={i} category={category} />;
+                })}
+              </Carousel>
+            </div>
+          </div>
+        </div>
         <div className="max-w-[750px] py-2">
           <ul className="flex gap-x-5  border-b border-thin uppercase font-semibold text-[14px] text-accent">
             <li
@@ -267,10 +333,12 @@ const getServerSideProps = async (context) => {
 
   await db.connect();
   const product = await Product.findOne({ slug }).lean();
+  const categories = await Category.find().lean();
   await db.disconnect();
   return {
     props: {
       product: product ? db.convertDocToObj(product) : null,
+      categories: categories.map(db.convertDocToObj),
     },
   };
 };

@@ -24,15 +24,15 @@ const MidFooter = () => {
                 <FontAwesomeIcon
                   width={20}
                   icon={faLocationDot}
-                  className="text-base"
+                  className="text-white"
                 />
               </div>
             </div>
-            <div className="text-base text-sm">
-              <h3 className="text-success font-semibold text-[16px]">
+            <div className="text-white">
+              <h3 className="text-success font-semibold text-lg mb-1">
                 SHOP LOCATION
               </h3>
-              <p className="leading-snug">
+              <p className="leading-snug text-xs">
                 Electronics.Com.BD Shop 440 & 441, 3rd Floor, Farm view Supper
                 Market, Farmget, Dhaka 1215
               </p>
@@ -44,14 +44,16 @@ const MidFooter = () => {
                 <FontAwesomeIcon
                   width={20}
                   icon={faPhoneAlt}
-                  className="text-base"
+                  className="text-white"
                 />
               </div>
             </div>
-            <div className="text-base text-sm">
-              <h3 className="text-success font-semibold text-[16px]">CALL US</h3>
-              <p>Store: +88001536160661</p>
-              <p>Delivery: +88001536160661</p>
+            <div className="text-white">
+              <h3 className="text-success font-semibold text-lg mb-1">
+                CALL US
+              </h3>
+              <p className="text-xs">Store: +88001536160661</p>
+              <p className="text-xs">Delivery: +88001536160661</p>
             </div>
           </div>
           <div className="flex gap-x-2 group">
@@ -60,15 +62,15 @@ const MidFooter = () => {
                 <FontAwesomeIcon
                   width={20}
                   icon={faClock}
-                  className="text-base"
+                  className="text-white"
                 />
               </div>
             </div>
-            <div className="text-base text-sm">
-              <h3 className="text-success font-semibold text-[16px]">
+            <div className="text-white">
+              <h3 className="text-success font-semibold text-lg mb-1">
                 STORE HOURS
               </h3>
-              <p>Saturday - Friday 10:00AM - 07:30PM</p>
+              <p className="text-xs">Saturday - Friday 10:00AM - 07:30PM</p>
             </div>
           </div>
         </div>
