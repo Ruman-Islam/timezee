@@ -8,15 +8,12 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faArrowRight,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
 import Carousel from "nuka-carousel/lib/carousel";
 import CategoryCard from "@/components/Home/CategoryCard";
 import Category from "@/models/Category";
+import WestIcon from "@mui/icons-material/West";
+import EastIcon from "@mui/icons-material/East";
+import CloseIcon from "@mui/icons-material/Close";
 
 const CartScreen = ({ categories }) => {
   const { state, dispatch } = useContext(Store);
@@ -42,13 +39,16 @@ const CartScreen = ({ categories }) => {
   return (
     <Layout title="Cart">
       <div className="px-3 min-h-[70vh]">
-        <div className="py-2 text-white border-b border-thin">
+        <div className="py-2 text-white bg-white border-b border-thin">
           <h1 className="text-2xl text-accent">Shopping Cart</h1>
         </div>
         {cartItems.length === 0 ? (
-          <div className="mx-auto mt-2">
+          <div className="h-[10vh] flex flex-col justify-center items-center mx-auto mt-2">
             Cart is empty.{" "}
-            <Link className="bg-primary text-white inline-block p-2 rounded-md" href="/">
+            <Link
+              className="bg-primary text-white inline-block p-2 rounded-md"
+              href="/"
+            >
               Go shopping
             </Link>
           </div>
@@ -97,7 +97,7 @@ const CartScreen = ({ categories }) => {
                   {cartItems?.map((item) => {
                     return (
                       <tr
-                        key={item.slug}
+                        key={item?._id}
                         className="border border-b border-l border-r border-thin text-[12px]"
                       >
                         <td className="p-4">
@@ -135,10 +135,7 @@ const CartScreen = ({ categories }) => {
                             onClick={() => removeItemHandler(item)}
                             className="bg-error hover:bg-secondary duration-150 px-1 text-lg"
                           >
-                            <FontAwesomeIcon
-                              icon={faXmark}
-                              width={15}
-                              height={15}
+                            <CloseIcon
                               style={{ color: "white", fontSize: "15px" }}
                             />
                           </button>
@@ -156,7 +153,7 @@ const CartScreen = ({ categories }) => {
               <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-error pb-1 font-semibold mb-auto">
                 <h2>WHAT WOULD YOU LIKE TO DO NEXT?</h2>
               </div>
-              <ul className="p-3 mb-auto border border-thin bg-base">
+              <ul className="p-3 mb-auto border border-thin bg-white">
                 <li className="py-1">
                   Sub-total ({cartItems.reduce((a, b) => a + b.quantity, 0)}) :
                   ${cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
@@ -172,7 +169,7 @@ const CartScreen = ({ categories }) => {
                   href="/"
                   className="uppercase flex gap-x-1 items-center bg-primary hover:bg-secondary duration-150 py-2 px-4  justify-center"
                 >
-                  <FontAwesomeIcon icon={faArrowLeft} width={10} />
+                  <WestIcon style={{ width: "18px" }} />
                   <span className="text-xs">continue shopping</span>
                 </Link>
                 <button
@@ -180,7 +177,7 @@ const CartScreen = ({ categories }) => {
                   className="uppercase flex gap-x-1 items-center bg-success hover:bg-error duration-150 py-2 px-4 justify-center"
                 >
                   <span className="text-xs">checkout</span>
-                  <FontAwesomeIcon icon={faArrowRight} width={10} />
+                  <EastIcon style={{ width: "18px" }} />
                 </button>
               </div>
             </div>

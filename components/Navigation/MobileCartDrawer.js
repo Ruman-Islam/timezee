@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { Store } from "@/utils/Store";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import axios from "axios";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
   const { state, dispatch } = useContext(Store);
@@ -46,7 +45,7 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
           <div className="bg-error flex justify-between items-center text-base">
             <div className="p-2 text-lg font-semibold">Your cart</div>
             <button onClick={toggleCartDrawer} className="px-3 py-2">
-              <FontAwesomeIcon icon={faXmark} width={18} className="mx-auto" />
+              <ClearIcon className="mx-auto" />
             </button>
           </div>
           {cartItems.length === 0 ? (
@@ -65,7 +64,7 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                 {cartItems?.map((item) => {
                   return (
                     <li
-                      key={item.slug}
+                      key={item?._id}
                       className="grid grid-cols-4 border-thin border items-center mb-1 p-1 rounded"
                     >
                       <div className="col-span-1 w-16">
@@ -96,9 +95,9 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                           </select>
                           <button
                             onClick={() => removeItemHandler(item)}
-                            className="bg-error hover:bg-secondary duration-150 px-2 py-1 text-base border border-thin"
+                            className="bg-error hover:bg-secondary duration-150 px-2  text-white border border-thin"
                           >
-                            <FontAwesomeIcon icon={faXmark} width={10} />
+                            <ClearIcon className="w-4" />
                           </button>
                         </div>
                       </div>

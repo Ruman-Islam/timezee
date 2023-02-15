@@ -1,10 +1,3 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faClock,
-  faLocationDot,
-  faPhoneAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import nogodImg from "../../public/images/nogod-round-500x500.webp";
 import bkashImg from "../../public/images/BKASH-round-500x500.webp";
@@ -12,6 +5,9 @@ import rocketImg from "../../public/images/Rocket-round-500x500.webp";
 import dbblImg from "../../public/images/dbbl-500x500.webp";
 import visaImg from "../../public/images/visa0r-500x500.webp";
 import masterCardImg from "../../public/images/master-card-round-500x500.webp";
+import PlaceIcon from '@mui/icons-material/Place';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const MidFooter = () => {
   return (
@@ -21,9 +17,7 @@ const MidFooter = () => {
           <div className="flex gap-x-2 group">
             <div>
               <div className="w-12 h-12 bg-success group-hover:bg-neutral rounded-full flex justify-center items-center">
-                <FontAwesomeIcon
-                  width={20}
-                  icon={faLocationDot}
+                <PlaceIcon
                   className="text-white"
                 />
               </div>
@@ -41,9 +35,7 @@ const MidFooter = () => {
           <div href="tel:+44-785-7895" className="flex gap-x-2 group">
             <div>
               <div className="w-12 h-12 bg-success group-hover:bg-neutral rounded-full flex justify-center items-center">
-                <FontAwesomeIcon
-                  width={20}
-                  icon={faPhoneAlt}
+                <LocalPhoneIcon
                   className="text-white"
                 />
               </div>
@@ -59,9 +51,7 @@ const MidFooter = () => {
           <div className="flex gap-x-2 group">
             <div>
               <div className="w-12 h-12 bg-success group-hover:bg-neutral rounded-full flex justify-center items-center">
-                <FontAwesomeIcon
-                  width={20}
-                  icon={faClock}
+                <AccessTimeIcon
                   className="text-white"
                 />
               </div>

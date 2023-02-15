@@ -2,17 +2,17 @@ import AccountSidebar from "@/components/Account/AccountSidebar";
 import AccountWizard from "@/components/Account/AccountWizard";
 import Layout from "@/components/Layout";
 
-const AddressBookScreen = () => {
+const AddAddressScreen = () => {
   return (
-    <Layout title="Address Book">
-      <AccountWizard title="Address Book" />
+    <Layout title="Add Address">
+      <AccountWizard title="Add Address" />
       <div className="flex gap-x-5">
         <AccountSidebar />
-        <div>This is Address book</div>
+        <div>This is Add Address page</div>
       </div>
     </Layout>
   );
 };
 
-AddressBookScreen.auth = true;
-export default AddressBookScreen;
+AddAddressScreen.auth = true;
+export default AddAddressScreen;

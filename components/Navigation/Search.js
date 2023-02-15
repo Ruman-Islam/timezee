@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Autosuggest from "react-autosuggest";
 import Image from "next/image";
 
@@ -79,11 +78,7 @@ const Search = () => {
         </div>
         <div>
           <button>
-            <FontAwesomeIcon
-              icon={faCartPlus}
-              width={25}
-              className="text-neutral hover:text-success duration-100"
-            />
+            <AddShoppingCartIcon className="text-neutral hover:text-success duration-100" />
           </button>
         </div>
       </div>

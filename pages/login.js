@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
+import Link from "next/link";
 import Layout from "@/components/Layout";
 import { useForm } from "react-hook-form";
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 import AccountSidebar from "@/components/Account/AccountSidebar";
 import AccountWizard from "@/components/Account/AccountWizard";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { toast } from "react-toastify";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const LoginScreen = () => {
   const { status, data: session } = useSession();
@@ -79,7 +78,7 @@ const LoginScreen = () => {
                 className="h-[4vh] flex justify-center items-center gap-x-1"
               >
                 <span>continue</span>
-                <FontAwesomeIcon icon={faArrowRight} width={10} />
+                <ChevronRightIcon/>
               </Link>
             </div>
           </div>
@@ -151,7 +150,7 @@ const LoginScreen = () => {
               <div className="text-center text-xs text-white uppercase bg-success hover:bg-primary duration-150 my-4">
                 <button className="h-[4vh] flex justify-center items-center gap-x-1 uppercase mx-auto w-full">
                   <span>login</span>
-                  <FontAwesomeIcon icon={faArrowRight} width={10} />
+                  <ChevronRightIcon />
                 </button>
               </div>
             </form>

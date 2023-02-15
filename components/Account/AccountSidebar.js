@@ -1,10 +1,10 @@
+import { useContext } from "react";
 import { Store } from "@/utils/Store";
-import { faChevronRight, faSignOut } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Cookies from "js-cookie";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useContext } from "react";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Cookies from "js-cookie";
 
 const AccountSidebar = () => {
   const { data: session } = useSession();
@@ -27,16 +27,16 @@ const AccountSidebar = () => {
             href="/login?redirect=/account"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>my account</span>
           </Link>
         </li>
         <li className="py-2">
           <Link
-            href="/login?redirect=/account/addressBook"
+            href="/login?redirect=/account/address"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>address book</span>
           </Link>
         </li>
@@ -45,7 +45,7 @@ const AccountSidebar = () => {
             href="/login?redirect=/account/wishlist"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>wishlist</span>
           </Link>
         </li>
@@ -54,7 +54,7 @@ const AccountSidebar = () => {
             href="/login?redirect=/account/orders"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>order history</span>
           </Link>
         </li>
@@ -63,7 +63,7 @@ const AccountSidebar = () => {
             href="/login?redirect=/account/returns"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>returns</span>
           </Link>
         </li>
@@ -72,7 +72,7 @@ const AccountSidebar = () => {
             href="/login?redirect=/account/transaction"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>transactions</span>
           </Link>
         </li>
@@ -81,7 +81,7 @@ const AccountSidebar = () => {
             href="/login?redirect=/account/newsletter"
             className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
           >
-            <FontAwesomeIcon icon={faChevronRight} width={8} />
+            <ChevronRightIcon />
             <span>newsletter</span>
           </Link>
         </li>
@@ -91,7 +91,7 @@ const AccountSidebar = () => {
               onClick={() => logoutClickHandler()}
               className="flex gap-x-1 items-center text-sm font-semibold text-primary hover:text-error duration-150"
             >
-              <FontAwesomeIcon icon={faSignOut} width={15} />
+              <LogoutIcon />
               <span>Logout</span>
             </button>
           </li>

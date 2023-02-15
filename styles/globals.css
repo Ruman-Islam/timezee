@@ -1,7 +1,7 @@
-/* :root {
+:root {
   --primary: white;
   --secondary: gray;
-} */
+}
 
 @tailwind base;
 /* Firefox */
