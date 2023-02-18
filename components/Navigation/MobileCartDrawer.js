@@ -80,7 +80,7 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                       </div>
                       <div className="flex flex-col items-center col-span-1">
                         <span> &#215;{item?.quantity}</span>
-                        <span>${item?.price}</span>
+                        <span>${item?.sellPrice}</span>
                         <div className="flex justify-center items-center mt-1.5">
                           <select
                             className="outline-none border-t border-l border-b border-thin p-1"
@@ -111,14 +111,14 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                     <span>Sub-Total :</span>
                     <span className="ml-2">
                       ${" "}
-                      {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
+                      {cartItems.reduce((a, b) => a + b.quantity * b.sellPrice, 0)}
                     </span>
                   </p>
                   <p className="text-xs text-right font-semibold">
                     <span>Total :</span>
                     <span className="ml-2">
                       ${" "}
-                      {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
+                      {cartItems.reduce((a, b) => a + b.quantity * b.sellPrice, 0)}
                     </span>
                   </p>
                 </div>

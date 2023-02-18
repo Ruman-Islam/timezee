@@ -4,7 +4,8 @@ import Header from "./Navigation/Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Layout = ({ title, children}) => {
+const Layout = ({ title, children }) => {
+
   return (
     <>
       <Head>
@@ -19,7 +20,7 @@ const Layout = ({ title, children}) => {
       <ToastContainer position="bottom-center" limit={1} />
 
       <div className="min-h-screen flex flex-col justify-between">
-        <Header/>
+        <Header />
         <main className="m-auto mt-0 min-w-full">{children}</main>
         <Footer />
       </div>

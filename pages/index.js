@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import db from "@/utils/db";
 import Product from "@/models/Product";
 import Category from "@/models/Category";
+import Brand from "@/models/Brand";
 import Hero from "@/components/Home/Hero";
 import InfoBlock from "@/components/Home/InfoBlock";
 import FeaturedProducts from "@/components/Home/FeaturedProducts";
@@ -14,7 +15,12 @@ import { Store } from "@/utils/Store";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const HomeScreen = ({ latestProducts, categories, featuredProducts }) => {
+const HomeScreen = ({
+  latestProducts,
+  categories,
+  brands,
+  featuredProducts,
+}) => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -44,7 +50,7 @@ const HomeScreen = ({ latestProducts, categories, featuredProducts }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout title="Home">
-        <Hero categories={categories}/>
+        <Hero brands={brands} />
         <InfoBlock />
         <FeaturedProducts
           products={featuredProducts}
@@ -64,6 +70,7 @@ const HomeScreen = ({ latestProducts, categories, featuredProducts }) => {
 const getServerSideProps = async () => {
   await db.connect();
   const categories = await Category.find().lean();
+  const brands = await Brand.find().lean();
   const latestProducts = await Product.find().sort({ createdAt: -1 }).lean();
   const featuredProducts = await Product.find({ isFeatured: true }).lean();
   return {
@@ -71,6 +78,7 @@ const getServerSideProps = async () => {
       featuredProducts: featuredProducts.map(db.convertDocToObj),
       latestProducts: latestProducts.map(db.convertDocToObj),
       categories: categories.map(db.convertDocToObj),
+      brands: brands.map(db.convertDocToObj),
     },
   };
 };

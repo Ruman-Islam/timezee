@@ -19,7 +19,7 @@ const theme = {
   },
   suggestionsContainerOpen: {
     position: "absolute",
-    top: "40px",
+    top: "39px",
     left: "0",
     right: "0",
     width: "100%",
@@ -31,7 +31,6 @@ const theme = {
     color: "#21323D",
     boxShadow:
       "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
-    borderRadius: "4px",
   },
   suggestion: {
     cursor: "pointer",

@@ -3432,6 +3432,13 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
+re-carousel@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/re-carousel/-/re-carousel-2.4.0.tgz#636ec0c8cf00b012a845d37b6f7ab1b52569806e"
+  integrity sha512-xogK+SLWHXdzEfexSC2UQWk3m6uxL3edqrAMseslEIQ/hjtPHkMLdFToI5oMptUR1t9v6Jqo/vu5mQGUs/q5cg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-autosuggest@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-10.1.0.tgz#4d25b8acc78bb518eb70189bb96bcd777dc71ffb"

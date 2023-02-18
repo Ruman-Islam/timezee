@@ -4,7 +4,7 @@ import BottomFooter from "./BottomFooter";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#3A4750] w-full">
+    <footer className="w-full">
       <TopFooter />
       <MidFooter />
       <BottomFooter />

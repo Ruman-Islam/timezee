@@ -18,6 +18,12 @@ module.exports = {
       "3xl": "1840px",
     },
     colors: {
+      amazonOrange: "#FF9900",
+      amazonOrangeLite: "#FEBD69",
+      amazonBlue: "#146EB4",
+      amazonAccent: "#131921",
+      amazonNeutral: "#232F3E",
+      amazonGray: "#F2F2F2",
       primary: "#277CD9",
       secondary: "#3542AE",
       accent: "#21323D",
@@ -31,6 +37,7 @@ module.exports = {
       grayBackground: "#EEEEEE",
     },
     borderColor: {
+      amazonOrange: "#FF9900",
       primary: "#277CD9",
       secondary: "#3542AE",
       thin: "rgba(30, 41, 59, 0.1)",
@@ -41,7 +48,7 @@ module.exports = {
       ibm: ["IBM Plex Sans", "sans-serif"],
     },
     // fontSize: {
-      
+
     // },
     extend: {},
   },

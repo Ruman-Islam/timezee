@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const TopFooter = () => {
   return (
-    <div className="grid lg:grid-cols-2 text-center pt-2">
+    <div className="grid lg:grid-cols-2 text-center bg-amazonNeutral pt-2">
       <div>
-        <div className="text-success font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
+        <div className="text-amazonOrangeLite font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
           <p>MY ACCOUNT</p>
         </div>
         <div className="text-sm text-white">
@@ -21,7 +21,7 @@ const TopFooter = () => {
         </div>
       </div>
       <div className="m-10 mt-0">
-        <div className="text-success font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
+        <div className="text-amazonOrangeLite font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-12 after:left-0 after:right-0 after:mx-auto mb-2">
           <p>ABOUT US</p>
         </div>
         <div className="text-white text-sm">

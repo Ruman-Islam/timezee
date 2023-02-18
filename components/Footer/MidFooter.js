@@ -11,7 +11,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const MidFooter = () => {
   return (
-    <div className="py-8 bg-[#303841]">
+    <div className="py-8 bg-amazonAccent">
       <div className="max-w-[850px] mx-auto">
         <div className="grid lg:grid-cols-3 gap-x-4">
           <div className="flex gap-x-2 group">

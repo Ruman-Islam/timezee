@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const BottomFooter = () => {
   return (
-    <div className="flex flex-col justify-end h-[12vh]">
+    <div className="flex flex-col justify-end h-[12vh] bg-amazonAccent">
       <div className="flex w-fit mx-auto mb-2">
         <div className="flex gap-x-2 w-fit mx-auto">
           <Image src={facebookImg} alt="" width={30} height={100} />

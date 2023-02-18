@@ -2,7 +2,7 @@ import React from "react";
 
 const InfoBlock = () => {
   return (
-    <div className="bg-grayBackground py-4">
+    <div className="bg-amazonGray py-4">
       <div className="text-center">
         <div className="font-semibold text-sm text-accent">
           ৫০০০ টাকার বেশি অর্ডার করলে ফ্রি শিপিং দেওয়া হয়

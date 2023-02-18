@@ -2,27 +2,21 @@ import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Search from "./Search";
-import useNav from "@/hooks/useNav";
-import LogoMain from "../../public/images/Logo-main.webp";
+import LogoMain from "../../public/images/logo_1.webp";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PersonIcon from "@mui/icons-material/Person";
 import LeftMobileDrawer from "./LeftMobileDrawer";
 import MobileCartDrawer from "./MobileCartDrawer";
 import { Store } from "@/utils/Store";
 import dynamic from "next/dynamic";
 import { useSession } from "next-auth/react";
-import axios from "axios";
 
 const Header = () => {
-  const [categories, setCategories] = useState([]);
-  const { navbar } = useNav();
   const { status, data: session } = useSession();
   const { state } = useContext(Store);
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -37,163 +31,168 @@ const Header = () => {
     setCartItemsCount(cart.cartItems.reduce((a, b) => a + b.quantity, 0));
   }, [cart.cartItems]);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get("/api/categories/");
-      setCategories(data);
-    })();
-  }, []);
-
   const toggleNavDrawer = () => {
     setIsNavOpen((prevState) => !prevState);
   };
+
   const toggleCartDrawer = () => {
     setIsCartOpen((prevState) => !prevState);
   };
 
   return (
-    <header className="w-full mb-10 lg:mb-1 relative z-50 text-base">
-      <nav
-        className={`flex items-center px-3 py-2 left-0 right-0 ${
-          navbar
-            ? "fixed h-[6vh] bg-accent justify-center"
-            : "bg-neutral justify-center lg:justify-between"
-        }`}
-      >
-        <span className="text-xs invisible">..</span>
-        <span className="text-[12px] font-semibold flex justify-between items-center">
-          <small className="white">
-            SHOP: 01641757175, DELIVERY: 01919646416
-          </small>
-        </span>
-        <span className="text-xs font-thin ml-2">ENGLISH</span>
-      </nav>
-      <nav className="bg-accent fixed lg:static top-0 left-0 right-0">
+    <header className="w-full relative z-50 text-base">
+      <nav className="bg-amazonAccent pb-0.5 lg:pb-0">
         <div>
           <div>
-            <div className="flex items-center justify-between px-3 py-0 lg:py-2">
-              <div className="flex items-center">
+            <div className="flex flex-wrap gap-x-5 items-center justify-between lg:justify-start px-3">
+              <div className="flex items-center my-2.5">
                 <div className="lg:hidden">
-                  <MenuIcon onClick={toggleNavDrawer} />
+                  <MenuIcon onClick={toggleNavDrawer} className="w-10 h-10" />
                 </div>
                 <Link href="/">
-                  <>
-                    <Image
-                      width={200}
-                      height={200}
-                      src={LogoMain}
-                      alt="Electronic Bd"
-                    />
-                  </>
+                  <Image
+                    width={600}
+                    height={600}
+                    src={LogoMain}
+                    alt="Electronic Bd"
+                    className="w-[130px] lg:w-[180px]"
+                  />
                 </Link>
               </div>
               <div
-                className={`flex-grow shadow-xl duration-300 ${
-                  navbar
-                    ? "fixed left-0 right-0 lg:left-64 lg:right-52 top-16 lg:top-2 mx-auto block z-10"
-                    : "relative hidden lg:block mx-10 lg:max-w-7xl"
-                }`}
+                className={`relative hidden lg:block flex-grow shadow-xl duration-300 max-w-7xl`}
               >
                 <Search />
-                <div className="bg-neutral absolute top-0 bottom-0 -right-0.5 flex items-center px-3 rounded-r">
+                <div className="bg-amazonOrangeLite absolute top-0 bottom-0 -right-0.5 text-amazonNeutral flex items-center px-3 rounded-r cursor-pointer">
                   <SearchIcon />
                 </div>
               </div>
-              <div>
-                <Link href="/cart" className="hidden lg:block">
-                  <div className="flex w-full items-center justify-between bg-success hover:bg-secondary px-4 mr-3 py-3 rounded-xl">
-                    <span>
-                      {cartItemsCount} item(s) : $
-                      {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
-                    </span>
-                    <ShoppingCartIcon />
+              <div className="mx-1 flex gap-x-2 items-center lg:items-end justify-center">
+                <div className="hidden lg:block hover:text-amazonOrange duration-200">
+                  <Link href="/login?redirect=/account">
+                    <div className="text-xs">
+                      {status === "loading" ? (
+                        "Loading"
+                      ) : session?.user ? (
+                        <span>Hello, {session?.user?.name}</span>
+                      ) : (
+                        <span>Hello, Sign in</span>
+                      )}
+                    </div>
+                    <div className="text-sm font-semibold leading-tight">
+                      Account & Lists
+                    </div>
+                  </Link>
+                </div>
+                <div className="block lg:hidden">
+                  <Link href="/login?redirect=/account">
+                    <div className="text-xs">
+                      {status === "loading" ? (
+                        "Loading"
+                      ) : session?.user ? (
+                        <span>
+                          {session?.user?.name} <PersonIcon />
+                        </span>
+                      ) : (
+                        <span>
+                          Sign in <PersonIcon />
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/cart" className="hidden lg:flex items-end">
+                    <div className="relative">
+                      <svg
+                        width="42"
+                        height="42"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 512"
+                        fill="white"
+                      >
+                        <path d="M423.3 440.7c0 25.3-20.3 45.6-45.6 45.6s-45.8-20.3-45.8-45.6 20.6-45.8 45.8-45.8c25.4 0 45.6 20.5 45.6 45.8zm-253.9-45.8c-25.3 0-45.6 20.6-45.6 45.8s20.3 45.6 45.6 45.6 45.8-20.3 45.8-45.6-20.5-45.8-45.8-45.8zm291.7-270C158.9 124.9 81.9 112.1 0 25.7c34.4 51.7 53.3 148.9 373.1 144.2 333.3-5 130 86.1 70.8 188.9 186.7-166.7 319.4-233.9 17.2-233.9z" />
+                      </svg>
+                      <div className="absolute top-4 right-5 flex items-center justify-center text-xs font-bold text-amazonOrange">
+                        {cartItemsCount}
+                      </div>
+                    </div>
+                    <div className="text-xs font-bold">
+                      {"$ "}
+                      <span>
+                        {cartItems.reduce(
+                          (a, b) => a + b.quantity * b.sellPrice,
+                          0
+                        )}
+                      </span>
+                    </div>
+                  </Link>
+                  <div
+                    onClick={toggleCartDrawer}
+                    className="flex items-end lg:hidden cursor-pointer"
+                  >
+                    <div className="relative">
+                      <svg
+                        width="42"
+                        height="42"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 512"
+                        fill="white"
+                      >
+                        <path d="M423.3 440.7c0 25.3-20.3 45.6-45.6 45.6s-45.8-20.3-45.8-45.6 20.6-45.8 45.8-45.8c25.4 0 45.6 20.5 45.6 45.8zm-253.9-45.8c-25.3 0-45.6 20.6-45.6 45.8s20.3 45.6 45.6 45.6 45.8-20.3 45.8-45.6-20.5-45.8-45.8-45.8zm291.7-270C158.9 124.9 81.9 112.1 0 25.7c34.4 51.7 53.3 148.9 373.1 144.2 333.3-5 130 86.1 70.8 188.9 186.7-166.7 319.4-233.9 17.2-233.9z" />
+                      </svg>
+                      <div className="absolute top-4 right-5 flex items-center justify-center text-xs font-bold text-amazonOrange">
+                        {cartItemsCount}
+                      </div>
+                    </div>
                   </div>
-                </Link>
-                <div className="lg:hidden items-center">
-                  <ShoppingCartIcon onClick={toggleCartDrawer} />
                 </div>
               </div>
             </div>
-            <div className="hidden lg:flex justify-between items-center px-3 pb-0.5">
-              <div className="flex items-center gap-x-0.5">
-                <div
-                  className={`group ${
-                    navbar ? "fixed top-1.5 z-10" : "relative"
-                  }`}
-                >
-                  <Link href="/categories">
-                    <div className="flex gap-x-1 items-center justify-between bg-success text-sm px-8 py-2 rounded">
-                      <MenuIcon />
-                      <span className="font-semibold">ALL CATEGORIES</span>
-                    </div>
-                  </Link>
-                  <ul className="absolute z-10 w-full hidden group-hover:block bg-white shadow-xl text-accent rounded py-3">
-                    {categories?.map(({ name }, i) => {
-                      return (
-                        <li key={i}>
-                          <Link
-                            href={`/products/${name}`}
-                            className="uppercase text-xs py-1.5 px-3 hover:bg-accent hover:text-white duration-150 flex gap-x-1 items-center"
-                          >
-                            <KeyboardDoubleArrowRightIcon className="text-error w-4" />
-                            {name?.length > 21
-                              ? name?.slice(0, 21) + "..."
-                              : name}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-                <div>
-                  <Link href="/delivery-info">
-                    <div className="bg-neutral text-xs px-3 rounded text-center">
-                      <LocalShippingIcon className="w-4" />
-                      <p>Delivery Information</p>
-                    </div>
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/delivery-info">
-                    <div className="bg-neutral text-xs px-3 rounded text-center">
-                      <HelpOutlineIcon className="w-4" />
-                      <p>How to Buy?</p>
-                    </div>
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/delivery-info">
-                    <div className="bg-neutral text-xs px-3 rounded text-center">
-                      <FavoriteIcon className="w-4" />
-                      <p>Wishlist</p>
-                    </div>
-                  </Link>
-                </div>
-                <div>
-                  <Link href="/delivery-info">
-                    <div className="bg-neutral text-xs px-3 rounded text-center">
-                      <CompareArrowsIcon className="w-4" />
-                      <p>Compare</p>
-                    </div>
-                  </Link>
-                </div>
+            <div
+              className={`relative block lg:hidden flex-grow shadow-xl duration-300 mx-3 my-2`}
+            >
+              <Search />
+              <div className="bg-amazonOrangeLite absolute top-0 bottom-0 -right-0.5 flex items-center px-3 rounded-r">
+                <SearchIcon />
               </div>
-              <div
-                className={`${
-                  navbar ? "fixed top-3 right-5 z-10" : "relative"
-                }`}
-              >
-                <Link href="/login?redirect=/account">
-                  <div className="bg-primary hover:bg-secondary duration-150 h-[3.5vh] flex gap-x-1 items-center justify-center px-5 rounded">
-                    <AccountCircleIcon />
-                    {status === "loading" ? (
-                      "Loading"
-                    ) : session?.user ? (
-                      <span>{session?.user?.name}</span>
-                    ) : (
-                      "My Account"
-                    )}
-                  </div>
+            </div>
+            <div className="hidden lg:flex justify-between items-center px-3 py-2 bg-amazonNeutral">
+              <div className="flex items-center gap-x-5 text-sm">
+                <button
+                  className={`group flex items-center font-extrabold hover:text-amazonOrange duration-150`}
+                  onClick={toggleNavDrawer}
+                >
+                  <MenuIcon className="w-6" />
+                  All
+                </button>
+                <Link
+                  href="/delivery-info"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
+                >
+                  <LocalShippingIcon className="w-4" />
+                  Delivery Information
+                </Link>
+                <Link
+                  href="/delivery-info"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-bold"
+                >
+                  <HelpOutlineIcon className="w-4" />
+                  How to Buy?
+                </Link>
+                <Link
+                  href="/delivery-info"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-bold"
+                >
+                  <FavoriteIcon className="w-4" />
+                  Wishlist
+                </Link>
+                <Link
+                  href="/delivery-info"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-bold"
+                >
+                  <CompareArrowsIcon className="w-4" />
+                  Compare
                 </Link>
               </div>
             </div>

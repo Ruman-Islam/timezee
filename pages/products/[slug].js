@@ -69,7 +69,9 @@ const getServerSideProps = async (context) => {
   } else if (slug === "latest") {
     products = await Product.find().sort({ createdAt: -1 }).lean();
   } else {
-    products = await Product.find({ category: slug }).lean();
+    products = await Product.find({
+      $or: [{ brand: slug }, { category: slug }],
+    }).lean();
   }
   await db.disconnect();
 

@@ -7,11 +7,11 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 const ProductCard = ({ product, addToCartHandler }) => {
-  const { name, images, price, _id, rating } = product;
+  const { name, images, sellPrice, _id, rating } = product;
 
   return (
     <div className="hover:z-10">
-      <div className="hover:shadow-[0_5px_60px_-10px_rgb(109,118,125)] group hover:z-10 text-accent p-4">
+      <div className="hover:shadow-[0_0_40px_-15px_rgb(109,118,125)] group hover:z-10 text-accent p-4">
         <div className="w-4/4 h-[490px] bg-white flex flex-col justify-between relative before:absolute before:overflow-hidden overflow-hidden before:left-0 before:rounded-xl before:w-full before:h-full before:border before:border-thin group-hover:before:border-none">
           <div className="p-1 rounded-xl">
             <Link
@@ -26,13 +26,13 @@ const ProductCard = ({ product, addToCartHandler }) => {
                   height={100}
                   alt={name}
                 />
-                <Image
+                {/* <Image
                   className="w-full absolute top-0 left-0 invisible group-hover:block group-hover:visible opacity-0 group-hover:opacity-100 scale-100 group-hover:scale-110 duration-300"
                   src={`${images[1]}`}
                   width={800}
                   height={100}
                   alt={name}
-                />
+                /> */}
                 <div className="bg-white p-1 absolute bottom-0 left-0 right-0 mx-auto flex justify-left w-fit text-warning">
                   <Rating
                     initialRating={rating}
@@ -45,15 +45,15 @@ const ProductCard = ({ product, addToCartHandler }) => {
             </Link>
           </div>
           <div className="flex-grow">
-            <div className="py-1.5 px-1 leading-none font-semibold text-center relative before:absolute before:w-48 before:h-full before:mx-auto before:left-0 before:right-0 before:border-b before:border-thin text-sm">
+            <div className="pt-3 px-1 leading-none font-semibold text-center relative before:absolute before:w-48 before:h-full before:mx-auto before:left-0 before:right-0 before:border-b before:border-thin text-xs">
               <Link
                 href={`/product/${_id}`}
-                className="relative duration-150 z-10 hover:text-primary"
+                className="relative duration-150 z-10 hover:text-primary capitalize"
               >
-                <small>{name}</small>
+                {name}
               </Link>
             </div>
-            <div className="text-center text-error mt-4">৳{price}</div>
+            <div className="text-center text-error mt-4">৳{sellPrice}</div>
           </div>
           <div className="footer">
             <div className="relative">

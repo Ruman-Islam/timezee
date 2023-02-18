@@ -101,7 +101,7 @@ const CartScreen = ({ categories }) => {
                         className="border border-b border-l border-r border-thin text-[12px]"
                       >
                         <td className="p-4">
-                          <Link href={`/product/${item.slug}`}>
+                          <Link href={`/product/${item._id}`}>
                             <Image
                               src={item.images[0]}
                               alt={item.name}
@@ -112,7 +112,7 @@ const CartScreen = ({ categories }) => {
                         </td>
                         <td>
                           <Link
-                            href={`/product/${item.slug}`}
+                            href={`/product/${item._id}`}
                             className="text-primary hover:text-error leading-snug inline-block"
                           >
                             {item.name}
@@ -140,8 +140,8 @@ const CartScreen = ({ categories }) => {
                             />
                           </button>
                         </td>
-                        <td className="hidden md:table-cell">${item.price}</td>
-                        <td className="pl-4">${item.price}</td>
+                        <td className="hidden md:table-cell">${item.sellPrice}</td>
+                        <td className="pl-4">${item.sellPrice}</td>
                       </tr>
                     );
                   })}
@@ -156,12 +156,12 @@ const CartScreen = ({ categories }) => {
               <ul className="p-3 mb-auto border border-thin bg-white">
                 <li className="py-1">
                   Sub-total ({cartItems.reduce((a, b) => a + b.quantity, 0)}) :
-                  ${cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
+                  ${cartItems.reduce((a, b) => a + b.quantity * b.sellPrice, 0)}
                 </li>
                 <li className="border-b border-thin"></li>
                 <li className="py-1">
                   Total ({cartItems.reduce((a, b) => a + b.quantity, 0)}) : $
-                  {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
+                  {cartItems.reduce((a, b) => a + b.quantity * b.sellPrice, 0)}
                 </li>
               </ul>
               <div className="flex flex-col 2xl:flex-row gap-x-2 text-white justify-center">
