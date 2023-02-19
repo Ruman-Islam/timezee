@@ -40,11 +40,11 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full relative z-50 text-base">
-      <nav className="bg-amazonAccent pb-0.5 lg:pb-0">
+    <header className="w-full relative z-50 bg-amazonAccent text-white">
+      <nav className="w-full lg:w-10/12 mx-auto pb-0.5 lg:pb-0">
         <div>
           <div>
-            <div className="flex flex-wrap gap-x-5 items-center justify-between lg:justify-start px-3">
+            <div className="flex flex-wrap gap-x-5 items-center justify-between px-3">
               <div className="flex items-center my-2.5">
                 <div className="lg:hidden">
                   <MenuIcon onClick={toggleNavDrawer} className="w-10 h-10" />
@@ -80,7 +80,7 @@ const Header = () => {
                       )}
                     </div>
                     <div className="text-sm font-semibold leading-tight">
-                      Account & Lists
+                      Account 
                     </div>
                   </Link>
                 </div>
@@ -157,41 +157,41 @@ const Header = () => {
                 <SearchIcon />
               </div>
             </div>
-            <div className="hidden lg:flex justify-between items-center px-3 py-2 bg-amazonNeutral">
+            <div className="hidden lg:flex justify-between items-center px-3 py-1.5">
+              <button
+                className={`group flex items-center font-extrabold hover:text-amazonOrange duration-150`}
+                onClick={toggleNavDrawer}
+              >
+                <MenuIcon className="w-6" />
+                All
+              </button>
               <div className="flex items-center gap-x-5 text-sm">
-                <button
-                  className={`group flex items-center font-extrabold hover:text-amazonOrange duration-150`}
-                  onClick={toggleNavDrawer}
-                >
-                  <MenuIcon className="w-6" />
-                  All
-                </button>
                 <Link
                   href="/delivery-info"
                   className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
                 >
-                  <LocalShippingIcon className="w-4" />
+                  <LocalShippingIcon />
                   Delivery Information
                 </Link>
                 <Link
                   href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-bold"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
                 >
-                  <HelpOutlineIcon className="w-4" />
+                  <HelpOutlineIcon />
                   How to Buy?
                 </Link>
                 <Link
                   href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-bold"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
                 >
-                  <FavoriteIcon className="w-4" />
+                  <FavoriteIcon />
                   Wishlist
                 </Link>
                 <Link
                   href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-bold"
+                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
                 >
-                  <CompareArrowsIcon className="w-4" />
+                  <CompareArrowsIcon />
                   Compare
                 </Link>
               </div>

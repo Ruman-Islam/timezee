@@ -33,7 +33,7 @@ const ProductCard = ({ product, addToCartHandler }) => {
                   height={100}
                   alt={name}
                 /> */}
-                <div className="bg-white p-1 absolute bottom-0 left-0 right-0 mx-auto flex justify-left w-fit text-warning">
+                <div className="bg-white p-1 absolute bottom-0 left-0 right-0 mx-auto flex justify-left w-fit text-amazonOrange">
                   <Rating
                     initialRating={rating}
                     emptySymbol={<StarBorderRoundedIcon />}
@@ -48,12 +48,12 @@ const ProductCard = ({ product, addToCartHandler }) => {
             <div className="pt-3 px-1 leading-none font-semibold text-center relative before:absolute before:w-48 before:h-full before:mx-auto before:left-0 before:right-0 before:border-b before:border-thin text-xs">
               <Link
                 href={`/product/${_id}`}
-                className="relative duration-150 z-10 hover:text-primary capitalize"
+                className="relative duration-150 z-10 hover:text-amazonBlue capitalize"
               >
                 {name}
               </Link>
             </div>
-            <div className="text-center text-error mt-4">৳{sellPrice}</div>
+            <div className="text-center text-amazonAccent mt-4">${sellPrice}</div>
           </div>
           <div className="footer">
             <div className="relative">
@@ -61,7 +61,7 @@ const ProductCard = ({ product, addToCartHandler }) => {
                 <div>
                   <button
                     onClick={() => addToCartHandler(product)}
-                    className="px-4 py-0.5 uppercase bg-accent text-white text-xs hover:bg-primary rounded-2xl duration-200 flex justify-center items-center gap-x-2"
+                    className="px-4 py-0.5 uppercase bg-accent text-white text-xs hover:bg-amazonBlue rounded-2xl duration-200 flex justify-center items-center gap-x-2"
                   >
                     <AddShoppingCartIcon style={{ width: "18px" }} />
                     <span>add to cart</span>
@@ -73,7 +73,7 @@ const ProductCard = ({ product, addToCartHandler }) => {
                   <div className="flex gap-x-1 items-center">
                     <MonetizationOnIcon
                       style={{ width: "18px" }}
-                      className="text-success"
+                      className="text-amazonBlue"
                     />
                     <span className="text-xs hover:text-error">Buy Now</span>
                   </div>

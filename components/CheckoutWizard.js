@@ -9,8 +9,8 @@ const CheckoutWizard = ({ activeStep = 0 }) => {
           text-center text-sm lg:text-lg 
        ${
          index <= activeStep
-           ? "border-primary text-primary"
-           : "border-accent text-accent"
+           ? "border-amazonBlue text-amazonBlue"
+           : "border-amazonNeutral text-amazonNeutral"
        }
        `}
           >

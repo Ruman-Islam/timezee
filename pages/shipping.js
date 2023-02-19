@@ -66,18 +66,18 @@ const ShippingScreen = () => {
         <CheckoutWizard activeStep={1} />
       </div>
       <form
-        className="mx-auto max-w-screen-md bg-white p-1"
+        className="mx-auto max-w-screen-md text-amazonNeutral bg-white p-1"
         onSubmit={handleSubmit(submitHandler)}
       >
         <div className="mb-4 flex justify-between items-center">
           <label htmlFor="fullName" className="w-32 text-xs font-semibold">
-            Full Name
+            Full Name*
           </label>
           <div className="flex-grow">
             <input
               type="text"
               placeholder="Full Name"
-              className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+              className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
               id="fullName"
               {...register("fullName", {
                 required: "Please enter full name",
@@ -99,7 +99,7 @@ const ShippingScreen = () => {
             <input
               type="text"
               placeholder="Company"
-              className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+              className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
               id="company"
               {...register("company")}
             />
@@ -108,13 +108,13 @@ const ShippingScreen = () => {
 
         <div className="mb-4 flex justify-between items-center">
           <label htmlFor="address" className="w-32 text-xs font-semibold">
-            Address
+            Address*
           </label>
           <div className="flex-grow">
             <textarea
               type="text"
               placeholder="Address"
-              className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+              className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
               id="address"
               {...register("address", {
                 required: "Please enter address",
@@ -134,13 +134,13 @@ const ShippingScreen = () => {
 
         <div className="mb-4 flex justify-between items-center">
           <label htmlFor="city" className="w-32 text-xs font-semibold">
-            City
+            City*
           </label>
           <div className="flex-grow">
             <input
               type="text"
               placeholder="City"
-              className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+              className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
               id="city"
               {...register("city", {
                 required: "Please enter city name",
@@ -162,7 +162,7 @@ const ShippingScreen = () => {
             <input
               type="text"
               placeholder="Postal Code"
-              className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+              className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
               id="postalCode"
               {...register("postalCode")}
             />
@@ -170,10 +170,10 @@ const ShippingScreen = () => {
         </div>
 
         <div className="mb-4 flex justify-between items-center">
-          <label className="w-32 text-xs font-semibold">Country</label>
+          <label className="w-32 text-xs font-semibold">Country*</label>
           <div className="flex-grow">
             <select
-              className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+              className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
               defaultValue=""
               {...register("country", {
                 required: "Please select country",
@@ -191,7 +191,7 @@ const ShippingScreen = () => {
         </div>
 
         <div className="mb-4 flex justify-end">
-          <button className="bg-primary hover:bg-secondary duration-150 text-white px-2">
+          <button className="bg-amazonBlue hover:bg-secondary duration-150 text-white px-4">
             Next
           </button>
         </div>

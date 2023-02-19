@@ -18,7 +18,7 @@ const FeaturedProducts = ({ products, addToCartHandler }) => {
           );
         })}
       </div>
-      <div className="rounded-2xl bg-accent hover:bg-neutral duration-100 my-2 py-0.5 text-base">
+      <div className="rounded-2xl bg-amazonNeutral hover:bg-amazonAccent duration-100 my-2 py-0.5 text-white">
         <Link
           href="/products/featured"
           className="block font-medium text-white text-center uppercase py-1.5 text-sm"

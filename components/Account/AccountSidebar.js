@@ -17,15 +17,15 @@ const AccountSidebar = () => {
   };
 
   return (
-    <div className="w-[200px] border-r border-thin bg-white text-error md:text-accent p-2 uppercase">
-      <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-error pb-1">
+    <div className="w-[200px] border-r border-thin bg-white text-amazonOrange md:text-accent p-2 uppercase">
+      <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1">
         <h4 className="text-sm font-semibold">account menu</h4>
       </div>
       <ul className="my-2">
         <li className="py-2">
           <Link
             href="/login?redirect=/account"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>my account</span>
@@ -34,7 +34,7 @@ const AccountSidebar = () => {
         <li className="py-2">
           <Link
             href="/login?redirect=/account/address"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>address book</span>
@@ -43,7 +43,7 @@ const AccountSidebar = () => {
         <li className="py-2">
           <Link
             href="/login?redirect=/account/wishlist"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>wishlist</span>
@@ -52,7 +52,7 @@ const AccountSidebar = () => {
         <li className="py-2">
           <Link
             href="/login?redirect=/account/orders"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>order history</span>
@@ -61,7 +61,7 @@ const AccountSidebar = () => {
         <li className="py-2">
           <Link
             href="/login?redirect=/account/returns"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>returns</span>
@@ -70,7 +70,7 @@ const AccountSidebar = () => {
         <li className="py-2">
           <Link
             href="/login?redirect=/account/transaction"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>transactions</span>
@@ -79,7 +79,7 @@ const AccountSidebar = () => {
         <li className="py-2">
           <Link
             href="/login?redirect=/account/newsletter"
-            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-neutral hover:text-error duration-150"
+            className="flex w-fit gap-x-1 items-center text-xs font-semibold text-amazonNeutral hover:text-amazonOrange duration-150"
           >
             <ChevronRightIcon />
             <span>newsletter</span>
@@ -89,7 +89,7 @@ const AccountSidebar = () => {
           <li className="py-2">
             <button
               onClick={() => logoutClickHandler()}
-              className="flex gap-x-1 items-center text-sm font-semibold text-primary hover:text-error duration-150"
+              className="flex gap-x-1 items-center text-sm font-semibold text-amazonBlue hover:text-amazonOrange duration-150"
             >
               <LogoutIcon />
               <span>Logout</span>

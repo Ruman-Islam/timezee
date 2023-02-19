@@ -48,7 +48,7 @@ const LoginScreen = () => {
         <div className="flex flex-col md:flex-row gap-x-5">
           <AccountSidebar />
           <div>
-            <span>Loading...</span>
+            <span className="text-amazonBlue">Loading...</span>
           </div>
         </div>
       </Layout>
@@ -62,7 +62,7 @@ const LoginScreen = () => {
         <AccountSidebar />
         <div className="bg-white p-5 flex-grow">
           <div>
-            <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-error pb-1 ">
+            <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1 ">
               <h4 className="uppercase text-lg">new customer</h4>
             </div>
             <div className="py-3 border-b border-thin">
@@ -72,7 +72,7 @@ const LoginScreen = () => {
                 have previously made.
               </p>
             </div>
-            <div className="text-center text-xs text-white uppercase bg-success hover:bg-error duration-150 my-4">
+            <div className="text-center text-xs text-white uppercase bg-amazonBlue hover:bg-success duration-150 my-4">
               <Link
                 href="/register"
                 className="h-[4vh] flex justify-center items-center gap-x-1"
@@ -84,7 +84,7 @@ const LoginScreen = () => {
           </div>
 
           <div>
-            <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-error pb-1 ">
+            <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1 ">
               <h4 className="uppercase text-lg">RETURNING CUSTOMER</h4>
             </div>
             <form className="mt-5" onSubmit={handleSubmit(submitHandler)}>
@@ -96,7 +96,7 @@ const LoginScreen = () => {
                   <input
                     type="email"
                     placeholder="E-Mail Address"
-                    className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+                    className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
                     id="email"
                     {...register("email", {
                       required: "Please enter email",
@@ -125,7 +125,7 @@ const LoginScreen = () => {
                   <input
                     type="password"
                     placeholder="Password"
-                    className="w-full border border-thin outline-none p-2 text-xs hover:border-secondary duration-150 focus:border-secondary"
+                    className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
                     id="password"
                     {...register("password", {
                       required: "Please enter password",
@@ -143,11 +143,11 @@ const LoginScreen = () => {
                 </div>
               </div>
               <div className="text-sm border-b border-thin pb-3">
-                <Link href="/" className="text-primary hover:text-error">
+                <Link href="/" className="text-amazonBlue hover:text-error">
                   Forgotten Password ?
                 </Link>
               </div>
-              <div className="text-center text-xs text-white uppercase bg-success hover:bg-primary duration-150 my-4">
+              <div className="text-center text-xs text-white uppercase bg-amazonBlue hover:bg-success duration-150 my-4">
                 <button className="h-[4vh] flex justify-center items-center gap-x-1 uppercase mx-auto w-full">
                   <span>login</span>
                   <ChevronRightIcon />

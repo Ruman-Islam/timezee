@@ -37,31 +37,31 @@ const CheckoutScreen = () => {
   const [loading, setLoading] = useState(false);
 
   const placeOrderHandler = async () => {
-    // try {
-    //   setLoading(true);
-    //   const { data } = await axios.post("/api/orders", {
-    //     orderItems: cartItems,
-    //     shippingAddress,
-    //     paymentMethod,
-    //     itemsPrice,
-    //     shippingPrice,
-    //     taxPrice,
-    //     totalPrice,
-    //   });
-    //   setLoading(false);
-    //   dispatch({ type: "CART_CLEAR_ITEMS" });
-    //   Cookies.set(
-    //     "cart",
-    //     JSON.stringify({
-    //       ...cart,
-    //       cartItems: [],
-    //     })
-    //   );
-    //   router.push(`/order/${data._id}`);
-    // } catch (err) {
-    //   setLoading(false);
-    //   toast.error(getError(err));
-    // }
+    try {
+      setLoading(true);
+      const { data } = await axios.post("/api/orders", {
+        orderItems: cartItems,
+        shippingAddress,
+        paymentMethod,
+        itemsPrice,
+        shippingPrice,
+        taxPrice,
+        totalPrice,
+      });
+      setLoading(false);
+      dispatch({ type: "CART_CLEAR_ITEMS" });
+      Cookies.set(
+        "cart",
+        JSON.stringify({
+          ...cart,
+          cartItems: [],
+        })
+      );
+      // router.push(`/order/${data._id}`);
+    } catch (err) {
+      setLoading(false);
+      toast.error(getError(err));
+    }
   };
   return (
     <Layout title="Place Order">
@@ -74,46 +74,46 @@ const CheckoutScreen = () => {
           Cart is empty. <Link href="/">Go shopping</Link>
         </div>
       ) : (
-        <div className="mx-auto max-w-screen-2xl flex flex-col lg:flex-row justify-between bg-white gap-x-2">
+        <div className="mx-auto max-w-screen-2xl flex flex-col lg:flex-row justify-between bg-white gap-x-2 text-amazonNeutral">
           <div className="overflow-x-auto md:col-span-3 flex-grow">
-            <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-grayBackground">
-              <h2 className="mb-2">Shipping Address</h2>
+            <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
+              <h2 className="mb-2 text-amazonBlue">Shipping Address</h2>
               <div className="text-sm mb-2">
                 {shippingAddress?.fullName}, {shippingAddress?.address},{" "}
                 {shippingAddress?.city}, {shippingAddress?.postalCode},{" "}
                 {shippingAddress?.country}
               </div>
               <div>
-                <Link href="/shipping" className="text-error">
+                <Link href="/shipping" className="text-amazonOrange">
                   Edit
                 </Link>
               </div>
             </div>
-            <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-grayBackground">
-              <h2 className="mb-2">Payment Method</h2>
+            <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
+              <h2 className="mb-2 text-amazonBlue">Payment Method</h2>
               <div className="text-sm mb-2">{paymentMethod}</div>
               <div>
-                <Link href="/payment" className="text-error">
+                <Link href="/payment" className="text-amazonOrange">
                   Edit
                 </Link>
               </div>
             </div>
             <div className="overflow-x-auto p-5 mb-5 shadow-md rounded-lg border border-thin">
-              <h2>Order Items</h2>
+              <h2 className="text-amazonBlue">Order Items</h2>
               <table className="min-w-full mb-2">
-                <thead className="border-b border-accent text-sm ">
+                <thead className="border-b border-x-amazonOrange text-sm">
                   <tr>
                     <th className="text-left">Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Subtotal</th>
+                    <th className="text-right">Quantity</th>
+                    <th className="text-right  p-3">Price</th>
+                    <th className="text-right">Subtotal</th>
                   </tr>
                 </thead>
                 <tbody>
                   {cartItems.map((item) => (
                     <tr
                       key={item._id}
-                      className="border-b border-thin hover:bg-grayBackground"
+                      className="border-b border-thin hover:bg-amazonGray"
                     >
                       <td>
                         <Link href={`/product/${item._id}`}>
@@ -123,10 +123,11 @@ const CheckoutScreen = () => {
                               alt={item.name}
                               width={50}
                               height={50}
-                              className="border border-thin"
                             />
                             &nbsp;
-                            <p className="text-xs text-primary">{item.name}</p>
+                            <p className="text-xs text-amazonBlue uppercase">
+                              {item.name}
+                            </p>
                           </div>
                         </Link>
                       </td>
@@ -140,7 +141,7 @@ const CheckoutScreen = () => {
                 </tbody>
               </table>
               <div>
-                <Link href="/cart" className="text-error">
+                <Link href="/cart" className="text-amazonOrange">
                   Edit
                 </Link>
               </div>
@@ -178,7 +179,7 @@ const CheckoutScreen = () => {
                   <button
                     disabled={loading}
                     onClick={placeOrderHandler}
-                    className="bg-warning py-1 rounded-md font-bold w-full"
+                    className="bg-warning hover:bg-amazonOrange duration-150 py-1 rounded-md font-bold w-full"
                   >
                     {loading ? "Loading..." : "Place Order"}
                   </button>

@@ -45,7 +45,7 @@ const PaymentScreen = () => {
       <div className="mt-2 mx-auto max-w-screen-lg bg-white">
         <CheckoutWizard activeStep={2} />
       </div>
-      <form onSubmit={submitHandler} className="mx-auto max-w-screen-md p-1">
+      <form onSubmit={submitHandler} className="mx-auto max-w-screen-md p-1 text-amazonNeutral">
         {["PayPal", "Stripe", "CashOnDelivery"].map((payment) => (
           <div key={payment} className="mb-4">
             <input
@@ -57,7 +57,7 @@ const PaymentScreen = () => {
               onChange={() => setSelectedPaymentMethod(payment)}
             />
 
-            <label className="p-2" htmlFor={payment}>
+            <label className="p-2 font-semibold" htmlFor={payment}>
               {payment}
             </label>
           </div>
@@ -66,11 +66,11 @@ const PaymentScreen = () => {
           <button
             onClick={() => router.push("/shipping")}
             type="button"
-            className="bg-error hover:bg-success duration-150 text-white px-2"
+            className="bg-amazonOrangeLite hover:bg-success duration-150 text-white px-2"
           >
             Back
           </button>
-          <button className="bg-primary hover:bg-secondary duration-150 text-white px-2">
+          <button className="bg-amazonBlue hover:bg-secondary duration-150 text-white px-2">
             Next
           </button>
         </div>

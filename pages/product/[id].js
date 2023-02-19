@@ -68,7 +68,7 @@ const ProductScreen = ({ product, categories }) => {
       <div className="max-w-7xl mx-auto px-1 py-10">
         <div className="flex flex-col gap-x-5 lg:flex-row">
           <div className="flex flex-col gap-x-2 mb-3 mx-auto">
-            <div className="left_2 max-w-[500px] border border-thin mb-0.5">
+            <div className="left_2 max-w-[500px] border border-thin mb-0.5 bg-white">
               <ReactImageMagnify
                 {...{
                   smallImage: {
@@ -120,11 +120,11 @@ const ProductScreen = ({ product, categories }) => {
           <div className="flex-grow flex flex-col border-r border-thin">
             <div>
               <div>
-                <h1 className="font-bold text-accent text-xl">{name}</h1>
+                <h1 className="font-semibold text-amazonAccent text-xl uppercase">{name}</h1>
               </div>
               <div className="text-xs py-4">
                 <div className="flex items-center mb-4">
-                  <h3 className="uppercase text-accent">
+                  <h3 className="uppercase text-amazonAccent">
                     <span className="font-semibold">product views: </span>
                     <span className="font-bold">{productViews}</span>
                   </h3>
@@ -170,7 +170,7 @@ const ProductScreen = ({ product, categories }) => {
                   </h3>
                 </div>
               </div>
-              <div className="border-t border-b border-thin flex justify-left p-2 text-amazonOrange">
+              <div className="border-t border-b border-thin flex justify-left py-2 text-amazonOrange">
                 <Rating
                   initialRating={rating}
                   emptySymbol={<StarBorderRoundedIcon />}
@@ -183,13 +183,13 @@ const ProductScreen = ({ product, categories }) => {
                 <p className="text-sm">{description}</p>
               </div>
               <div className="py-2">
-                <span className="text-[30px] text-error font-bold">
-                  ৳{sellPrice}
+                <span className="text-[30px] text-amazonBlue font-bold">
+                  ${sellPrice}
                 </span>
               </div>
               <div>
                 <div className="flex w-fit">
-                  <div className="bg-accent text-white text-xs hover:bg-primary duration-200 flex justify-center">
+                  <div className="bg-amazonNeutral text-white text-xs hover:bg-amazonBlue duration-200 flex justify-center">
                     <button
                       onClick={() => addToCartHandler(product)}
                       className="px-2 py-1 cursor-pointer flex items-center gap-x-1 uppercase"
@@ -198,7 +198,7 @@ const ProductScreen = ({ product, categories }) => {
                       <span>add to cart</span>
                     </button>
                   </div>
-                  <div className="bg-success text-white text-xs hover:bg-error duration-200 flex justify-center px-2">
+                  <div className="bg-success text-white text-xs hover:bg-amazonOrange duration-200 flex justify-center px-2">
                     <button className="uppercase py-1 flex items-center gap-x-1">
                       <MonetizationOnIcon style={{ width: "18px" }} />
                       <span>buy now</span>
@@ -212,10 +212,9 @@ const ProductScreen = ({ product, categories }) => {
                 <ErrorOutlineIcon />
               </div>
               <div className="ml-2">
-                <h6 className="text-sm">সতর্কীকরণ</h6>
+                <h6 className="text-sm font-semibold">Warning</h6>
                 <p className="text-xs">
                   Please read the terms and condition before placing an order.
-                  অর্ডার করার আগে শর্তাবলী পড়ুন দয়া করে
                 </p>
               </div>
             </Link>
@@ -225,7 +224,7 @@ const ProductScreen = ({ product, categories }) => {
           <ul className="flex gap-x-5  border-b border-thin uppercase font-semibold text-[14px] text-accent">
             <li
               onClick={() => setActiveTab("description")}
-              className={`relative before:absolute before:w-full before:h-full pb-2 before:border-error hover:text-error duration-150 cursor-pointer ${
+              className={`relative before:absolute before:w-full before:h-full pb-2 before:border-amazonOrange hover:text-amazonOrange duration-150 cursor-pointer ${
                 activeTab.includes("description")
                   ? "before:border-b"
                   : "before:border-0"
@@ -235,7 +234,7 @@ const ProductScreen = ({ product, categories }) => {
             </li>
             <li
               onClick={() => setActiveTab("reviews")}
-              className={`relative before:absolute before:w-full before:h-full pb-2 before:border-error hover:text-error duration-150 cursor-pointer ${
+              className={`relative before:absolute before:w-full before:h-full pb-2 before:border-amazonOrange hover:text-amazonOrange duration-150 cursor-pointer ${
                 activeTab.includes("reviews")
                   ? "before:border-b"
                   : "before:border-0"
@@ -295,13 +294,13 @@ const ProductScreen = ({ product, categories }) => {
               <div className="flex items-center justify-between mb-2">
                 <input
                   type="text"
-                  className="border border-thin w-full outline-none hover:border-secondary duration-150 p-2 text-[14px]"
+                  className="border border-thin w-full outline-none hover:border-amazonBlue duration-150 p-2 text-[14px]"
                   placeholder="Your name"
                 />
               </div>
               <div className="flex items-center justify-between">
                 <textarea
-                  className="border border-thin w-full p-2 outline-none hover:border-secondary duration-150 text-[14px]"
+                  className="border border-thin w-full p-2 outline-none hover:border-amazonBlue duration-150 text-[14px]"
                   placeholder="Your review"
                   cols={25}
                   rows={4}
@@ -321,7 +320,7 @@ const ProductScreen = ({ product, categories }) => {
               <div>
                 <button
                   type="submit"
-                  className="cursor-pointer bg-accent hover:bg-primary duration-150  w-fit py-1 px-3 text-white flex items-center gap-x-2"
+                  className="cursor-pointer bg-accent hover:bg-amazonBlue duration-150  w-fit py-1 px-3 text-white flex items-center gap-x-2"
                 >
                   Submit
                   <ArrowRightAltIcon />

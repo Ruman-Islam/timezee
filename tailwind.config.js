@@ -38,6 +38,9 @@ module.exports = {
     },
     borderColor: {
       amazonOrange: "#FF9900",
+      amazonBlue: "#146EB4",
+      amazonAccent: "#131921",
+      amazonNeutral: "#232F3E",
       primary: "#277CD9",
       secondary: "#3542AE",
       thin: "rgba(30, 41, 59, 0.1)",

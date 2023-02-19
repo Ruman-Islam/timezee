@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 const WishlistScreen = () => {
   return (
     <Layout title="Wishlist">
-       <AccountWizard title="Wishlist" />
+      <AccountWizard title="Wishlist" />
       <div className="flex gap-x-5">
         <AccountSidebar />
         <div>This is order page</div>

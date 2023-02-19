@@ -40,13 +40,13 @@ const CartScreen = ({ categories }) => {
     <Layout title="Cart">
       <div className="px-3 min-h-[70vh]">
         <div className="py-2 text-white bg-white border-b border-thin">
-          <h1 className="text-2xl text-accent">Shopping Cart</h1>
+          <h1 className="text-2xl text-amazonBlue">Shopping Cart</h1>
         </div>
         {cartItems.length === 0 ? (
           <div className="h-[10vh] flex flex-col justify-center items-center mx-auto mt-2">
             Cart is empty.{" "}
             <Link
-              className="bg-primary text-white inline-block p-2 rounded-md"
+              className="bg-amazonBlue text-white inline-block p-2 rounded-md"
               href="/"
             >
               Go shopping
@@ -54,7 +54,7 @@ const CartScreen = ({ categories }) => {
           </div>
         ) : (
           <div className="flex gap-x-5 flex-col md:flex-row">
-            <div className="bg-white p-1 border border-thin hidden lg:block">
+            {/* <div className="bg-white p-1 border border-thin hidden lg:block">
               <h6 className="text-center">Offers</h6>
               <div className="w-[200px]">
                 <Carousel
@@ -77,11 +77,11 @@ const CartScreen = ({ categories }) => {
                   })}
                 </Carousel>
               </div>
-            </div>
+            </div> */}
 
-            <div className="flex-grow border border-thin">
+            <div className="flex-grow">
               <table className="w-full">
-                <thead className="bg-grayBackground uppercase text-[11px] text-accent border-t border-l border-r border-thin">
+                <thead className="bg-amazonGray uppercase text-[11px] text-amazonNeutral  border-l border-r border-thin">
                   <tr className="font-extrabold">
                     <th className="px-5 text-left">Image</th>
                     <th className="text-left">product name</th>
@@ -98,7 +98,7 @@ const CartScreen = ({ categories }) => {
                     return (
                       <tr
                         key={item?._id}
-                        className="border border-b border-l border-r border-thin text-[12px]"
+                        className="border border-b border-l border-r border-thin text-[12px] bg-white text-amazonNeutral"
                       >
                         <td className="p-4">
                           <Link href={`/product/${item._id}`}>
@@ -113,7 +113,7 @@ const CartScreen = ({ categories }) => {
                         <td>
                           <Link
                             href={`/product/${item._id}`}
-                            className="text-primary hover:text-error leading-snug inline-block"
+                            className="text-amazonBlue hover:text-amazonOrange leading-snug inline-block uppercase"
                           >
                             {item.name}
                           </Link>
@@ -149,8 +149,8 @@ const CartScreen = ({ categories }) => {
               </table>
             </div>
 
-            <div className="bg-grayBackground p-5 text-sm leading-snug flex flex-col justify-center max-h-[400px] mt-4 md:mt-0">
-              <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-error pb-1 font-semibold mb-auto">
+            <div className="bg-amazonGray p-5 text-sm leading-snug flex flex-col justify-center max-h-[400px] mt-4 md:mt-0">
+              <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1 font-semibold mb-auto">
                 <h2>WHAT WOULD YOU LIKE TO DO NEXT?</h2>
               </div>
               <ul className="p-3 mb-auto border border-thin bg-white">
@@ -167,14 +167,14 @@ const CartScreen = ({ categories }) => {
               <div className="flex flex-col 2xl:flex-row gap-x-2 text-white justify-center">
                 <Link
                   href="/"
-                  className="uppercase flex gap-x-1 items-center bg-primary hover:bg-secondary duration-150 py-2 px-4  justify-center"
+                  className="uppercase flex gap-x-1 items-center bg-amazonBlue hover:bg-secondary duration-150 py-2 px-4  justify-center"
                 >
                   <WestIcon style={{ width: "18px" }} />
                   <span className="text-xs">continue shopping</span>
                 </Link>
                 <button
                   onClick={() => router.push("/login?redirect=/shipping")}
-                  className="uppercase flex gap-x-1 items-center bg-success hover:bg-error duration-150 py-2 px-4 justify-center"
+                  className="uppercase flex gap-x-1 items-center bg-success hover:bg-amazonOrange duration-150 py-2 px-4 justify-center"
                 >
                   <span className="text-xs">checkout</span>
                   <EastIcon style={{ width: "18px" }} />
