@@ -1,18 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import Carousel from "nuka-carousel/lib/carousel";
-import img1 from "../../public/images/slideImg1.webp";
 import img2 from "../../public/images/slideshow-v1.2.webp";
 import img3 from "../../public/images/slideshow1.webp";
 import img4 from "../../public/images/slideshow2.webp";
 // import Link from "next/link";
 // import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-const images = [img1, img2, img3, img4];
+const images = [img2, img3, img4];
 
 const Hero = ({ brands }) => {
   return (
-    <div className="w-full">
+    <div className="w-full border-t border-thin">
       <div className="flex justify-between 3xl:h-[81vh]">
         {/* <div className="min-w-[200px] hidden lg:block">
           <h3 className="uppercase text-amazonOrange ml-3.5 font-semibold mt-2">Brands</h3>

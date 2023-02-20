@@ -41,13 +41,13 @@ const Header = () => {
 
   return (
     <header className="w-full relative z-50 bg-amazonAccent text-white">
-      <nav className="w-full lg:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <nav className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
         <div>
           <div>
-            <div className="flex flex-wrap gap-x-5 items-center justify-between px-3">
+            <div className="flex flex-wrap gap-x-5 items-center justify-between px-2 3xl:px-0">
               <div className="flex items-center my-2.5">
                 <div className="lg:hidden">
-                  <MenuIcon onClick={toggleNavDrawer} className="w-10 h-10" />
+                  <MenuIcon onClick={toggleNavDrawer} className="w-8 h-8" />
                 </div>
                 <Link href="/">
                   <Image
@@ -150,14 +150,14 @@ const Header = () => {
               </div>
             </div>
             <div
-              className={`relative block lg:hidden flex-grow shadow-xl duration-300 mx-3 my-2`}
+              className={`relative block lg:hidden flex-grow shadow-xl duration-300 mx-2 my-2`}
             >
               <Search />
               <div className="bg-amazonOrangeLite absolute top-0 bottom-0 -right-0.5 flex items-center px-3 rounded-r">
                 <SearchIcon />
               </div>
             </div>
-            <div className="hidden lg:flex justify-between items-center px-3 py-1.5">
+            <div className="hidden lg:flex justify-between items-center px-2 3xl:px-0 py-1.5">
               <button
                 className={`group flex items-center font-extrabold hover:text-amazonOrange duration-150`}
                 onClick={toggleNavDrawer}

@@ -17,7 +17,7 @@ const AccountSidebar = () => {
   };
 
   return (
-    <div className="w-[200px] border-r border-thin bg-white text-amazonOrange md:text-accent p-2 uppercase">
+    <div className="w-[200px] border-r border-l border-thin bg-white text-amazonOrange md:text-accent p-2 uppercase">
       <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1">
         <h4 className="text-sm font-semibold">account menu</h4>
       </div>

@@ -31,27 +31,29 @@ const ProductsScreen = ({ products, title }) => {
 
   return (
     <Layout title={title}>
-      <AccountWizard title={title} />
-      <div className="flex">
-        <div className="border-r border-thin w-[150px]">filter</div>
-        <div className="flex-grow">
-          {products?.length > 0 ? (
-            <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
-              {products?.map((product) => {
-                return (
-                  <ProductCard
-                    key={product._id}
-                    product={product}
-                    addToCartHandler={addToCartHandler}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <div className=" flex flex-col justify-center items-center text-accent h-[20vh]">
-              No products
-            </div>
-          )}
+      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+        <AccountWizard title={title} />
+        <div className="flex">
+          {/* <div className="border-r border-thin w-[150px]">filter</div> */}
+          <div className="flex-grow">
+            {products?.length > 0 ? (
+              <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+                {products?.map((product) => {
+                  return (
+                    <ProductCard
+                      key={product._id}
+                      product={product}
+                      addToCartHandler={addToCartHandler}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              <div className=" flex flex-col justify-center items-center text-accent h-[20vh]">
+                No products
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Layout>

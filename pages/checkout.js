@@ -57,7 +57,7 @@ const CheckoutScreen = () => {
           cartItems: [],
         })
       );
-      // router.push(`/order/${data._id}`);
+      router.push(`/order/${data._id}`);
     } catch (err) {
       setLoading(false);
       toast.error(getError(err));
@@ -74,7 +74,7 @@ const CheckoutScreen = () => {
           Cart is empty. <Link href="/">Go shopping</Link>
         </div>
       ) : (
-        <div className="mx-auto max-w-screen-2xl flex flex-col lg:flex-row justify-between bg-white gap-x-2 text-amazonNeutral">
+        <div className="mx-auto max-w-screen-2xl flex flex-col lg:flex-row justify-between bg-white gap-x-2 text-amazonNeutral px-2">
           <div className="overflow-x-auto md:col-span-3 flex-grow">
             <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
               <h2 className="mb-2 text-amazonBlue">Shipping Address</h2>
@@ -84,7 +84,7 @@ const CheckoutScreen = () => {
                 {shippingAddress?.country}
               </div>
               <div>
-                <Link href="/shipping" className="text-amazonOrange">
+                <Link href="/shipping" className="text-error">
                   Edit
                 </Link>
               </div>
@@ -93,13 +93,13 @@ const CheckoutScreen = () => {
               <h2 className="mb-2 text-amazonBlue">Payment Method</h2>
               <div className="text-sm mb-2">{paymentMethod}</div>
               <div>
-                <Link href="/payment" className="text-amazonOrange">
+                <Link href="/payment" className="text-error">
                   Edit
                 </Link>
               </div>
             </div>
             <div className="overflow-x-auto p-5 mb-5 shadow-md rounded-lg border border-thin">
-              <h2 className="text-amazonBlue">Order Items</h2>
+              {/* <h2 className="text-amazonBlue">Order Items</h2> */}
               <table className="min-w-full mb-2">
                 <thead className="border-b border-x-amazonOrange text-sm">
                   <tr>
@@ -141,7 +141,7 @@ const CheckoutScreen = () => {
                 </tbody>
               </table>
               <div>
-                <Link href="/cart" className="text-amazonOrange">
+                <Link href="/cart" className="text-error">
                   Edit
                 </Link>
               </div>

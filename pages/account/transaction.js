@@ -5,10 +5,12 @@ import Layout from "@/components/Layout";
 const TransactionScreen = () => {
   return (
     <Layout title="Transaction">
-      <AccountWizard title="Transaction" />
-      <div className="flex gap-x-5">
-        <AccountSidebar />
-        <div>This is Transaction page</div>
+      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+        <AccountWizard title="Transaction" />
+        <div className="flex gap-x-5">
+          <AccountSidebar />
+          <div>This is Transaction page</div>
+        </div>
       </div>
     </Layout>
   );

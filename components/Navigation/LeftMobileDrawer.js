@@ -30,7 +30,7 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
         duration={300}
         overlayOpacity={0.7}
         lockBackgroundScroll
-        size={350}
+        size={300}
       >
         <div className="relative">
           <div className="text-amazonAccent text-sm">

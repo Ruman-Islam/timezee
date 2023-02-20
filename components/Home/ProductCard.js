@@ -75,7 +75,7 @@ const ProductCard = ({ product, addToCartHandler }) => {
                       style={{ width: "18px" }}
                       className="text-amazonBlue"
                     />
-                    <span className="text-xs hover:text-error">Buy Now</span>
+                    <span className="text-xs hover:text-amazonOrange">Buy Now</span>
                   </div>
                 </Link>
               </div>

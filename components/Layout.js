@@ -5,14 +5,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Layout = ({ title, children }) => {
-
   return (
     <>
       <Head>
-        <title>
-          {title ? "Electronics.Com.BD | " + title : "Electronics.Com.BD"}
-        </title>
-        <meta name="description" content="pCommerce website" />
+        <title>{title ? "TimeZee | " + title : "TimeZee"}</title>
+        <meta name="description" content="TimeZee" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
