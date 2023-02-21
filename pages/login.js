@@ -77,7 +77,7 @@ const LoginScreen = () => {
               </div>
               <div className="text-center text-xs text-white uppercase bg-amazonBlue hover:bg-success duration-150 my-4">
                 <Link
-                  href="/register"
+                  href={`/register?redirect=${redirect || "/"}`}
                   className="h-[4vh] flex justify-center items-center gap-x-1"
                 >
                   <span>continue</span>

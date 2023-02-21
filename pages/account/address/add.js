@@ -6,7 +6,7 @@ const AddAddressScreen = () => {
   return (
     <Layout title="Add Address">
       <AccountWizard title="Add Address" />
-      <div className="flex gap-x-5">
+      <div className="flex flex-col lg:flex-row gap-x-2">
         <AccountSidebar />
         <div>This is Add Address page</div>
       </div>
