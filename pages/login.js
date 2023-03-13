@@ -23,7 +23,7 @@ const LoginScreen = () => {
   useEffect(() => {
     if (session?.user) {
       router.push(redirect || "/");
-    }
+    } 
   }, [router, session, redirect]);
 
   const submitHandler = async ({ email, password }) => {

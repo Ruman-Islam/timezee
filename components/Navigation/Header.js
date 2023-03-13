@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Search from "./Search";
@@ -40,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full relative z-50 bg-amazonAccent text-white">
+    <header className="w-full sticky top-0 z-50 bg-amazonAccent text-white">
       <nav className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
         <div>
           <div>
@@ -117,9 +117,9 @@ const Header = () => {
                         {cartItemsCount}
                       </div>
                     </div>
-                    <div className="text-xs font-bold">
+                    <div className="text-xs text-amazonOrange font-bold">
                       {"$ "}
-                      <span>
+                      <span className="text-white">
                         {cartItems.reduce(
                           (a, b) => a + b.quantity * b.sellPrice,
                           0

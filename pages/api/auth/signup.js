@@ -7,7 +7,6 @@ async function handler(req, res) {
     return;
   }
   const { name, email, phone, password, newsLetter } = req.body;
-  console.log("object");
   if (
     !name ||
     !email ||

@@ -25,6 +25,8 @@ const ProductCard = ({ product, addToCartHandler }) => {
                   width={800}
                   height={100}
                   alt={name}
+                  blurDataURL="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2023/01/SpinKit.webp?resize=665%2C478&ssl=1"
+                  placeholder="blur" 
                 />
                 {/* <Image
                   className="w-full absolute top-0 left-0 invisible group-hover:block group-hover:visible opacity-0 group-hover:opacity-100 scale-100 group-hover:scale-110 duration-300"

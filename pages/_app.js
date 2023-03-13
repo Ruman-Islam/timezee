@@ -7,11 +7,12 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
+  
   return (
     <SessionProvider session={session}>
       <StoreProvider>
         {Component.auth ? (
-          <Auth adminOnly={Component.auth.adminOnly}>
+          <Auth adminOnly={Component?.auth?.adminOnly}>
             <Component {...pageProps} />
           </Auth>
         ) : (
@@ -30,6 +31,10 @@ function Auth({ children, adminOnly }) {
       router.push("/unauthorized?message=login required");
     },
   });
+  // console.log(session)
+  if (session?.user?._doc?.status === false) {
+    router.push("/unauthorized?message=Inactive account");
+  }
   if (status === "loading") {
     return <div>Loading...</div>;
   }

@@ -20,6 +20,7 @@ const ShippingScreen = () => {
   const { shippingAddress } = cart;
   const router = useRouter();
 
+
   useEffect(() => {
     setValue("fullName", shippingAddress?.fullName);
     setValue("company", shippingAddress?.company);

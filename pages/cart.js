@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import db from "@/utils/db";
 import Layout from "@/components/Layout";
 import { Store } from "@/utils/Store";
 import { useRouter } from "next/router";
@@ -8,16 +7,13 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import Carousel from "nuka-carousel/lib/carousel";
-import CategoryCard from "@/components/Home/CategoryCard";
-import Category from "@/models/Category";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountWizard from "@/components/Account/AccountWizard";
-import emptyCartImg from "../public/images/Screenshot_9.png";
+import emptyCartImg from "../public/images/emptyCart.png";
 
-const CartScreen = ({ categories }) => {
+const CartScreen = () => {
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
   const {
@@ -30,7 +26,11 @@ const CartScreen = ({ categories }) => {
 
   const updateCartHandler = async (item, qty) => {
     const quantity = Number(qty);
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const {
+      data: { data },
+    } = await axios.get(
+      `http://localhost:7000/api/v1/public/get_single_product?productId=${item._id}`
+    );
     if (data.countInStock < quantity) {
       return toast.error("Sorry. Product is out of stock");
     }
@@ -57,31 +57,6 @@ const CartScreen = ({ categories }) => {
             </div>
           ) : (
             <div className="flex gap-x-5 flex-col md:flex-row">
-              {/* <div className="bg-white p-1 border border-thin hidden lg:block">
-              <h6 className="text-center">Offers</h6>
-              <div className="w-[200px]">
-                <Carousel
-                  slidesToShow={1}
-                  wrapAround
-                  autoplay
-                  enableKeyboardControls
-                  transitionMode={["scroll3d"]}
-                  renderCenterLeftControls={false}
-                  renderCenterRightControls={false}
-                  defaultControlsConfig={{
-                    pagingDotsStyle: {
-                      fill: "black",
-                      margin: "5px",
-                    },
-                  }}
-                >
-                  {categories?.map((category, i) => {
-                    return <CategoryCard key={i} category={category} />;
-                  })}
-                </Carousel>
-              </div>
-            </div> */}
-
               <div className="flex-grow">
                 <table className="w-full">
                   <thead className="bg-amazonGray uppercase text-[11px] text-amazonNeutral  border-l border-r border-thin">
@@ -201,16 +176,4 @@ const CartScreen = ({ categories }) => {
   );
 };
 
-const getServerSideProps = async () => {
-  await db.connect();
-  const categories = await Category.find().lean();
-  await db.disconnect();
-  return {
-    props: {
-      categories: categories.map(db.convertDocToObj),
-    },
-  };
-};
-
-export { getServerSideProps };
 export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

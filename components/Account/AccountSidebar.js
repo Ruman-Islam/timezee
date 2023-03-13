@@ -4,6 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
 import Cookies from "js-cookie";
 
 const AccountSidebar = () => {
@@ -85,15 +86,25 @@ const AccountSidebar = () => {
             <span>newsletter</span>
           </Link>
         </li>
-        {session?.user && (
+        {session?.user ? (
           <li className="py-1 lg:py-2">
             <button
               onClick={() => logoutClickHandler()}
-              className="flex gap-x-0 lg:gap-x-1 items-center text-sm font-semibold text-amazonBlue hover:text-amazonOrange duration-150 pl-1.5"
+              className="flex gap-x-0 lg:gap-x-1 items-center text-sm font-semibold text-error hover:text-amazonOrange duration-150 pl-1.5"
             >
               <LogoutIcon />
               <span>Logout</span>
             </button>
+          </li>
+        ) : (
+          <li className="py-1 lg:py-2">
+            <Link
+              href="/login?redirect=/account"
+              className="flex gap-x-0 lg:gap-x-1 items-center text-sm font-semibold text-amazonBlue hover:text-amazonOrange duration-150 pl-1"
+            >
+              <LoginIcon />
+              <span>Sign In</span>
+            </Link>
           </li>
         )}
       </ul>

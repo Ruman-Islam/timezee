@@ -4,10 +4,12 @@ const InfoBlock = () => {
   return (
     <div className="bg-amazonGray py-4">
       <div className="text-center">
-        <div className="font-semibold text-sm text-accent">
-          ৫০০০ টাকার বেশি অর্ডার করলে ফ্রি শিপিং দেওয়া হয়
+        <div className="font-bold text-md text-amazonBlue">
+          Free shipping is provided on orders above $5000
         </div>
-        <div className="text-sm">৫০০ টাকার বেশি অর্ডার করলে হ্যান্ডেলিং ফি ফ্রি</div>
+        <div className="text-sm">
+          If you order more than 500 Dollars, the handling fee is free
+        </div>
       </div>
     </div>
   );

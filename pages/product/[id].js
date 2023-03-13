@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactImageMagnify from "react-image-magnify";
 import { toast } from "react-toastify";
 import Layout from "@/components/Layout";
@@ -8,9 +8,6 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { Store } from "@/utils/Store";
-import Carousel from "nuka-carousel/lib/carousel";
-import CategoryCard from "@/components/Home/CategoryCard";
-import Category from "@/models/Category";
 import Rating from "react-rating";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
@@ -19,8 +16,9 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-const ProductScreen = ({ product, categories }) => {
+const ProductScreen = ({ product: {data} }) => {
   const {
     name,
     images,
@@ -36,13 +34,23 @@ const ProductScreen = ({ product, categories }) => {
     reviews,
     rating,
     _id,
-  } = product;
+  } = data;
 
+  const { width } = useWindowDimensions();
   const { state, dispatch } = useContext(Store);
+  const [enlargedImagePosition, setEnlargedImagePosition] = useState("");
   const [img, setImg] = useState(images[0]);
   const [activeTab, setActiveTab] = useState("description");
 
-  if (!product) {
+  useEffect(() => {
+    if (width <= 1050) {
+      setEnlargedImagePosition("over");
+    } else {
+      setEnlargedImagePosition("");
+    }
+  }, [width]);
+
+  if (!data) {
     return <Layout title="Product Not Found">Product Not Found</Layout>;
   }
 
@@ -57,7 +65,7 @@ const ProductScreen = ({ product, categories }) => {
     } else {
       dispatch({
         type: "CART_ADD_ITEM",
-        payload: { ...product, quantity: quantity },
+        payload: { ...data, quantity: quantity },
       });
       toast.success("Product added to the cart");
     }
@@ -78,14 +86,15 @@ const ProductScreen = ({ product, categories }) => {
                   },
                   largeImage: {
                     src: img,
-                    width: 1000,
-                    height: 1000,
+                    width: enlargedImagePosition ? 600 : 1000,
+                    height: enlargedImagePosition ? 600 : 1000,
                   },
                   enlargedImageContainerStyle: {
                     zIndex: "1500",
                     backgroundColor: "white",
                     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                   },
+                  enlargedImagePosition: enlargedImagePosition,
                   enlargedImageContainerDimensions: {
                     width: "200%",
                     height: "125%",
@@ -120,7 +129,9 @@ const ProductScreen = ({ product, categories }) => {
           <div className="flex-grow flex flex-col border-r border-thin">
             <div>
               <div>
-                <h1 className="font-semibold text-amazonAccent text-xl uppercase">{name}</h1>
+                <h1 className="font-semibold text-amazonAccent text-xl uppercase">
+                  {name}
+                </h1>
               </div>
               <div className="text-xs py-4">
                 <div className="flex items-center mb-4">
@@ -191,7 +202,7 @@ const ProductScreen = ({ product, categories }) => {
                 <div className="flex w-fit">
                   <div className="bg-amazonNeutral text-white text-xs hover:bg-amazonBlue duration-200 flex justify-center">
                     <button
-                      onClick={() => addToCartHandler(product)}
+                      onClick={() => addToCartHandler(data)}
                       className="px-2 py-1 cursor-pointer flex items-center gap-x-1 uppercase"
                     >
                       <AddShoppingCartIcon style={{ width: "18px" }} />
@@ -337,17 +348,16 @@ const ProductScreen = ({ product, categories }) => {
 const getServerSideProps = async (context) => {
   const { params } = context;
   const { id } = params;
-  await db.connect();
 
   // Fetch data from an API
-  const product = await Product.findOne({ _id: id }).lean();
-  const categories = await Category.find().lean();
-  await Product.updateOne({ _id: id }, { $inc: { productViews: 1 } });
-  await db.disconnect();
+  const productRes = await fetch(
+    `http://localhost:7000/api/v1/public/get_single_product?productId=${id}`
+  );
+  const productData = await productRes.json();
+
   return {
     props: {
-      product: product ? db.convertDocToObj(product) : null,
-      categories: categories.map(db.convertDocToObj),
+      product: productData,
     },
   };
 };

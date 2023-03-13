@@ -18,10 +18,14 @@ const PaymentScreen = () => {
 
   useEffect(() => {
     if (!shippingAddress?.address) {
-      return router.push("/shipping");
+      router.push("/shipping");
     }
     setSelectedPaymentMethod(paymentMethod || "");
-  }, [paymentMethod, router, shippingAddress?.address]);
+  }, [
+    paymentMethod,
+    router,
+    shippingAddress?.address,
+  ]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -45,7 +49,10 @@ const PaymentScreen = () => {
       <div className="mt-2 mx-auto max-w-screen-lg bg-white">
         <CheckoutWizard activeStep={2} />
       </div>
-      <form onSubmit={submitHandler} className="mx-auto max-w-screen-md p-1 text-amazonNeutral">
+      <form
+        onSubmit={submitHandler}
+        className="mx-auto max-w-screen-md p-1 text-amazonNeutral"
+      >
         {["PayPal", "Stripe", "CashOnDelivery"].map((payment) => (
           <div key={payment} className="mb-4">
             <input
