@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 const OrderScreen = () => {
   return (
     <Layout title="Order History">
-      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="Order History" />
         <div className="flex flex-col lg:flex-row gap-x-2">
           <AccountSidebar />

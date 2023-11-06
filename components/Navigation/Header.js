@@ -44,7 +44,7 @@ const Header = () => {
       <nav className="w-full max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <div>
           <div>
-            <div className="flex flex-wrap gap-x-5 justify-between px-2 3xl:px-0">
+            <div className="flex flex-wrap items-center gap-x-5 justify-between px-2 3xl:px-0">
               <div className="flex items-center my-2.5">
                 <div className="lg:hidden">
                   <MenuIcon onClick={toggleNavDrawer} className="w-8 h-8" />
@@ -59,14 +59,14 @@ const Header = () => {
                   />
                 </Link>
               </div>
-              {/* <div
-                className={`relative hidden lg:block flex-grow shadow-xl duration-300 max-w-7xl`}
+              <div
+                className={`relative hidden lg:block flex-grow shadow-xl duration-300 max-w-7xl h-fit`}
               >
                 <Search />
                 <div className="bg-amazonOrangeLite absolute top-0 bottom-0 -right-0.5 text-amazonNeutral flex items-center px-3 rounded-r cursor-pointer">
                   <SearchIcon />
                 </div>
-              </div> */}
+              </div>
               <div className="mx-1 flex gap-x-2 items-center lg:items-end justify-center">
                 <div className="hidden lg:block hover:text-amazonOrange duration-200">
                   <Link href="/login?redirect=/account">

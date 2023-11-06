@@ -18,11 +18,11 @@ const AccountSidebar = () => {
   };
 
   return (
-    <div className="w-full lg:w-[200px] border-r border-l border-thin bg-white text-amazonOrange md:text-accent p-2 uppercase">
+    <div className="w-full lg:w-[200px] h-fit border border-t-0 border-thin bg-white text-amazonOrange md:text-accent p-2 uppercase">
       <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1">
         <h4 className="text-sm font-semibold">account menu</h4>
       </div>
-      <ul className="my-2 grid lg:block grid-cols-3">
+      <ul className="my-2 grid lg:block grid-cols-3 place-items-center">
         <li className="py-1 lg:py-2">
           <Link
             href="/login?redirect=/account"

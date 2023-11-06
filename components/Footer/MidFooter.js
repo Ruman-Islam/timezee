@@ -27,8 +27,7 @@ const MidFooter = () => {
                 SHOP LOCATION
               </h3>
               <p className="leading-snug text-xs">
-                Electronics.Com.BD Shop 440 & 441, 3rd Floor, Farm view Supper
-                Market, Farmget, Dhaka 1215
+                Timezee.Com.BD Shop 540 & 441, 3rd Floor, Banshundhara City, Dhaka 1215
               </p>
             </div>
           </div>
@@ -64,7 +63,7 @@ const MidFooter = () => {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className="text-amazonNeutral font-semibold p-2 relative after:absolute after:content-[''] after:border after:w-16 after:left-0 after:right-0 after:mx-auto my-5 text-center">
             <p>ACCEPTED PAYMENT METHODS</p>
           </div>
@@ -76,7 +75,7 @@ const MidFooter = () => {
             <Image src={visaImg} alt="" width={60} height={100} />
             <Image src={masterCardImg} alt="" width={60} height={100} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div className="w-full border-t border-thin">
       <div className="flex justify-between">
-        <div className="flex-grow">
+        <div>
           <Carousel
             autoplay
             wrapAround

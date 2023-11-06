@@ -123,22 +123,6 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
                       Settings
                     </Link>
                   </li>
-                  <li>
-                    <li>
-                      <Link
-                        href="/login?redirect=/account"
-                        className="flex items-center hover:bg-amazonGray px-5 py-1.5 cursor-pointer capitalize"
-                      >
-                        English
-                      </Link>
-                    </li>
-                    <Link
-                      href="/login?redirect=/account"
-                      className="flex items-center hover:bg-amazonGray px-5 py-1.5 cursor-pointer capitalize"
-                    >
-                      Help Center
-                    </Link>
-                  </li>
                   {session?.user ? (
                     <li className="py-1 lg:py-2">
                       <button

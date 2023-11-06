@@ -44,7 +44,7 @@ const LoginScreen = () => {
   if (status === "authenticated") {
     return (
       <Layout title="Loading">
-        <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+        <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
           <AccountWizard title="Loading" />
           <div className="flex flex-col md:flex-row gap-x-5">
             <AccountSidebar />
@@ -59,7 +59,7 @@ const LoginScreen = () => {
 
   return (
     <Layout title="Login">
-      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="account login" />
         <div className="flex flex-col md:flex-row gap-x-5">
           <AccountSidebar />

@@ -10,7 +10,7 @@ const AddressBookScreen = () => {
 
   return (
     <Layout title="Address Book">
-      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="Address Book" />
         <div className="flex flex-col lg:flex-row gap-x-2">
           <AccountSidebar />
