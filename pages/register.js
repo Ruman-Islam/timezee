@@ -36,38 +36,40 @@ const LoginScreen = () => {
     password,
     newsLetter,
   }) => {
-    try {
-      await axios.post(
-        "https://timezee-server.vercel.app/api/v1/public/register",
-        {
-          name,
-          email,
-          phone,
-          password,
-          newsLetter,
-        }
-      );
+    // try {
+    //   await axios.post(
+    //     "https://timezee-server.vercel.app/api/v1/public/register",
+    //     {
+    //       name,
+    //       email,
+    //       phone,
+    //       password,
+    //       newsLetter,
+    //     }
+    //   );
 
-      const {
-        data: { data },
-      } = await axios.post("/api/auth/signup", {
-        name,
-        email,
-        phone,
-        password,
-        newsLetter,
-      });
-      const result = await signIn("credentials", {
-        redirect: false,
-        email,
-        password,
-      });
-      if (result.error) {
-        toast.error(result.error);
-      }
-    } catch (err) {
-      toast.error(getError(err));
-    }
+    //   const {
+    //     data: { data },
+    //   } = await axios.post("/api/auth/signup", {
+    //     name,
+    //     email,
+    //     phone,
+    //     password,
+    //     newsLetter,
+    //   });
+    //   const result = await signIn("credentials", {
+    //     redirect: false,
+    //     email,
+    //     password,
+    //   });
+    //   if (result.error) {
+    //     toast.error(result.error);
+    //   }
+    // } catch (err) {
+    //   toast.error(getError(err));
+    // }
+
+    return toast.error("CRUD operation disabled!");
   };
 
   if (status === "authenticated") {
@@ -88,7 +90,7 @@ const LoginScreen = () => {
 
   return (
     <Layout title="Login">
-      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="account login" />
         <div className="flex flex-col md:flex-row gap-x-5">
           <AccountSidebar />
@@ -109,7 +111,7 @@ const LoginScreen = () => {
                 <h4 className="uppercase">YOUR PERSONAL DETAILS</h4>
               </div>
               <form className="mt-5" onSubmit={handleSubmit(submitHandler)}>
-                <div className="mb-4 flex justify-between items-center max-w-[600px]">
+                <div className="mb-4 flex justify-between items-center">
                   <label htmlFor="name" className="w-32 text-xs font-semibold">
                     Name*
                   </label>
@@ -132,7 +134,7 @@ const LoginScreen = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 flex justify-between items-center max-w-[600px]">
+                <div className="mb-4 flex justify-between items-center">
                   <label htmlFor="email" className="w-32 text-xs font-semibold">
                     E-Mail Address*
                   </label>
@@ -159,7 +161,7 @@ const LoginScreen = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 flex justify-between items-center max-w-[600px]">
+                <div className="mb-4 flex justify-between items-center">
                   <label htmlFor="phone" className="w-32 text-xs font-semibold">
                     Phone*
                   </label>
@@ -185,7 +187,7 @@ const LoginScreen = () => {
                   <h4 className="uppercase">YOUR PASSWORD</h4>
                 </div>
 
-                <div className="mb-4 flex justify-between items-center max-w-[600px]">
+                <div className="mb-4 flex justify-between items-center">
                   <label
                     htmlFor="password"
                     className="w-32 text-xs font-semibold"
@@ -214,7 +216,7 @@ const LoginScreen = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 flex justify-between items-center max-w-[600px]">
+                <div className="mb-4 flex justify-between items-center">
                   <label
                     htmlFor="confirmPassword"
                     className="w-32 text-xs font-semibold"

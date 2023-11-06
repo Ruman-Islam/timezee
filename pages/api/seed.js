@@ -7,15 +7,15 @@ import Brand from "@/models/Brand";
 
 const handler = async (req, res) => {
   await db.connect();
-  await User.deleteMany();
-  await User.insertMany(data.users);
-  await Category.deleteMany();
-  await Category.insertMany(data.categories);
-  await Product.deleteMany();
-  await Brand.deleteMany();
-  await Brand.insertMany(data.brands);
-  await Product.deleteMany();
-  await Product.insertMany(data.products);
+  // await User.deleteMany();
+  // await User.insertMany(data.users);
+  // await Category.deleteMany();
+  // await Category.insertMany(data.categories);
+  // await Product.deleteMany();
+  // await Brand.deleteMany();
+  // await Brand.insertMany(data.brands);
+  // await Product.deleteMany();
+  // await Product.insertMany(data.products);
   await db.disconnect();
   res.send({ message: "seeded successfully" });
 };

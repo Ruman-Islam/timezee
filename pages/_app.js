@@ -30,14 +30,16 @@ function Auth({ children, adminOnly }) {
       router.push("/unauthorized?message=login required");
     },
   });
-  console.log(session);
-  // console.log(session)
+
+
   if (session?.user?._doc?.status === false) {
     router.push("/unauthorized?message=Inactive account");
   }
+
   if (status === "loading") {
     return <div>Loading...</div>;
   }
+  
   if (adminOnly && !session.user.isAdmin) {
     router.push("/unauthorized?message=admin login required");
   }

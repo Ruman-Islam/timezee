@@ -23,7 +23,7 @@ const LoginScreen = () => {
   useEffect(() => {
     if (session?.user) {
       router.push(redirect || "/");
-    } 
+    }
   }, [router, session, redirect]);
 
   const submitHandler = async ({ email, password }) => {
@@ -45,11 +45,11 @@ const LoginScreen = () => {
     return (
       <Layout title="Loading">
         <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
-          <AccountWizard title="Loading" />
+          <AccountWizard title="Please wait..." />
           <div className="flex flex-col md:flex-row gap-x-5">
             <AccountSidebar />
-            <div>
-              <span className="text-amazonBlue">Loading...</span>
+            <div className="h-[10vh] flex flex-col items-center justify-center">
+              <span className="text-amazonBlue">Please wait...</span>
             </div>
           </div>
         </div>
@@ -101,6 +101,7 @@ const LoginScreen = () => {
                       placeholder="E-Mail Address"
                       className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
                       id="email"
+                      defaultValue="rumanislam48@gmail.com"
                       {...register("email", {
                         required: "Please enter email",
                         pattern: {
@@ -130,6 +131,7 @@ const LoginScreen = () => {
                       placeholder="Password"
                       className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
                       id="password"
+                      defaultValue="123456"
                       {...register("password", {
                         required: "Please enter password",
                         minLength: {
