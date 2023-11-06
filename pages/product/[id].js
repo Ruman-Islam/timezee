@@ -2,8 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import ReactImageMagnify from "react-image-magnify";
 import { toast } from "react-toastify";
 import Layout from "@/components/Layout";
-import Product from "@/models/Product";
-import db from "@/utils/db";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +16,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-const ProductScreen = ({ product: {data} }) => {
+const ProductScreen = ({ product: { data } }) => {
   const {
     name,
     images,
@@ -57,15 +55,17 @@ const ProductScreen = ({ product: {data} }) => {
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x._id === _id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${_id}`);
+    const { data } = await axios.get(
+      `https://timezee-server.vercel.app/api/v1/public/get_single_product?productId=${_id}`
+    );
 
-    if (data.countInStock < quantity) {
+    if (data?.data?.countInStock < quantity) {
       toast.error("Sorry. Product is out of stock");
       return;
     } else {
       dispatch({
         type: "CART_ADD_ITEM",
-        payload: { ...data, quantity: quantity },
+        payload: { ...data.data, quantity: quantity },
       });
       toast.success("Product added to the cart");
     }
@@ -345,13 +345,26 @@ const ProductScreen = ({ product: {data} }) => {
   );
 };
 
-const getServerSideProps = async (context) => {
+export const getStaticPaths = async () => {
+  const res = await fetch(
+    `https://timezee-server.vercel.app/api/v1/public/get_all_products`
+  );
+  const products = await res.json();
+
+  const paths = products?.data.map((product) => ({
+    params: { id: product._id },
+  }));
+
+  return { paths: paths, fallback: false };
+};
+
+const getStaticProps = async (context) => {
   const { params } = context;
   const { id } = params;
 
   // Fetch data from an API
   const productRes = await fetch(
-    `http://localhost:7000/api/v1/public/get_single_product?productId=${id}`
+    `https://timezee-server.vercel.app/api/v1/public/get_single_product?productId=${id}`
   );
   const productData = await productRes.json();
 
@@ -362,5 +375,5 @@ const getServerSideProps = async (context) => {
   };
 };
 
-export { getServerSideProps };
+export { getStaticProps };
 export default ProductScreen;

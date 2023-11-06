@@ -70,3 +70,17 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 100%;
   object-fit: contain;
 }
+
+.slider-control-bottomcenter button {
+  background: white !important;
+  border-radius: 50%;
+  width: 20px !important; 
+  height: 20px !important; 
+}
+
+.slider-control-bottomcenter svg {
+  display: none !important;
+}
+.slider-control-bottomcenter li {
+  margin-right: 5px;
+}

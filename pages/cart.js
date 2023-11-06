@@ -29,7 +29,7 @@ const CartScreen = () => {
     const {
       data: { data },
     } = await axios.get(
-      `http://localhost:7000/api/v1/public/get_single_product?productId=${item._id}`
+      `https://timezee-server.vercel.app/api/v1/public/get_single_product?productId=${item._id}`
     );
     if (data.countInStock < quantity) {
       return toast.error("Sorry. Product is out of stock");
@@ -40,7 +40,7 @@ const CartScreen = () => {
 
   return (
     <Layout title="Cart">
-      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <div className="min-h-[70vh] px-2 3xl:px-0">
           <AccountWizard title="Shopping Cart" />
           {cartItems.length === 0 ? (

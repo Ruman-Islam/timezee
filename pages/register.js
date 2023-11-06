@@ -37,7 +37,20 @@ const LoginScreen = () => {
     newsLetter,
   }) => {
     try {
-      await axios.post("/api/auth/signup", {
+      await axios.post(
+        "https://timezee-server.vercel.app/api/v1/public/register",
+        {
+          name,
+          email,
+          phone,
+          password,
+          newsLetter,
+        }
+      );
+
+      const {
+        data: { data },
+      } = await axios.post("/api/auth/signup", {
         name,
         email,
         phone,

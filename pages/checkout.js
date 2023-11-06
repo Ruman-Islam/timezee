@@ -65,130 +65,133 @@ const CheckoutScreen = () => {
   };
   return (
     <Layout title="Place Order">
-      <AccountWizard title="Checkout" />
-      <div className="mt-2 mx-auto max-w-screen-2xl bg-white">
-        <CheckoutWizard activeStep={3} />
-      </div>
-      {cartItems.length === 0 ? (
-        <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+      <div className="max-w-screen-xl mx-auto">
+        <AccountWizard title="Checkout" />
+        <br />
+        <div className="mt-2 w-full bg-white">
+          <CheckoutWizard activeStep={3} />
         </div>
-      ) : (
-        <div className="mx-auto max-w-screen-2xl flex flex-col lg:flex-row justify-between bg-white gap-x-2 text-amazonNeutral px-2">
-          <div className="overflow-x-auto md:col-span-3 flex-grow">
-            <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
-              <h2 className="mb-2 text-amazonBlue">Shipping Address</h2>
-              <div className="text-sm mb-2">
-                {shippingAddress?.fullName}, {shippingAddress?.address},{" "}
-                {shippingAddress?.city}, {shippingAddress?.postalCode},{" "}
-                {shippingAddress?.country}
+        {cartItems.length === 0 ? (
+          <div>
+            Cart is empty. <Link href="/">Go shopping</Link>
+          </div>
+        ) : (
+          <div className="mx-auto max-w-screen-2xl flex flex-col lg:flex-row justify-between bg-white gap-x-2 text-amazonNeutral px-2">
+            <div className="overflow-x-auto md:col-span-3 flex-grow">
+              <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
+                <h2 className="mb-2 text-amazonBlue">Shipping Address</h2>
+                <div className="text-sm mb-2">
+                  {shippingAddress?.fullName}, {shippingAddress?.address},{" "}
+                  {shippingAddress?.city}, {shippingAddress?.postalCode},{" "}
+                  {shippingAddress?.country}
+                </div>
+                <div>
+                  <Link href="/shipping" className="text-error">
+                    Edit
+                  </Link>
+                </div>
               </div>
-              <div>
-                <Link href="/shipping" className="text-error">
-                  Edit
-                </Link>
+              <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
+                <h2 className="mb-2 text-amazonBlue">Payment Method</h2>
+                <div className="text-sm mb-2">{paymentMethod}</div>
+                <div>
+                  <Link href="/payment" className="text-error">
+                    Edit
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="p-5 mb-5 shadow-md rounded-lg border border-thin hover:bg-amazonGray">
-              <h2 className="mb-2 text-amazonBlue">Payment Method</h2>
-              <div className="text-sm mb-2">{paymentMethod}</div>
-              <div>
-                <Link href="/payment" className="text-error">
-                  Edit
-                </Link>
-              </div>
-            </div>
-            <div className="overflow-x-auto p-5 mb-5 shadow-md rounded-lg border border-thin">
-              {/* <h2 className="text-amazonBlue">Order Items</h2> */}
-              <table className="min-w-full mb-2">
-                <thead className="border-b border-x-amazonOrange text-sm">
-                  <tr>
-                    <th className="text-left">Item</th>
-                    <th className="text-right">Quantity</th>
-                    <th className="text-right  p-3">Price</th>
-                    <th className="text-right">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.map((item) => (
-                    <tr
-                      key={item._id}
-                      className="border-b border-thin hover:bg-amazonGray"
-                    >
-                      <td>
-                        <Link href={`/product/${item._id}`}>
-                          <div className="flex items-center">
-                            <Image
-                              src={item.images[0]}
-                              alt={item.name}
-                              width={50}
-                              height={50}
-                            />
-                            &nbsp;
-                            <p className="text-xs text-amazonBlue uppercase">
-                              {item.name}
-                            </p>
-                          </div>
-                        </Link>
-                      </td>
-                      <td className="p-5 text-right">{item.quantity}</td>
-                      <td className="p-5 text-right">${item.sellPrice}</td>
-                      <td className="p-5 text-right">
-                        ${item.quantity * item.sellPrice}
-                      </td>
+              <div className="overflow-x-auto p-5 mb-5 shadow-md rounded-lg border border-thin">
+                {/* <h2 className="text-amazonBlue">Order Items</h2> */}
+                <table className="min-w-full mb-2">
+                  <thead className="border-b border-x-amazonOrange text-sm">
+                    <tr>
+                      <th className="text-left">Item</th>
+                      <th className="text-right">Quantity</th>
+                      <th className="text-right  p-3">Price</th>
+                      <th className="text-right">Subtotal</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div>
-                <Link href="/cart" className="text-error">
-                  Edit
-                </Link>
+                  </thead>
+                  <tbody>
+                    {cartItems.map((item) => (
+                      <tr
+                        key={item._id}
+                        className="border-b border-thin hover:bg-amazonGray"
+                      >
+                        <td>
+                          <Link href={`/product/${item._id}`}>
+                            <div className="flex items-center">
+                              <Image
+                                src={item.images[0]}
+                                alt={item.name}
+                                width={50}
+                                height={50}
+                              />
+                              &nbsp;
+                              <p className="text-xs text-amazonBlue uppercase">
+                                {item.name}
+                              </p>
+                            </div>
+                          </Link>
+                        </td>
+                        <td className="p-5 text-right">{item.quantity}</td>
+                        <td className="p-5 text-right">${item.sellPrice}</td>
+                        <td className="p-5 text-right">
+                          ${item.quantity * item.sellPrice}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div>
+                  <Link href="/cart" className="text-error">
+                    Edit
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="flex-grow">
+              <div className="shadow-md p-5 rounded-lg">
+                <h2 className="mb-2 text-lg">Order Summary</h2>
+                <ul>
+                  <li>
+                    <div className="mb-2 flex justify-between">
+                      <div>Items</div>
+                      <div>${itemsPrice}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="mb-2 flex justify-between">
+                      <div>Tax</div>
+                      <div>${taxPrice}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="mb-2 flex justify-between">
+                      <div>Shipping</div>
+                      <div>${shippingPrice}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="mb-2 flex justify-between">
+                      <div>Total</div>
+                      <div>${totalPrice}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <button
+                      disabled={loading}
+                      onClick={placeOrderHandler}
+                      className="bg-warning hover:bg-amazonOrange duration-150 py-1 rounded-md font-bold w-full"
+                    >
+                      {loading ? "Loading..." : "Place Order"}
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div className="flex-grow">
-            <div className="shadow-md p-5 rounded-lg">
-              <h2 className="mb-2 text-lg">Order Summary</h2>
-              <ul>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Items</div>
-                    <div>${itemsPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Tax</div>
-                    <div>${taxPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Shipping</div>
-                    <div>${shippingPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Total</div>
-                    <div>${totalPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <button
-                    disabled={loading}
-                    onClick={placeOrderHandler}
-                    className="bg-warning hover:bg-amazonOrange duration-150 py-1 rounded-md font-bold w-full"
-                  >
-                    {loading ? "Loading..." : "Place Order"}
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </Layout>
   );
 };

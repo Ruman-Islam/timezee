@@ -1,0 +1,184 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "baume mercier motorcycle watches",
+            "category": "men",
+            "images": ["https://i.ibb.co/qNg11VR/watch1.webp"],
+            "price": 75,
+            "sellPrice": 75,
+            "brand": "Tissot",
+            "countInStock": 20,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium",
+            "specification": [
+                "Size: 40mm",
+                "Strap: Top Genuine Leather Strap + Nylon Grosgrain Strap",
+                "Case: Original 316L stainless steel",
+                "Original Movement: Japan",
+                "Movement Type: Quartz",
+                "Waterproof: Case Water Resistant 3ATM",
+                "Lugged case design",
+                "Flat scratch-resistant sapphire glass lens at circular face",
+                "Package: Including leather watches box"
+            ],
+            "size": "xl",
+            "model": "2361",
+            "sellCount": 0,
+            "rating": 5,
+            "reviews": [
+                {"name": "Ruman Islam", "text": "Motor proyojon.....Helicopter toiri korbo....Pray 80 pis lagbe....Damta ektu komale valo hoto....", "star": 5, "date": "02/05/2019"}
+            ],
+            "productViews": 49,"sku": "39000--3-W-37", "isFeatured": true
+        },
+        {
+            "id": 2,
+            "name": "baume mercier motorcycle watches",
+            "category": "men",
+            "images": ["https://i.ibb.co/qNg11VR/watch1.webp"],
+            "price": 75,
+            "sellPrice": 75,
+            "brand": "Tissot",
+            "countInStock": 20,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium",
+            "specification": [
+                "Size: 40mm",
+                "Strap: Top Genuine Leather Strap + Nylon Grosgrain Strap",
+                "Case: Original 316L stainless steel",
+                "Original Movement: Japan",
+                "Movement Type: Quartz",
+                "Waterproof: Case Water Resistant 3ATM",
+                "Lugged case design",
+                "Flat scratch-resistant sapphire glass lens at circular face",
+                "Package: Including leather watches box"
+            ],
+            "size": "xl",
+            "model": "2361",
+            "sellCount": 0,
+            "rating": 5,
+            "reviews": [
+                {"name": "Ruman Islam", "text": "Motor proyojon.....Helicopter toiri korbo....Pray 80 pis lagbe....Damta ektu komale valo hoto....", "star": 5, "date": "02/05/2019"}
+            ],
+            "productViews": 49,"sku": "39000--3-W-37", "isFeatured": true
+        },
+        {
+            "id": 3,
+            "name": "baume mercier motorcycle watches",
+            "category": "men",
+            "images": ["https://i.ibb.co/qNg11VR/watch1.webp"],
+            "price": 75,
+            "sellPrice": 75,
+            "brand": "Tissot",
+            "countInStock": 20,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium",
+            "specification": [
+                "Size: 40mm",
+                "Strap: Top Genuine Leather Strap + Nylon Grosgrain Strap",
+                "Case: Original 316L stainless steel",
+                "Original Movement: Japan",
+                "Movement Type: Quartz",
+                "Waterproof: Case Water Resistant 3ATM",
+                "Lugged case design",
+                "Flat scratch-resistant sapphire glass lens at circular face",
+                "Package: Including leather watches box"
+            ],
+            "size": "xl",
+            "model": "2361",
+            "sellCount": 0,
+            "rating": 5,
+            "reviews": [
+                {"name": "Ruman Islam", "text": "Motor proyojon.....Helicopter toiri korbo....Pray 80 pis lagbe....Damta ektu komale valo hoto....", "star": 5, "date": "02/05/2019"}
+            ],
+            "productViews": 49,"sku": "39000--3-W-37", "isFeatured": true
+        },
+        {
+            "id": 4,
+            "name": "baume mercier motorcycle watches",
+            "category": "men",
+            "images": ["https://i.ibb.co/qNg11VR/watch1.webp"],
+            "price": 75,
+            "sellPrice": 75,
+            "brand": "Tissot",
+            "countInStock": 20,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium",
+            "specification": [
+                "Size: 40mm",
+                "Strap: Top Genuine Leather Strap + Nylon Grosgrain Strap",
+                "Case: Original 316L stainless steel",
+                "Original Movement: Japan",
+                "Movement Type: Quartz",
+                "Waterproof: Case Water Resistant 3ATM",
+                "Lugged case design",
+                "Flat scratch-resistant sapphire glass lens at circular face",
+                "Package: Including leather watches box"
+            ],
+            "size": "xl",
+            "model": "2361",
+            "sellCount": 0,
+            "rating": 5,
+            "reviews": [
+                {"name": "Ruman Islam", "text": "Motor proyojon.....Helicopter toiri korbo....Pray 80 pis lagbe....Damta ektu komale valo hoto....", "star": 5, "date": "02/05/2019"}
+            ],
+            "productViews": 49,"sku": "39000--3-W-37", "isFeatured": true
+        },
+        {
+            "id": 5,
+            "name": "baume mercier motorcycle watches",
+            "category": "men",
+            "images": ["https://i.ibb.co/qNg11VR/watch1.webp"],
+            "price": 75,
+            "sellPrice": 75,
+            "brand": "Tissot",
+            "countInStock": 20,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium",
+            "specification": [
+                "Size: 40mm",
+                "Strap: Top Genuine Leather Strap + Nylon Grosgrain Strap",
+                "Case: Original 316L stainless steel",
+                "Original Movement: Japan",
+                "Movement Type: Quartz",
+                "Waterproof: Case Water Resistant 3ATM",
+                "Lugged case design",
+                "Flat scratch-resistant sapphire glass lens at circular face",
+                "Package: Including leather watches box"
+            ],
+            "size": "xl",
+            "model": "2361",
+            "sellCount": 0,
+            "rating": 5,
+            "reviews": [
+                {"name": "Ruman Islam", "text": "Motor proyojon.....Helicopter toiri korbo....Pray 80 pis lagbe....Damta ektu komale valo hoto....", "star": 5, "date": "02/05/2019"}
+            ],
+            "productViews": 49,"sku": "39000--3-W-37", "isFeatured": true
+        },
+        {
+            "id": 6,
+            "name": "baume mercier motorcycle watches",
+            "category": "men",
+            "images": ["https://i.ibb.co/qNg11VR/watch1.webp"],
+            "price": 75,
+            "sellPrice": 75,
+            "brand": "Tissot",
+            "countInStock": 20,
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium",
+            "specification": [
+                "Size: 40mm",
+                "Strap: Top Genuine Leather Strap + Nylon Grosgrain Strap",
+                "Case: Original 316L stainless steel",
+                "Original Movement: Japan",
+                "Movement Type: Quartz",
+                "Waterproof: Case Water Resistant 3ATM",
+                "Lugged case design",
+                "Flat scratch-resistant sapphire glass lens at circular face",
+                "Package: Including leather watches box"
+            ],
+            "size": "xl",
+            "model": "2361",
+            "sellCount": 0,
+            "rating": 5,
+            "reviews": [
+                {"name": "Ruman Islam", "text": "Motor proyojon.....Helicopter toiri korbo....Pray 80 pis lagbe....Damta ektu komale valo hoto....", "star": 5, "date": "02/05/2019"}
+            ],
+            "productViews": 49,"sku": "39000--3-W-37", "isFeatured": true
+        }
+    ]
+}

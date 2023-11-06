@@ -17,12 +17,12 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7000/api/v1/public/get_categories")
+    fetch("https://timezee-server.vercel.app/api/v1/public/get_categories")
       .then((res) => res.json())
       .then(({ data }) => {
         setCategories(data);
       });
-    fetch("http://localhost:7000/api/v1/public/get_brands")
+    fetch("https://timezee-server.vercel.app/api/v1/public/get_brands")
       .then((res) => res.json())
       .then(({ data }) => {
         setBrands(data);

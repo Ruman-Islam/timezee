@@ -71,37 +71,38 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
             </div>
           ) : (
             <div className="h-[93vh] flex flex-col justify-between">
-              <ul className="pl-1 py-0.5 h-fit overflow-y-scroll">
+              <ul className="h-full overflow-y-auto p-2">
                 {cartItems?.map((item) => {
                   return (
                     <li
                       key={item?._id}
-                      className="grid grid-cols-4 border-thin border items-center mb-1 p-1 rounded text-amazonNeutral"
+                      className="flex border border-thin items-center justify-between p-2 mb-1 gap-1"
                     >
-                      <div className="col-span-1 w-16">
+                      <div className="w-[50px]">
                         <Link href={`/product/${item._id}`}>
                           <Image
-                            src={item.images[0]}
-                            alt={item.name}
-                            width={40}
-                            height={40}
+                            src={item?.images?.[0]}
+                            alt={item?.name}
+                            width={100}
+                            height={100}
                           />
                         </Link>
                       </div>
-                      <div className="text-xs col-span-2 flex items-center">
+                      <div className="text-xs flex items-center w-full">
                         <Link
                           href={`/product/${item._id}`}
                           className="text-amazonBlue hover:text-amazonOrange leading-snug inline-block uppercase"
                         >
-                          {item.name}
+                          {item.name.length >= 30
+                            ? `${item.name.slice(0, 30)}...`
+                            : item.name}
                         </Link>
                       </div>
-                      <div className="flex flex-col items-center col-span-1">
-                        {/* <span> &#215;{item?.quantity}</span> */}
-                        <span>${item?.sellPrice}</span>
+                      <div className="flex flex-col items-center">
+                        {/* <span>${item?.sellPrice}</span> */}
                         <div className="flex justify-center items-center mt-1.5">
                           <select
-                            className="outline-none border-t border-l border-b border-thin p-0.5"
+                            className="outline-none border border-r-0 border-thin py-0.5"
                             defaultValue={item.quantity}
                             onChange={(e) =>
                               updateCartHandler(item, e.target.value)
@@ -113,9 +114,9 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                           </select>
                           <button
                             onClick={() => removeItemHandler(item)}
-                            className="bg-error hover:bg-secondary duration-150 px-1 text-white border border-thin"
+                            className="bg-error hover:bg-secondary duration-150 text-white border border-l-0 border-thin px-1"
                           >
-                            <ClearIcon className="w-3 h-3 mb-1" />
+                            <ClearIcon fontSize="" />
                           </button>
                         </div>
                       </div>

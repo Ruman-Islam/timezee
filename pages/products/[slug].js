@@ -10,13 +10,15 @@ const ProductsScreen = ({ products: { data }, title }) => {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
+  // console.log(data)
+
   const addToCartHandler = async (product) => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const {
       data: { data },
     } = await axios.get(
-      `http://localhost:7000/api/v1/public/get_single_product?productId=${product._id}`
+      `https://timezee-server.vercel.app/api/v1/public/get_single_product?productId=${product._id}`
     );
 
     if (data.countInStock < quantity) {
@@ -33,13 +35,15 @@ const ProductsScreen = ({ products: { data }, title }) => {
 
   return (
     <Layout title={title}>
-      <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+      <div className="max-w-screen-xl mx-auto">
         <AccountWizard title={title} />
         <div className="flex">
-          {/* <div className="border-r border-thin w-[150px]">filter</div> */}
-          <div className="flex-grow">
+          {/* <div className="mt-4 border bg-white border-thin w-[270px]">
+            Under construction
+          </div> */}
+          <div>
             {data?.length > 0 ? (
-              <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
                 {data?.map((product) => {
                   return (
                     <ProductCard
@@ -69,19 +73,19 @@ const getServerSideProps = async (context) => {
 
   if (slug === "featured") {
     const featuredProductsRes = await fetch(
-      "http://localhost:7000/api/v1/public/get_featured_products"
+      "https://timezee-server.vercel.app/api/v1/public/get_featured_products"
     );
     const featuredProductsData = await featuredProductsRes.json();
     products = featuredProductsData;
   } else if (slug === "latest") {
     const latestProductsRes = await fetch(
-      "http://localhost:7000/api/v1/public/get_all_products"
+      "https://timezee-server.vercel.app/api/v1/public/get_all_products"
     );
     const latestProductsData = await latestProductsRes.json();
     products = latestProductsData;
   } else {
     const latestProductsRes = await fetch(
-      `http://localhost:7000/api/v1/public/get_products?slug=${slug}`
+      `https://timezee-server.vercel.app/api/v1/public/get_products?slug=${slug}`
     );
     const latestProductsData = await latestProductsRes.json();
     products = latestProductsData;

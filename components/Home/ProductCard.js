@@ -12,7 +12,7 @@ const ProductCard = ({ product, addToCartHandler }) => {
   return (
     <div className="hover:z-10">
       <div className="hover:shadow-[0_0_40px_-15px_rgb(109,118,125)] group hover:z-10 text-accent p-4">
-        <div className="w-4/4 h-[490px] bg-white flex flex-col justify-between relative before:absolute before:overflow-hidden overflow-hidden before:left-0 before:rounded-xl before:w-full before:h-full before:border before:border-thin group-hover:before:border-none">
+        <div className="max-w-[300px] h-[490px] bg-white flex flex-col justify-between relative before:absolute before:overflow-hidden overflow-hidden before:left-0 before:rounded-xl before:w-full before:h-full before:border before:border-thin group-hover:before:border-none">
           <div className="p-1 rounded-xl">
             <Link
               href={`/product/${_id}`}
