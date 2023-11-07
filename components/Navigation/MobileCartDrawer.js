@@ -8,6 +8,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import axios from "axios";
 import ClearIcon from "@mui/icons-material/Clear";
+import CustomButton from "../UI/Button";
 
 const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
   const { state, dispatch } = useContext(Store);
@@ -55,9 +56,9 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
               </svg>
               <span> Your cart</span>
             </div>
-            <button onClick={toggleCartDrawer} className="px-3 py-2">
+            <CustomButton onClick={toggleCartDrawer} className="px-3 py-2">
               <ClearIcon className="mx-auto" />
-            </button>
+            </CustomButton>
           </div>
           {cartItems.length === 0 ? (
             <div className="mx-auto h-[100vh] flex flex-col justify-center text-center">
@@ -112,12 +113,12 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                               <option key={x + 1}>{x + 1}</option>
                             ))}
                           </select>
-                          <button
+                          <CustomButton
                             onClick={() => removeItemHandler(item)}
                             className="bg-error hover:bg-secondary duration-150 text-white border border-l-0 border-thin px-1"
                           >
                             <ClearIcon fontSize="" />
-                          </button>
+                          </CustomButton>
                         </div>
                       </div>
                     </li>
@@ -154,12 +155,12 @@ const MobileCartDrawer = ({ isCartOpen, toggleCartDrawer }) => {
                   >
                     view cart
                   </Link>
-                  <button
+                  <CustomButton
                     onClick={() => router.push("login?redirect=/shipping")}
                     className="p-3 bg-amazonNeutral hover:bg-amazonBlue duration-200 text-[12px] uppercase"
                   >
                     checkout
-                  </button>
+                  </CustomButton>
                 </div>
                 <br />
                 <br />

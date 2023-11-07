@@ -15,6 +15,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
+import CustomButton from "@/components/UI/Button";
 
 const ProductScreen = ({ product: { data } }) => {
   const {
@@ -201,19 +202,19 @@ const ProductScreen = ({ product: { data } }) => {
               <div>
                 <div className="flex w-fit">
                   <div className="bg-amazonNeutral text-white text-xs hover:bg-amazonBlue duration-200 flex justify-center">
-                    <button
+                    <CustomButton
                       onClick={() => addToCartHandler(data)}
                       className="px-2 py-1 cursor-pointer flex items-center gap-x-1 uppercase"
                     >
                       <AddShoppingCartIcon style={{ width: "18px" }} />
                       <span>add to cart</span>
-                    </button>
+                    </CustomButton>
                   </div>
                   <div className="bg-success text-white text-xs hover:bg-amazonOrange duration-200 flex justify-center px-2">
-                    <button className="uppercase py-1 flex items-center gap-x-1">
+                    <CustomButton className="uppercase py-1 flex items-center gap-x-1">
                       <MonetizationOnIcon style={{ width: "18px" }} />
                       <span>buy now</span>
-                    </button>
+                    </CustomButton>
                   </div>
                 </div>
               </div>
@@ -329,13 +330,13 @@ const ProductScreen = ({ product: { data } }) => {
                 <span>Good</span>
               </div>
               <div>
-                <button
+                <CustomButton
                   type="submit"
                   className="cursor-pointer bg-accent hover:bg-amazonBlue duration-150  w-fit py-1 px-3 text-white flex items-center gap-x-2"
                 >
                   Submit
                   <ArrowRightAltIcon />
-                </button>
+                </CustomButton>
               </div>
             </form>
           </div>

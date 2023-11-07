@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { Store } from "@/utils/Store";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import CustomButton from "@/components/UI/Button";
 
 const PaymentScreen = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
@@ -70,16 +71,16 @@ const PaymentScreen = () => {
           </div>
         ))}
         <div className="mb-4 flex justify-between">
-          <button
+          <CustomButton
             onClick={() => router.push("/shipping")}
             type="button"
             className="bg-amazonOrangeLite hover:bg-success duration-150 text-white px-2"
           >
             Back
-          </button>
-          <button className="bg-amazonBlue hover:bg-secondary duration-150 text-white px-2">
+          </CustomButton>
+          <CustomButton className="bg-amazonBlue hover:bg-secondary duration-150 text-white px-2">
             Next
-          </button>
+          </CustomButton>
         </div>
       </form>
     </Layout>

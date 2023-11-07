@@ -17,6 +17,7 @@ const data = {
   ],
   products: [
     {
+      id: 1,
       name: "Baume Mercier Motorcycle Watches",
       category: "men",
       images: ["https://i.ibb.co/qNg11VR/watch1.webp"],
@@ -50,6 +51,7 @@ const data = {
       ],
     },
     {
+      id: 2,
       name: "Black Leather Watch",
       category: "men",
       images: ["https://i.ibb.co/GWGqq8H/watch2.webp"],
@@ -75,6 +77,7 @@ const data = {
       ],
     },
     {
+      id: 3,
       name: "Brompton White Dial Bracelet Watch",
       category: "men",
       images: ["https://i.ibb.co/5ncjQcy/watch3.webp"],
@@ -100,6 +103,7 @@ const data = {
       ],
     },
     {
+      id: 4,
       name: "Claude Bernard",
       category: "women",
       images: ["https://i.ibb.co/JyD5hcx/watch4.webp"],
@@ -125,6 +129,7 @@ const data = {
       ],
     },
     {
+      id: 5,
       name: "Glycine Watch",
       category: "women",
       images: ["https://i.ibb.co/vHczvcN/watch5.webp"],
@@ -150,6 +155,7 @@ const data = {
       ],
     },
     {
+      id: 6,
       name: "Just Cavalli",
       category: "women",
       images: ["https://i.ibb.co/SJfdVTr/watch6.webp"],
@@ -175,6 +181,7 @@ const data = {
       ],
     },
     {
+      id: 7,
       name: "Dixit Analog Watch",
       category: "kid",
       images: ["https://i.ibb.co/D7SRQwt/watch7.webp"],
@@ -200,6 +207,7 @@ const data = {
       ],
     },
     {
+      id: 8,
       name: "Chess Master Classic",
       category: "kid",
       images: ["https://i.ibb.co/gvTLrQy/watch8.webp"],

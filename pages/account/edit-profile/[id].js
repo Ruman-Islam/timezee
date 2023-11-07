@@ -43,7 +43,7 @@ const getServerSideProps = async (context) => {
   const { params } = context;
   const { id } = params;
 
-  const res = await fetch(`http://localhost:3000/api/user/${id}`);
+  const res = await fetch(`https://timezee.vercel.app/api/user/${id}`);
   const user = await res.json();
 
   return {

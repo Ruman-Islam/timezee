@@ -10,8 +10,9 @@ import AccountWizard from "@/components/Account/AccountWizard";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import axios from "axios";
 import { getError } from "@/utils/error";
+import CustomButton from "@/components/UI/Button";
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   const { status, data: session } = useSession();
   const router = useRouter();
   const { redirect } = router.query;
@@ -75,9 +76,9 @@ const LoginScreen = () => {
   if (status === "authenticated") {
     return (
       <Layout title="Loading">
-        <div className="w-full 2xl:w-10/12 mx-auto pb-0.5 lg:pb-0">
+        <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
           <AccountWizard title="Loading" />
-          <div className="flex flex-col md:flex-row gap-x-5">
+          <div className="flex flex-col lg:flex-row gap-x-5">
             <AccountSidebar />
             <div>
               <span className="text-amazonBlue">Loading...</span>
@@ -92,7 +93,7 @@ const LoginScreen = () => {
     <Layout title="Login">
       <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="account login" />
-        <div className="flex flex-col md:flex-row gap-x-5">
+        <div className="flex flex-col lg:flex-row gap-x-5">
           <AccountSidebar />
           <div className="bg-white p-5 flex-grow">
             <p>
@@ -280,10 +281,10 @@ const LoginScreen = () => {
                   </div>
                 </div>
                 <div className="text-center text-xs text-white uppercase bg-amazonBlue hover:bg-success duration-150 my-4">
-                  <button className="h-[4vh] flex justify-center items-center gap-x-1 uppercase mx-auto w-full">
+                  <CustomButton className="h-[4vh] flex justify-center items-center gap-x-1 uppercase mx-auto w-full">
                     <span>Register</span>
                     <ChevronRightIcon />
-                  </button>
+                  </CustomButton>
                 </div>
               </form>
             </div>
@@ -294,4 +295,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;

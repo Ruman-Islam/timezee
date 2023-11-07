@@ -15,6 +15,7 @@ import MobileCartDrawer from "./MobileCartDrawer";
 import { Store } from "@/utils/Store";
 import dynamic from "next/dynamic";
 import { useSession } from "next-auth/react";
+import CustomButton from "../UI/Button";
 
 const Header = () => {
   const { status, data: session } = useSession();
@@ -80,7 +81,7 @@ const Header = () => {
                       )}
                     </div>
                     <div className="text-sm font-semibold leading-tight">
-                      Account 
+                      Account
                     </div>
                   </Link>
                 </div>
@@ -158,43 +159,13 @@ const Header = () => {
               </div>
             </div>
             <div className="hidden lg:flex justify-between items-center px-2 3xl:px-0 py-1.5">
-              <button
+              <CustomButton
                 className={`group flex items-center font-extrabold hover:text-amazonOrange duration-150`}
                 onClick={toggleNavDrawer}
               >
                 <MenuIcon className="w-6" />
                 All
-              </button>
-              {/* <div className="flex items-center gap-x-5 text-sm">
-                <Link
-                  href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
-                >
-                  <LocalShippingIcon />
-                  Delivery Information
-                </Link>
-                <Link
-                  href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
-                >
-                  <HelpOutlineIcon />
-                  How to Buy?
-                </Link>
-                <Link
-                  href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
-                >
-                  <FavoriteIcon />
-                  Wishlist
-                </Link>
-                <Link
-                  href="/delivery-info"
-                  className="flex items-center gap-x-1 hover:text-amazonOrange duration-150 font-semibold"
-                >
-                  <CompareArrowsIcon />
-                  Compare
-                </Link>
-              </div> */}
+              </CustomButton>
             </div>
           </div>
         </div>

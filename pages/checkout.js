@@ -11,6 +11,7 @@ import { getError } from "../utils/error";
 import { Store } from "../utils/Store";
 import dynamic from "next/dynamic";
 import AccountWizard from "@/components/Account/AccountWizard";
+import CustomButton from "@/components/UI/Button";
 
 const CheckoutScreen = () => {
   const { state, dispatch } = useContext(Store);
@@ -178,13 +179,13 @@ const CheckoutScreen = () => {
                     </div>
                   </li>
                   <li>
-                    <button
+                    <CustomButton
                       disabled={loading}
                       onClick={placeOrderHandler}
                       className="bg-warning hover:bg-amazonOrange duration-150 py-1 rounded-md font-bold w-full"
                     >
                       {loading ? "Loading..." : "Place Order"}
-                    </button>
+                    </CustomButton>
                   </li>
                 </ul>
               </div>

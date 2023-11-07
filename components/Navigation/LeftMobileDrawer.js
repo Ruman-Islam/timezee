@@ -9,6 +9,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import { signOut, useSession } from "next-auth/react";
 import Cookies from "js-cookie";
 import { Store } from "@/utils/Store";
+import CustomButton from "../UI/Button";
 
 const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
   const { dispatch } = useContext(Store);
@@ -125,13 +126,13 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
                   </li>
                   {session?.user ? (
                     <li className="py-1 lg:py-2">
-                      <button
+                      <CustomButton
                         onClick={() => logoutClickHandler()}
                         className="flex gap-x-0 lg:gap-x-1 items-center text-sm font-semibold text-error hover:text-amazonOrange duration-150 px-5"
                       >
                         <LogoutIcon />
                         <span>Logout</span>
-                      </button>
+                      </CustomButton>
                     </li>
                   ) : (
                     <li className="py-1 lg:py-2">
@@ -149,9 +150,9 @@ const LeftMobileDrawer = ({ isNavOpen, toggleNavDrawer }) => {
             </div>
           </div>
           <div className="absolute top-2 -right-10">
-            <button onClick={toggleNavDrawer} className="text-white">
+            <CustomButton onClick={toggleNavDrawer} className="text-white">
               <ClearIcon className="w-8 h-8" />
-            </button>
+            </CustomButton>
           </div>
         </div>
       </Drawer>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { useForm } from "react-hook-form";
@@ -8,8 +8,10 @@ import { toast } from "react-toastify";
 import AccountSidebar from "@/components/Account/AccountSidebar";
 import AccountWizard from "@/components/Account/AccountWizard";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import CustomButton from "@/components/UI/Button";
 
 const LoginScreen = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { status, data: session } = useSession();
   const router = useRouter();
   const { redirect } = router.query;
@@ -27,6 +29,7 @@ const LoginScreen = () => {
   }, [router, session, redirect]);
 
   const submitHandler = async ({ email, password }) => {
+    setIsLoading(true);
     try {
       const result = await signIn("credentials", {
         redirect: false,
@@ -36,7 +39,9 @@ const LoginScreen = () => {
       if (result.error) {
         toast.error(result.error);
       }
+      setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       toast.error(getError(err));
     }
   };
@@ -61,7 +66,7 @@ const LoginScreen = () => {
     <Layout title="Login">
       <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="account login" />
-        <div className="flex flex-col md:flex-row gap-x-5">
+        <div className="flex flex-col lg:flex-row gap-x-5">
           <AccountSidebar />
           <div className="bg-white p-5 flex-grow">
             <div>
@@ -153,10 +158,17 @@ const LoginScreen = () => {
                   </Link>
                 </div>
                 <div className="text-center text-xs text-white uppercase bg-amazonBlue hover:bg-success duration-150 my-4">
-                  <button className="h-[4vh] flex justify-center items-center gap-x-1 uppercase mx-auto w-full">
-                    <span>login</span>
-                    <ChevronRightIcon />
-                  </button>
+                  <CustomButton className="h-[4vh] flex justify-center items-center gap-x-1 uppercase mx-auto w-full">
+                    {isLoading ? (
+                      <span>Loading...</span>
+                    ) : (
+                      <>
+                        {" "}
+                        <span>login</span>
+                        <ChevronRightIcon />
+                      </>
+                    )}
+                  </CustomButton>
                 </div>
               </form>
             </div>

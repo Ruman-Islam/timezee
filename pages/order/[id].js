@@ -62,11 +62,11 @@ const OrderScreen = () => {
   return (
     <Layout title={`Order ${orderId}`}>
       {loading ? (
-        <div>Loading...</div>
+        <div className="max-w-screen-xl mx-auto">Loading...</div>
       ) : error ? (
         <div className="text-error">{error}</div>
       ) : (
-        <div>
+        <div className="max-w-screen-xl mx-auto">
           <AccountWizard title="YOUR ORDER HAS BEEN RECEIVED!" />
           <div className="h-[85vh] flex flex-col justify-center max-w-[600px] mx-auto text-center">
             <div className="leading-loose mt-20 m-auto">

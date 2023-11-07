@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { toast } from "react-toastify";
+import CustomButton from "../UI/Button";
 
 const AddressCard = ({ data }) => {
   const { name, address, city, country } = data;
@@ -26,18 +27,17 @@ const AddressCard = ({ data }) => {
         </p>
       </div>
       <div className="p-3 flex gap-x-2 uppercase text-xs w-full justify-end">
-        <Link
-          href="/account/address/edit"
-          className="text-white bg-accent hover:bg-primary duration-150 px-5 py-1"
+        <CustomButton
+          className="text-white bg-accent hover:bg-secondary duration-150 px-5 py-1 uppercase"
         >
-          Edit
-        </Link>
-        <button
+          <Link href="/account/address/edit">Edit</Link>
+        </CustomButton>
+        <CustomButton
           onClick={handleChangeAddress}
           className="text-white bg-error hover:bg-secondary duration-150 px-5 py-1 uppercase"
         >
           delete
-        </button>
+        </CustomButton>
       </div>
     </div>
   );

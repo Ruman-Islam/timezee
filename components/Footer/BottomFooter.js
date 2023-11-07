@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const BottomFooter = () => {
   return (
-    <div className="flex flex-col justify-end h-[12vh] bg-amazonAccent">
+    <div className="flex flex-col justify-end h-[8vh] bg-amazonAccent">
       <div className="flex w-fit mx-auto mb-2">
         <div className="flex gap-x-2 w-fit mx-auto">
           <Image
@@ -14,6 +14,7 @@ const BottomFooter = () => {
             alt="Facebook"
             width={30}
             height={100}
+            className="cursor-pointer"
           />
 
           <Image
@@ -22,6 +23,7 @@ const BottomFooter = () => {
             alt="Youtube"
             width={30}
             height={100}
+            className="cursor-pointer"
           />
           <Image
             title="Instagram"
@@ -29,11 +31,12 @@ const BottomFooter = () => {
             alt="Instagram"
             width={30}
             height={100}
+            className="cursor-pointer"
           />
         </div>
       </div>
       <div className="text-center text-base">
-        <small>Copyright © 2021, timezee.com, All Rights Reserved</small>
+        <small>Copyright © 2024, timezee.com, All Rights Reserved</small>
       </div>
     </div>
   );

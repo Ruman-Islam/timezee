@@ -12,6 +12,7 @@ import EastIcon from "@mui/icons-material/East";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountWizard from "@/components/Account/AccountWizard";
 import emptyCartImg from "../public/images/emptyCart.png";
+import CustomButton from "@/components/UI/Button";
 
 const CartScreen = () => {
   const { state, dispatch } = useContext(Store);
@@ -96,7 +97,7 @@ const CartScreen = () => {
                               {item.name}
                             </Link>
                           </td>
-                          <td className="hidden md:table-cell">4492</td>
+                          <td className="hidden md:table-cell">{item.model}</td>
                           <td className="p-5 flex justify-center items-center mt-1.5">
                             <select
                               className="outline-none border-t border-l border-b border-thin p-1.5"
@@ -109,14 +110,14 @@ const CartScreen = () => {
                                 <option key={x + 1}>{x + 1}</option>
                               ))}
                             </select>
-                            <button
+                            <CustomButton
                               onClick={() => removeItemHandler(item)}
                               className="bg-error hover:bg-secondary duration-150 px-1 text-lg"
                             >
                               <CloseIcon
                                 style={{ color: "white", fontSize: "15px" }}
                               />
-                            </button>
+                            </CustomButton>
                           </td>
                           <td className="hidden md:table-cell">
                             ${item.sellPrice}
@@ -159,13 +160,13 @@ const CartScreen = () => {
                     <WestIcon style={{ width: "18px" }} />
                     <span className="text-xs">continue shopping</span>
                   </Link>
-                  <button
+                  <CustomButton
                     onClick={() => router.push("/login?redirect=/shipping")}
                     className="uppercase flex gap-x-1 items-center bg-success hover:bg-amazonOrange duration-150 py-2 px-4 justify-center"
                   >
                     <span className="text-xs">checkout</span>
                     <EastIcon style={{ width: "18px" }} />
-                  </button>
+                  </CustomButton>
                 </div>
               </div>
             </div>

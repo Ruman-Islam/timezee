@@ -8,9 +8,13 @@ const ReturnScreen = () => {
     <Layout title="Returns">
       <div className="max-w-screen-xl mx-auto pb-0.5 lg:pb-0">
         <AccountWizard title="Returns" />
-        <div className="flex flex-col lg:flex-row gap-x-2">
+        <div className="flex flex-col lg:flex-row gap-x-2 w-full">
           <AccountSidebar />
-          <div>This is Return page</div>
+          <div className="p-5 w-full flex items-center justify-center">
+            <span className="text-amazonBlue">
+              Currently no returning available!
+            </span>
+          </div>
         </div>
       </div>
     </Layout>

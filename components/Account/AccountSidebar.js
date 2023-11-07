@@ -7,6 +7,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import Cookies from "js-cookie";
 import { accountNavigationData } from "@/constants/common";
+import CustomButton from "../UI/Button";
 
 const AccountSidebar = () => {
   const { data: session } = useSession();
@@ -23,7 +24,7 @@ const AccountSidebar = () => {
       <div className="relative before:absolute before:w-10 before:h-full before:border-b before:border-amazonOrange pb-1">
         <h4 className="text-sm font-semibold">account menu</h4>
       </div>
-      <ul className="my-2 grid lg:block grid-cols-3 place-items-center">
+      <ul className="my-2 grid lg:block grid-cols-2 md:grid-cols-3 place-items-start">
         {accountNavigationData?.map((item, index) => (
           <li className="py-1 lg:py-2" key={index}>
             <Link
@@ -38,13 +39,13 @@ const AccountSidebar = () => {
 
         {session?.user ? (
           <li className="py-1 lg:py-2">
-            <button
+            <CustomButton
               onClick={() => logoutClickHandler()}
               className="flex gap-x-0 lg:gap-x-1 items-center text-sm font-semibold text-error hover:text-amazonOrange duration-150 pl-1.5"
             >
               <LogoutIcon />
               <span>Logout</span>
-            </button>
+            </CustomButton>
           </li>
         ) : (
           <li className="py-1 lg:py-2">

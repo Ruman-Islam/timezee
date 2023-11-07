@@ -10,7 +10,11 @@ const NewsletterScreen = () => {
         <AccountWizard title="Newsletter" />
         <div className="flex flex-col lg:flex-row gap-x-2">
           <AccountSidebar />
-          <div>This is Newsletter page</div>
+          <div className="p-5 w-full flex items-center justify-center">
+            <span className="text-amazonBlue">
+              Currently no newsletter available!
+            </span>
+          </div>
         </div>
       </div>
     </Layout>

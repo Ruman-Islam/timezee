@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import Head from "next/head";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Home/Hero";
 import InfoBlock from "@/components/Home/InfoBlock";

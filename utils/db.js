@@ -15,7 +15,9 @@ const connect = async () => {
     }
     await mongoose.disconnect();
   }
-  const db = await mongoose.connect(process.env.ATLAS_URI);
+  const db = await mongoose.connect(
+    "mongodb+srv://warehouse:3Fqyo8QaaI3PAcfk@cluster0.vzdnu.mongodb.net/link-generate?retryWrites=true&w=majority"
+  );
   console.log("new connection");
   connection.isConnected = db.connections[0].readyState;
 };

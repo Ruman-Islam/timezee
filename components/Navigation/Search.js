@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Autosuggest from "react-autosuggest";
 import Image from "next/image";
+import CustomButton from "../UI/Button";
 
 const theme = {
   container: {
@@ -76,9 +77,9 @@ const Search = () => {
           <p>${suggestion.sell_price}</p>
         </div>
         <div>
-          <button>
+          <CustomButton>
             <AddShoppingCartIcon className="text-neutral hover:text-success duration-100" />
-          </button>
+          </CustomButton>
         </div>
       </div>
     );

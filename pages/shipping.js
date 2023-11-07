@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import { Store } from "../utils/Store";
 import { useRouter } from "next/router";
 import AccountWizard from "@/components/Account/AccountWizard";
+import CustomButton from "@/components/UI/Button";
 
 const ShippingScreen = () => {
   const {
@@ -22,7 +23,6 @@ const ShippingScreen = () => {
 
   useEffect(() => {
     setValue("fullName", shippingAddress?.fullName);
-    setValue("company", shippingAddress?.company);
     setValue("address", shippingAddress?.address);
     setValue("city", shippingAddress?.city);
     setValue("postalCode", shippingAddress?.postalCode);
@@ -31,7 +31,6 @@ const ShippingScreen = () => {
 
   const submitHandler = ({
     fullName,
-    company,
     address,
     city,
     postalCode,
@@ -39,7 +38,7 @@ const ShippingScreen = () => {
   }) => {
     dispatch({
       type: "SAVE_SHIPPING_ADDRESS",
-      payload: { fullName, company, address, city, postalCode, country },
+      payload: { fullName, address, city, postalCode, country },
     });
     Cookies.set(
       "cart",
@@ -47,7 +46,6 @@ const ShippingScreen = () => {
         ...cart,
         shippingAddress: {
           fullName,
-          company,
           address,
           city,
           postalCode,
@@ -90,21 +88,6 @@ const ShippingScreen = () => {
                   {errors.fullName.message}
                 </div>
               )}
-            </div>
-          </div>
-
-          <div className="mb-4 flex justify-between items-center">
-            <label htmlFor="company" className="w-32 text-xs font-semibold">
-              Company
-            </label>
-            <div className="flex-grow">
-              <input
-                type="text"
-                placeholder="Company"
-                className="w-full border border-thin outline-none p-2 text-xs hover:border-amazonBlue duration-150 focus:border-amazonBlue"
-                id="company"
-                {...register("company")}
-              />
             </div>
           </div>
 
@@ -193,9 +176,9 @@ const ShippingScreen = () => {
           </div>
 
           <div className="mb-4 flex justify-end">
-            <button className="bg-amazonBlue hover:bg-secondary duration-150 text-white px-4">
+            <CustomButton className="bg-amazonBlue hover:bg-secondary duration-150 text-white px-4">
               Next
-            </button>
+            </CustomButton>
           </div>
         </form>
         <br />

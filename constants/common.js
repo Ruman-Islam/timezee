@@ -25,7 +25,7 @@ export const accountData = [
     type: 0,
   },
   {
-    url: "",
+    url: "/login?redirect=/account/orders",
     text: "Order history",
     Icon: <BsCardChecklist size={30} />,
     type: 0,
