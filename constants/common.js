@@ -2,8 +2,7 @@ import { BsPencilSquare, BsCardChecklist, BsListCheck } from "react-icons/bs";
 import { AiFillLock } from "react-icons/ai";
 import { RiContactsBook2Fill } from "react-icons/ri";
 import { GiReturnArrow } from "react-icons/gi";
-import { GrTransaction } from "react-icons/gr";
-import { MdOutlinePayment, MdEmail } from "react-icons/md";
+import {  MdEmail } from "react-icons/md";
 
 export const accountData = [
   {
@@ -25,16 +24,29 @@ export const accountData = [
     type: 0,
   },
   {
+    url: "/login?redirect=/account/wishlist",
+    text: "Wishlist",
+    Icon: <BsListCheck size={30} />,
+    type: 0,
+  },
+  {
     url: "/login?redirect=/account/orders",
     text: "Order history",
     Icon: <BsCardChecklist size={30} />,
     type: 0,
   },
-  { url: "", text: "View return", Icon: <GiReturnArrow size={30} />, type: 1 },
-  { url: "", text: "Payments", Icon: <MdOutlinePayment size={30} />, type: 1 },
-  { url: "", text: "Wishlist", Icon: <BsListCheck size={30} />, type: 1 },
-  { url: "", text: "Transaction", Icon: <GrTransaction size={30} />, type: 1 },
-  { url: "", text: "Newsletter", Icon: <MdEmail size={30} />, type: 1 },
+  {
+    url: "/login?redirect=/account/returns",
+    text: "View return",
+    Icon: <GiReturnArrow size={30} />,
+    type: 0,
+  },
+  {
+    url: "/login?redirect=/account/newsletter",
+    text: "Newsletter",
+    Icon: <MdEmail size={30} />,
+    type: 0,
+  },
 ];
 
 export const accountNavigationData = [
